@@ -16,9 +16,17 @@
   // botão flutuante do WhatsApp aparece após pequeno scroll
   var whats = document.querySelector('[data-whatsapp-flutuante]');
   if(whats){
-    window.addEventListener('scroll', function(){
+    var tick = false;
+    function verificarScroll(){
       if(window.scrollY > 200){ whats.classList.add('esta-visivel'); }
-    });
-    if(window.scrollY > 200) whats.classList.add('esta-visivel');
+      tick = false;
+    }
+    window.addEventListener('scroll', function(){
+      if(!tick){
+        tick = true;
+        window.requestAnimationFrame(verificarScroll);
+      }
+    }, { passive: true });
+    window.requestAnimationFrame(verificarScroll);
   }
 })();
