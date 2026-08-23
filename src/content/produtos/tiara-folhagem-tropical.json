@@ -1,0 +1,49 @@
+{
+  "id": "prod_tiarafe6",
+  "slug": "tiara-folhagem-tropical",
+  "nome": "Tiara Folhagem Tropical",
+  "categoria": "acessorio",
+  "descricaoCurta": "Tiara nó frontal com estampa floral tropical em azul, verde e amarelo.",
+  "descricaoCompleta": "Tiara de tecido leve e confortável, com estampa floral tropical em tons de azul, verde e amarelo. Perfeita para o treino ou o dia a dia, prendendo o cabelo com estilo.",
+  "composicao": {
+    "tecido": "Lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Floral Tropical",
+      "hex": "#2F6F4E",
+      "imagens": [
+        {
+          "arquivo": "tiara-folhagem-tropical.webp",
+          "alt": "Tiara Folhagem Tropical",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "tiara-folhagem-tropical.webp",
+      "alt": "Tiara Folhagem Tropical",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "tiara",
+    "acessorio",
+    "cabelo"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-22"
+}

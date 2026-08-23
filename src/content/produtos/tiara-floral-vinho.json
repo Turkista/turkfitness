@@ -1,0 +1,49 @@
+{
+  "id": "prod_tiarafxj",
+  "slug": "tiara-floral-vinho",
+  "nome": "Tiara Floral Vinho",
+  "categoria": "acessorio",
+  "descricaoCurta": "Tiara nó frontal com estampa floral em tons de vinho, marrom e branco.",
+  "descricaoCompleta": "Tiara de tecido leve e confortável, com estampa floral em tons de vinho, marrom e branco. Perfeita para o treino ou o dia a dia, prendendo o cabelo com estilo.",
+  "composicao": {
+    "tecido": "Lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Floral Vinho",
+      "hex": "#6E2A1E",
+      "imagens": [
+        {
+          "arquivo": "tiara-floral-vinho.webp",
+          "alt": "Tiara Floral Vinho",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "tiara-floral-vinho.webp",
+      "alt": "Tiara Floral Vinho",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "tiara",
+    "acessorio",
+    "cabelo"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-22"
+}

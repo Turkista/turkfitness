@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Turk Fitness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Poppins:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#08080d; --bg-1:#120e18; --bg-card:#15111c;
+    --mint:#7be8c4; --lavender:#c6a8f5; --pink:#ff6fa8; --blue:#8fd0f0;
+    --white:#f6f3f8; --muted:#a79db3; --muted-2:#7d7488;
+    --hair:rgba(246,243,248,0.12); --hair-strong:rgba(246,243,248,0.22);
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{
+    background:linear-gradient(180deg, var(--bg-0), var(--bg-1));
+    color:var(--white); font-family:'Poppins', sans-serif; min-height:100vh;
+  }
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 40px; border-bottom:1px solid var(--hair);
+    position:sticky; top:0; background:rgba(8,8,13,0.85); backdrop-filter:blur(10px); z-index:10;
+  }
+  .logo{ font-family:'Playfair Display', serif; font-size:1.3rem; font-weight:600; display:flex; align-items:center; gap:8px; }
+  .logo::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--mint); box-shadow:0 0 10px 2px rgba(123,232,196,.7); }
+  .logo span{ font-style:italic; background:linear-gradient(90deg, var(--pink), var(--lavender)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .logo small{ font-family:'Space Mono',monospace; font-size:0.65rem; color:var(--muted); margin-left:10px; letter-spacing:.08em; text-transform:uppercase; }
+  a.link-site{ color:var(--mint); text-decoration:none; font-size:0.82rem; }
+
+  .abas{ display:flex; gap:6px; padding:20px 40px 0; border-bottom:1px solid var(--hair); }
+  .aba{
+    padding:12px 20px; background:none; border:none; color:var(--muted); cursor:pointer;
+    font-family:'Poppins',sans-serif; font-size:0.9rem; border-bottom:2px solid transparent;
+  }
+  .aba.ativa{ color:var(--white); border-color:var(--pink); }
+
+  main{ max-width:1000px; margin:0 auto; padding:36px 40px 80px; }
+  .painel{ display:none; }
+  .painel.ativo{ display:block; }
+
+  h2{ font-family:'Playfair Display', serif; font-weight:500; font-size:1.5rem; margin-bottom:6px; }
+  .sub{ color:var(--muted); font-size:0.88rem; margin-bottom:28px; }
+
+  .cartao{ background:var(--bg-card); border:1px solid var(--hair); border-radius:14px; padding:28px; margin-bottom:24px; }
+
+  .campo{ margin-bottom:18px; }
+  .campo label{ display:block; font-size:0.8rem; color:var(--muted); margin-bottom:6px; }
+  .campo input[type=text], .campo input[type=number], .campo textarea, .campo select{
+    width:100%; background:var(--bg-0); border:1px solid var(--hair-strong); border-radius:8px;
+    padding:.65rem .8rem; color:var(--white); font-family:'Poppins',sans-serif; font-size:0.9rem;
+  }
+  .campo textarea{ min-height:80px; resize:vertical; }
+  .campo input[type=color]{ width:50px; height:38px; background:none; border:1px solid var(--hair-strong); border-radius:8px; padding:2px; }
+  .linha-campos{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .linha-campos-3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  @media (max-width:640px){
+    .linha-campos, .linha-campos-3{ grid-template-columns:1fr; }
+    header{padding:18px 20px}.abas{padding:14px 20px 0;overflow-x:auto}.aba{white-space:nowrap;padding:10px 14px}
+    main{padding:28px 20px 60px}.cartao{padding:20px;overflow:hidden}
+    table{display:block;overflow-x:auto;white-space:nowrap}
+  }
+
+  .campo small{ display:block; color:var(--muted-2); font-size:0.72rem; margin-top:4px; }
+
+  button.botao-primario{
+    background:linear-gradient(100deg, var(--pink), var(--lavender)); color:var(--bg-0); font-weight:600;
+    border:none; padding:.75rem 1.6rem; border-radius:999px; cursor:pointer; font-size:0.88rem;
+  }
+  button.botao-secundario{
+    background:none; border:1px solid var(--hair-strong); color:var(--white);
+    padding:.7rem 1.4rem; border-radius:999px; cursor:pointer; font-size:0.85rem;
+  }
+  .mensagem{ margin-top:14px; font-size:0.85rem; padding:10px 14px; border-radius:8px; display:none; }
+  .mensagem.sucesso{ display:block; background:rgba(123,232,196,.12); color:var(--mint); border:1px solid rgba(123,232,196,.3); }
+  .mensagem.erro{ display:block; background:rgba(255,111,168,.12); color:var(--pink); border:1px solid rgba(255,111,168,.3); }
+
+  table{ width:100%; border-collapse:collapse; margin-top:10px; }
+  th, td{ text-align:left; padding:10px 12px; font-size:0.85rem; border-bottom:1px solid var(--hair); }
+  th{ color:var(--muted); font-weight:400; font-family:'Space Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:.06em; }
+  tr:hover td{ background:rgba(255,255,255,0.02); }
+  .tag-status{ font-family:'Space Mono',monospace; font-size:0.62rem; padding:3px 8px; border-radius:999px; text-transform:uppercase; letter-spacing:.05em; }
+  .tag-status.publicado{ background:rgba(123,232,196,.15); color:var(--mint); }
+  .tag-status.rascunho{ background:rgba(255,255,255,.08); color:var(--muted); }
+  .tag-status.esgotado, .tag-status.descontinuado{ background:rgba(255,111,168,.15); color:var(--pink); }
+  .acoes-tabela button{ background:none; border:none; color:var(--muted); cursor:pointer; font-size:0.8rem; margin-right:10px; }
+  .acoes-tabela button:hover{ color:var(--white); }
+  .acoes-tabela button.excluir:hover{ color:var(--pink); }
+
+  .grade-fotos{ display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:18px; }
+  .card-foto{ background:var(--bg-card); border:1px solid var(--hair); border-radius:12px; padding:16px; }
+  .card-foto .preview{ aspect-ratio:3/4; border-radius:8px; overflow:hidden; background:var(--bg-0); margin-bottom:12px; display:flex; align-items:center; justify-content:center; }
+  .card-foto .preview img{ width:100%; height:100%; object-fit:cover; }
+  .card-foto .preview span{ color:var(--muted-2); font-size:0.75rem; }
+  .card-foto h4{ font-size:0.85rem; font-weight:500; margin-bottom:4px; }
+  .card-foto .arquivo{ color:var(--muted-2); font-family:'Space Mono',monospace; font-size:0.65rem; margin-bottom:10px; }
+  .card-foto input[type=file]{ font-size:0.75rem; color:var(--muted); width:100%; }
+  .badge-enviada{ font-size:0.65rem; color:var(--mint); }
+  .badge-pendente{ font-size:0.65rem; color:var(--muted-2); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">TURK<span>FITNESS</span><small>painel local</small></div>
+  <a class="link-site" href="/site/index.html" target="_blank" rel="noopener">Ver o site →</a>
+</header>
+
+<nav class="abas">
+  <button class="aba ativa" data-aba="produtos">🏋️ Produtos</button>
+  <button class="aba" data-aba="fotos">📸 Fotos do Site</button>
+  <button class="aba" data-aba="blog">📝 Blog</button>
+</nav>
+
+<main>
+
+  <!-- ===================== ABA PRODUTOS ===================== -->
+  <section class="painel ativo" data-painel="produtos">
+    <h2 id="titulo-form-produto">Cadastrar produto</h2>
+    <p class="sub">Preencha os dados da peça. Ao salvar como "Publicado", ela entra sozinha no Catálogo e, se for recente, na Home também.</p>
+
+    <form id="form-produto" class="cartao" enctype="multipart/form-data">
+      <input type="hidden" name="slugOriginal" id="campo-slug-original">
+
+      <div class="linha-campos">
+        <div class="campo">
+          <label>Nome da peça</label>
+          <input type="text" name="nome" id="campo-nome" required placeholder="Ex.: Legging Flow">
+        </div>
+        <div class="campo">
+          <label>Categoria</label>
+          <select name="categoria" id="campo-categoria" required>
+            <option value="legging">Legging</option>
+            <option value="top">Top</option>
+            <option value="conjunto">Conjunto</option>
+            <option value="short">Short</option>
+            <option value="regata">Regata</option>
+            <option value="jaqueta">Jaqueta / Corta-vento</option>
+            <option value="acessorio">Acessório</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Descrição curta (aparece no card do catálogo, até 160 caracteres)</label>
+        <textarea name="descricaoCurta" id="campo-descricao-curta" maxlength="160" placeholder="Ex.: Legging de compressão em tecido technyx, cintura alta e bolso lateral."></textarea>
+      </div>
+
+      <div class="campo">
+        <label>Descrição completa (aparece na ficha do produto — opcional)</label>
+        <textarea name="descricaoCompleta" id="campo-descricao-completa"></textarea>
+      </div>
+
+      <div class="linha-campos-3">
+        <div class="campo">
+          <label>Tecido</label>
+          <input type="text" name="tecido" id="campo-tecido" placeholder="Ex.: 80% Poliamida / 20% Elastano" value="84% a 85% Poliamida e 15% a 16% Elastano">
+        </div>
+        <div class="campo">
+          <label>País de fabricação</label>
+          <input type="text" name="paisDeFabricacao" id="campo-pais" value="Brasil">
+        </div>
+        <div class="campo">
+          <label>Status</label>
+          <select name="status" id="campo-status">
+            <option value="rascunho">Rascunho</option>
+            <option value="publicado">Publicado</option>
+            <option value="esgotado">Esgotado</option>
+            <option value="descontinuado">Descontinuado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="linha-campos-3">
+        <div class="campo">
+          <label>Nome da cor</label>
+          <input type="text" name="corNome" id="campo-cor-nome" placeholder="Ex.: Preto Onyx">
+        </div>
+        <div class="campo">
+          <label>Cor (swatch)</label>
+          <input type="color" name="corHex" id="campo-cor-hex" value="#111111">
+        </div>
+        <div class="campo">
+          <label>Tamanhos (separados por vírgula)</label>
+          <input type="text" name="tamanhos" id="campo-tamanhos" value="P, M, G" placeholder="PP, P, M, G, GG">
+        </div>
+      </div>
+
+      <div class="linha-campos">
+        <div class="campo">
+          <label>Preço (R$ — deixe vazio para "consulte no WhatsApp")</label>
+          <input type="number" step="0.01" name="precoValor" id="campo-preco">
+        </div>
+        <div class="campo">
+          <label>Parcelamento (opcional)</label>
+          <input type="text" name="precoParcelamento" id="campo-parcelamento" placeholder="Ex.: em até 3x sem juros">
+        </div>
+      </div>
+
+      <div class="linha-campos">
+        <div class="campo">
+          <label>Selos (separados por vírgula: novo, exclusivo, ultimas-unidades, reposicao)</label>
+          <input type="text" name="badges" id="campo-badges" placeholder="novo">
+        </div>
+        <div class="campo">
+          <label>Tags de busca (separadas por vírgula)</label>
+          <input type="text" name="tags" id="campo-tags" placeholder="legging, treino, cintura alta">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Fotos da peça (a primeira é a capa do card — até 6 fotos)</label>
+        <input type="file" name="fotos" id="campo-fotos" accept="image/*" multiple>
+        <small>Convertidas automaticamente para .webp e salvas em assets/produtos/.</small>
+      </div>
+
+      <div style="display:flex; gap:12px; margin-top:8px;">
+        <button type="submit" class="botao-primario">Salvar produto</button>
+        <button type="button" class="botao-secundario" id="botao-cancelar-edicao" style="display:none">Cancelar edição</button>
+      </div>
+      <div class="mensagem" id="mensagem-produto"></div>
+    </form>
+
+    <div class="cartao">
+      <h2 style="font-size:1.2rem">Produtos cadastrados</h2>
+      <p class="sub" style="margin-bottom:14px">Clique em "Editar" para alterar uma peça já salva.</p>
+      <div class="linha-campos" style="margin-bottom:14px">
+        <div class="campo">
+          <label>Buscar por nome</label>
+          <input type="text" id="busca-produtos" placeholder="Ex.: top, legging preta...">
+        </div>
+        <div class="campo">
+          <label>Categoria</label>
+          <select id="filtro-categoria-produtos">
+            <option value="">Todas as categorias</option>
+            <option value="legging">Legging</option>
+            <option value="top">Top</option>
+            <option value="conjunto">Conjunto</option>
+            <option value="short">Short</option>
+            <option value="regata">Regata</option>
+            <option value="jaqueta">Jaqueta</option>
+            <option value="acessorio">Acessório</option>
+          </select>
+        </div>
+      </div>
+      <p class="sub" id="legenda-lista-produtos" style="margin-bottom:10px"></p>
+      <table>
+        <thead><tr><th>Nome</th><th>Categoria</th><th>Preço</th><th>Status</th><th></th></tr></thead>
+        <tbody id="tabela-produtos"><tr><td colspan="5" style="color:var(--muted)">Carregando…</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== ABA FOTOS ===================== -->
+  <section class="painel" data-painel="fotos">
+    <h2>Fotos do site</h2>
+    <p class="sub">Slots de foto institucional que a Home e a página Sobre esperam. Escolha a foto — ela já é salva com o nome e na pasta certos, convertida para .webp.</p>
+    <div class="grade-fotos" id="grade-fotos"></div>
+  </section>
+
+  <!-- ===================== ABA BLOG ===================== -->
+  <section class="painel" data-painel="blog">
+    <h2 id="titulo-form-blog">Cadastrar post</h2>
+    <p class="sub">Os posts publicados aqui são gravados na mesma fonte JSON do site e aparecem automaticamente no Blog público.</p>
+
+    <form id="form-blog" class="cartao" enctype="multipart/form-data">
+      <input type="hidden" name="slugOriginal" id="campo-blog-slug-original">
+      <input type="hidden" name="imagemExistente" id="campo-blog-imagem-existente">
+
+      <div class="campo">
+        <label>Título</label>
+        <input type="text" name="titulo" id="campo-blog-titulo" required placeholder="Ex.: Como escolher a legging ideal para o treino">
+      </div>
+
+      <div class="campo">
+        <label>Resumo</label>
+        <textarea name="resumo" id="campo-blog-resumo" maxlength="220" placeholder="Texto curto exibido na listagem do Blog."></textarea>
+      </div>
+
+      <div class="campo">
+        <label>Categoria</label>
+        <input type="text" name="categoria" id="campo-blog-categoria" placeholder="Ex.: Guia de compra, Cuidados, Yoga, Corrida...">
+      </div>
+
+      <div class="campo">
+        <label>Conteúdo</label>
+        <textarea name="conteudo" id="campo-blog-conteudo" style="min-height:240px" placeholder="Escreva o conteúdo do post. Separe parágrafos com uma linha em branco. Use ## para subtítulo, ### para subtítulo menor e linhas começando com - para lista."></textarea>
+      </div>
+
+      <div class="linha-campos">
+        <div class="campo">
+          <label>Status</label>
+          <select name="status" id="campo-blog-status">
+            <option value="rascunho">Rascunho</option>
+            <option value="publicado">Publicado</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label>Data de publicação</label>
+          <input type="text" name="dataPublicacao" id="campo-blog-data" placeholder="AAAA-MM-DD">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Imagem de capa (opcional)</label>
+        <input type="file" name="imagem" id="campo-blog-imagem" accept="image/*">
+        <small>A imagem é convertida para .webp e salva em assets/blog/.</small>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+        <button type="submit" class="botao-primario">Salvar post</button>
+        <button type="button" class="botao-secundario" id="botao-cancelar-blog" style="display:none">Cancelar edição</button>
+      </div>
+      <div class="mensagem" id="mensagem-blog"></div>
+    </form>
+
+    <div class="cartao">
+      <h2 style="font-size:1.2rem">Posts cadastrados</h2>
+      <p class="sub" style="margin-bottom:14px">Publicados aparecem automaticamente em Blog. Rascunhos ficam somente no painel.</p>
+      <table>
+        <thead><tr><th>Título</th><th>Categoria</th><th>Data</th><th>Status</th><th></th></tr></thead>
+        <tbody id="tabela-blog"><tr><td colspan="5" style="color:var(--muted)">Carregando…</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  // ---------- navegação entre abas ----------
+  document.querySelectorAll('.aba').forEach(function(botao){
+    botao.addEventListener('click', function(){
+      document.querySelectorAll('.aba').forEach(function(b){ b.classList.remove('ativa'); });
+      document.querySelectorAll('.painel').forEach(function(p){ p.classList.remove('ativo'); });
+      botao.classList.add('ativa');
+      document.querySelector('[data-painel="' + botao.dataset.aba + '"]').classList.add('ativo');
+    });
+  });
+
+  // ---------- PRODUTOS ----------
+  var form = document.getElementById('form-produto');
+  var mensagem = document.getElementById('mensagem-produto');
+  var tabela = document.getElementById('tabela-produtos');
+  var botaoCancelar = document.getElementById('botao-cancelar-edicao');
+  var tituloForm = document.getElementById('titulo-form-produto');
+
+  function mostrarMensagem(texto, tipo){
+    mensagem.textContent = texto;
+    mensagem.className = 'mensagem ' + tipo;
+    setTimeout(function(){ mensagem.className = 'mensagem'; }, 5000);
+  }
+
+  function categoriaLabel(cat){
+    var mapa = { legging:'Legging', top:'Top', conjunto:'Conjunto', short:'Short', regata:'Regata', jaqueta:'Jaqueta', acessorio:'Acessório' };
+    return mapa[cat] || cat;
+  }
+
+  var LIMITE_ULTIMOS = 8;
+  var produtosCache = [];
+  var campoBusca = document.getElementById('busca-produtos');
+  var campoFiltroCategoria = document.getElementById('filtro-categoria-produtos');
+  var legendaLista = document.getElementById('legenda-lista-produtos');
+
+  function renderizarLinhasProdutos(produtos){
+    if(!produtos.length){
+      tabela.innerHTML = '<tr><td colspan="5" style="color:var(--muted)">Nenhum produto encontrado.</td></tr>';
+      return;
+    }
+    tabela.innerHTML = produtos.map(function(p){
+      var preco = p.preco && p.preco.valor ? p.preco.valor.toLocaleString('pt-BR', {style:'currency', currency:'BRL'}) : '—';
+      return '<tr>' +
+        '<td>' + p.nome + '</td>' +
+        '<td>' + categoriaLabel(p.categoria) + '</td>' +
+        '<td>' + preco + '</td>' +
+        '<td><span class="tag-status ' + p.status + '">' + p.status + '</span></td>' +
+        '<td class="acoes-tabela">' +
+          '<button data-editar="' + p.slug + '">Editar</button>' +
+          '<button data-excluir="' + p.slug + '" class="excluir">Excluir</button>' +
+        '</td>' +
+      '</tr>';
+    }).join('');
+
+    tabela.querySelectorAll('[data-editar]').forEach(function(b){
+      b.addEventListener('click', function(){ carregarParaEdicao(b.dataset.editar); });
+    });
+    tabela.querySelectorAll('[data-excluir]').forEach(function(b){
+      b.addEventListener('click', function(){
+        if(!confirm('Excluir esse produto? Essa ação não pode ser desfeita.')) return;
+        fetch('/api/produtos/' + b.dataset.excluir, { method:'DELETE' }).then(function(){
+          carregarProdutos();
+          mostrarMensagem('Produto excluído.', 'sucesso');
+        });
+      });
+    });
+  }
+
+  function aplicarFiltroProdutos(){
+    var termo = campoBusca.value.trim().toLowerCase();
+    var categoria = campoFiltroCategoria.value;
+
+    var lista = produtosCache.filter(function(p){
+      var bateCategoria = !categoria || p.categoria === categoria;
+      var bateTermo = !termo || p.nome.toLowerCase().indexOf(termo) !== -1;
+      return bateCategoria && bateTermo;
+    });
+
+    if(!termo && !categoria){
+      // sem busca/filtro ativos: mostra só os últimos cadastrados (já vêm ordenados por data)
+      var ultimos = lista.slice(0, LIMITE_ULTIMOS);
+      legendaLista.textContent = produtosCache.length > LIMITE_ULTIMOS
+        ? 'Mostrando os ' + LIMITE_ULTIMOS + ' últimos cadastrados de ' + produtosCache.length + '. Use a busca ou a categoria para ver os demais.'
+        : '';
+      renderizarLinhasProdutos(ultimos);
+    } else {
+      legendaLista.textContent = lista.length + ' produto(s) encontrado(s).';
+      renderizarLinhasProdutos(lista);
+    }
+  }
+
+  campoBusca.addEventListener('input', aplicarFiltroProdutos);
+  campoFiltroCategoria.addEventListener('change', aplicarFiltroProdutos);
+
+  function carregarProdutos(){
+    fetch('/api/produtos').then(function(r){ return r.json(); }).then(function(produtos){
+      produtosCache = produtos;
+      aplicarFiltroProdutos();
+    });
+  }
+
+  function carregarParaEdicao(slug){
+    fetch('/api/produtos/' + slug).then(function(r){ return r.json(); }).then(function(p){
+      document.getElementById('campo-slug-original').value = p.slug;
+      document.getElementById('campo-nome').value = p.nome;
+      document.getElementById('campo-categoria').value = p.categoria;
+      document.getElementById('campo-descricao-curta').value = p.descricaoCurta || '';
+      document.getElementById('campo-descricao-completa').value = p.descricaoCompleta || '';
+      document.getElementById('campo-tecido').value = (p.composicao && p.composicao.tecido) || '';
+      document.getElementById('campo-pais').value = (p.composicao && p.composicao.paisDeFabricacao) || 'Brasil';
+      document.getElementById('campo-status').value = p.status;
+      var cor = p.cores && p.cores[0];
+      document.getElementById('campo-cor-nome').value = cor ? cor.nome : '';
+      document.getElementById('campo-cor-hex').value = cor ? cor.hex : '#111111';
+      document.getElementById('campo-tamanhos').value = (p.tamanhos || []).join(', ');
+      document.getElementById('campo-preco').value = p.preco ? p.preco.valor : '';
+      document.getElementById('campo-parcelamento').value = p.preco ? (p.preco.parcelamento || '') : '';
+      document.getElementById('campo-badges').value = (p.badges || []).join(', ');
+      document.getElementById('campo-tags').value = (p.tags || []).join(', ');
+      tituloForm.textContent = 'Editando: ' + p.nome;
+      botaoCancelar.style.display = 'inline-block';
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+  }
+
+  botaoCancelar.addEventListener('click', function(){
+    form.reset();
+    document.getElementById('campo-slug-original').value = '';
+    tituloForm.textContent = 'Cadastrar produto';
+    botaoCancelar.style.display = 'none';
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var dados = new FormData(form);
+    fetch('/api/produtos', { method:'POST', body:dados })
+      .then(function(r){ return r.json().then(function(corpo){ return { ok:r.ok, corpo:corpo }; }); })
+      .then(function(res){
+        if(!res.ok){ mostrarMensagem(res.corpo.erro || 'Erro ao salvar.', 'erro'); return; }
+        mostrarMensagem('Produto salvo com sucesso' + (res.corpo.avisoPagina ? ' (aviso: ' + res.corpo.avisoPagina + ')' : '') + '.', 'sucesso');
+        form.reset();
+        document.getElementById('campo-slug-original').value = '';
+        tituloForm.textContent = 'Cadastrar produto';
+        botaoCancelar.style.display = 'none';
+        carregarProdutos();
+      })
+      .catch(function(){ mostrarMensagem('Erro de conexão com o painel.', 'erro'); });
+  });
+
+  carregarProdutos();
+
+  // ---------- BLOG ----------
+  var formBlog = document.getElementById('form-blog');
+  var tabelaBlog = document.getElementById('tabela-blog');
+  var mensagemBlog = document.getElementById('mensagem-blog');
+  var botaoCancelarBlog = document.getElementById('botao-cancelar-blog');
+  var tituloFormBlog = document.getElementById('titulo-form-blog');
+
+  function mostrarMensagemBlog(texto, tipo){
+    mensagemBlog.textContent = texto;
+    mensagemBlog.className = 'mensagem ' + tipo;
+    setTimeout(function(){ mensagemBlog.className = 'mensagem'; }, 5000);
+  }
+  function carregarPosts(){
+    fetch('/api/blog/admin').then(function(r){return r.json();}).then(function(posts){
+      if(!posts.length){
+        tabelaBlog.innerHTML='<tr><td colspan="5" style="color:var(--muted)">Nenhum post cadastrado ainda.</td></tr>';
+        return;
+      }
+      tabelaBlog.innerHTML=posts.map(function(p){
+        return '<tr><td>'+p.titulo+'</td><td>'+(p.categoria||'—')+'</td><td>'+((p.dataPublicacao||'').slice(0,10)||'—')+'</td><td><span class="tag-status '+p.status+'">'+p.status+'</span></td><td class="acoes-tabela">'+
+          '<button data-blog-editar="'+p.slug+'">Editar</button><button data-blog-excluir="'+p.slug+'" class="excluir">Excluir</button></td></tr>';
+      }).join('');
+      tabelaBlog.querySelectorAll('[data-blog-editar]').forEach(function(b){
+        b.addEventListener('click',function(){ carregarPostEdicao(b.dataset.blogEditar); });
+      });
+      tabelaBlog.querySelectorAll('[data-blog-excluir]').forEach(function(b){
+        b.addEventListener('click',function(){
+          if(!confirm('Excluir esse post? Essa ação não pode ser desfeita.')) return;
+          fetch('/api/blog/'+encodeURIComponent(b.dataset.blogExcluir),{method:'DELETE'})
+            .then(function(){carregarPosts();mostrarMensagemBlog('Post excluído.','sucesso');});
+        });
+      });
+    });
+  }
+  function carregarPostEdicao(slug){
+    fetch('/api/blog/'+encodeURIComponent(slug)+'?admin=1').then(function(r){return r.json();}).then(function(p){
+      document.getElementById('campo-blog-slug-original').value=p.slug;
+      document.getElementById('campo-blog-imagem-existente').value=p.imagem||'';
+      document.getElementById('campo-blog-titulo').value=p.titulo||'';
+      document.getElementById('campo-blog-resumo').value=p.resumo||'';
+      document.getElementById('campo-blog-categoria').value=p.categoria||'';
+      document.getElementById('campo-blog-conteudo').value=p.conteudo||'';
+      document.getElementById('campo-blog-status').value=p.status||'rascunho';
+      document.getElementById('campo-blog-data').value=(p.dataPublicacao||'').slice(0,10);
+      tituloFormBlog.textContent='Editando: '+p.titulo;
+      botaoCancelarBlog.style.display='inline-block';
+      document.querySelector('.aba[data-aba="blog"]').click();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+  botaoCancelarBlog.addEventListener('click',function(){
+    formBlog.reset();
+    document.getElementById('campo-blog-slug-original').value='';
+    document.getElementById('campo-blog-imagem-existente').value='';
+    tituloFormBlog.textContent='Cadastrar post';
+    botaoCancelarBlog.style.display='none';
+  });
+  formBlog.addEventListener('submit',function(e){
+    e.preventDefault();
+    var dados=new FormData(formBlog);
+    fetch('/api/blog',{method:'POST',body:dados})
+      .then(function(r){return r.json().then(function(c){return {ok:r.ok,corpo:c};});})
+      .then(function(res){
+        if(!res.ok){mostrarMensagemBlog(res.corpo.erro||'Erro ao salvar.','erro');return;}
+        mostrarMensagemBlog('Post salvo com sucesso.','sucesso');
+        formBlog.reset();
+        document.getElementById('campo-blog-slug-original').value='';
+        document.getElementById('campo-blog-imagem-existente').value='';
+        tituloFormBlog.textContent='Cadastrar post';
+        botaoCancelarBlog.style.display='none';
+        carregarPosts();
+      }).catch(function(){mostrarMensagemBlog('Erro de conexão com o painel.','erro');});
+  });
+  carregarPosts();
+
+  // ---------- FOTOS DO SITE ----------
+  var gradeFotos = document.getElementById('grade-fotos');
+
+  function carregarFotos(){
+    fetch('/api/fotos').then(function(r){ return r.json(); }).then(function(slots){
+      gradeFotos.innerHTML = slots.map(function(s){
+        return '<div class="card-foto" data-slot="' + s.chave + '">' +
+          '<div class="preview">' + (s.enviada ? '<img src="/site/assets/' + caminhoPastaPorChave(s.chave) + '/' + s.arquivo + '?v=' + Date.now() + '">' : '<span>Sem foto ainda</span>') + '</div>' +
+          '<h4>' + s.rotulo + '</h4>' +
+          '<div class="arquivo">' + s.arquivo + ' · <span class="' + (s.enviada ? 'badge-enviada' : 'badge-pendente') + '">' + (s.enviada ? 'enviada' : 'pendente') + '</span></div>' +
+          '<input type="file" accept="image/*" data-input-foto="' + s.chave + '">' +
+        '</div>';
+      }).join('');
+
+      gradeFotos.querySelectorAll('[data-input-foto]').forEach(function(input){
+        input.addEventListener('change', function(){
+          if(!input.files.length) return;
+          var dados = new FormData();
+          dados.append('foto', input.files[0]);
+          fetch('/api/fotos/' + input.dataset.inputFoto, { method:'POST', body:dados })
+            .then(function(r){ return r.json(); })
+            .then(function(){ carregarFotos(); });
+        });
+      });
+    });
+  }
+
+  function caminhoPastaPorChave(chave){
+    if(chave.indexOf('hero-') === 0) return 'hero';
+    if(chave.indexOf('categoria-') === 0) return 'categorias';
+    return 'sobre';
+  }
+
+  carregarFotos();
+})();
+</script>
+</body>
+</html>

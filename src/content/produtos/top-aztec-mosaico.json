@@ -1,0 +1,59 @@
+{
+  "id": "prod_topazt8f",
+  "slug": "top-aztec-mosaico",
+  "nome": "Top Aztec Mosaico",
+  "categoria": "top",
+  "descricaoCurta": "Top fitness com decote redondo e costas nadador, estampa étnica mosaico colorida, ideal para treinos de alta intensidade.",
+  "descricaoCompleta": "Top com modelagem nadador (costas cruzadas), garantindo sustentação e liberdade de movimento durante o treino.\r\n\r\nA estampa em mosaico étnico combina tons de azul, rosa, laranja e roxo em faixas horizontais, trazendo um visual vibrante e cheio de personalidade.\r\n\r\nIdeal para musculação, funcional, crossfit e demais atividades físicas que pedem conforto sem abrir mão do estilo.\r\n\r\nDestaques da peça:\r\n\r\nModelagem nadador (costas cruzadas)\r\nEstampa étnica mosaico exclusiva\r\nBoa sustentação para treinos intensos\r\nTecido confortável e flexível\r\nIdeal para academia, funcional e crossfit",
+  "composicao": {
+    "tecido": "lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Mosaico Étnico",
+      "hex": "#b8236b",
+      "imagens": [
+        {
+          "arquivo": "top-aztec-mosaico.webp",
+          "alt": "Top Aztec Mosaico",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "top-aztec-mosaico-2.webp",
+          "alt": "Top Aztec Mosaico",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 85,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-aztec-mosaico.webp",
+      "alt": "Top Aztec Mosaico",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "top-aztec-mosaico-2.webp",
+      "alt": "Top Aztec Mosaico",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "academia",
+    "treino",
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-21"
+}

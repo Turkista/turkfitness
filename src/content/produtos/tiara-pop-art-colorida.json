@@ -1,0 +1,50 @@
+{
+  "id": "prod_tiarapxt",
+  "slug": "tiara-pop-art-colorida",
+  "nome": "Tiara Pop Art Colorida",
+  "categoria": "acessorio",
+  "descricaoCurta": "Tiara nó frontal com estampa pop art colorida.",
+  "descricaoCompleta": "Tiara de tecido leve e confortável, com estampa pop art colorida em preto, amarelo, verde, azul e vermelho. Perfeita para o treino ou o dia a dia, prendendo o cabelo com estilo.",
+  "composicao": {
+    "tecido": "Lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Pop Art Colorida",
+      "hex": "#E23B3B",
+      "imagens": [
+        {
+          "arquivo": "tiara-pop-art-colorida.webp",
+          "alt": "Tiara Pop Art Colorida",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P",
+    "M"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "tiara-pop-art-colorida.webp",
+      "alt": "Tiara Pop Art Colorida",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "tiara",
+    "acessorio",
+    "cabelo"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-20"
+}

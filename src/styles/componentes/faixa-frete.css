@@ -1,0 +1,60 @@
+.faixa-frete{
+  background:var(--gradiente-marca);
+  height:38px;
+  overflow:hidden;
+  position:relative;
+}
+.faixa-frete__trilho{
+  display:flex;
+  width:max-content;
+  white-space:nowrap;
+  height:100%;
+  align-items:center;
+  animation:faixa-frete-rolar 22s linear infinite;
+}
+.faixa-frete:hover .faixa-frete__trilho{
+  animation-play-state:paused;
+}
+.faixa-frete__grupo{
+  display:flex;
+  align-items:center;
+}
+.faixa-frete__item{
+  display:flex;
+  align-items:center;
+  color:var(--bg-0);
+  font-family:var(--fonte-corpo);
+  font-size:0.72rem;
+  font-weight:500;
+  letter-spacing:0.03em;
+  white-space:nowrap;
+}
+.faixa-frete__icone{
+  font-size:0.85rem;
+  margin:0 8px 0 20px;
+  line-height:1;
+}
+.faixa-frete__separador{
+  margin:0 24px;
+}
+
+@media (max-width:600px){
+  .faixa-frete{ height:34px; }
+  .faixa-frete__item{ font-size:0.66rem; }
+  .faixa-frete__icone{ margin:0 6px 0 14px; }
+  .faixa-frete__separador{ margin:0 16px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .faixa-frete__trilho{
+    animation:none;
+    justify-content:center;
+    width:100%;
+  }
+  .faixa-frete__grupo:nth-child(n+2){ display:none; }
+}
+
+@keyframes faixa-frete-rolar{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}

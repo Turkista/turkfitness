@@ -1,0 +1,58 @@
+{
+  "id": "prod_conjundd",
+  "slug": "conjunto-de-treino-short-e-top-roxo-texturizado",
+  "nome": "Conjunto de Treino Short e Top Roxo Texturizado",
+  "categoria": "conjunto",
+  "descricaoCurta": "Conjunto de short e top roxo com textura amassada e alças finas cruzadas nas costas.",
+  "descricaoCompleta": "Conjunto de short e top ideal para treinos, corrida, academia e diversas atividades esportivas. Tecido com textura amassada em tom roxo, alças finas e recorte trançado nas costas, unindo conforto e estilo para o treino.",
+  "composicao": {
+    "tecido": "84% a 85% Poliamida e 15% a 16% Elastano",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Roxo Texturizado",
+      "hex": "#4B1F6B",
+      "imagens": [
+        {
+          "arquivo": "conjunto-de-treino-short-e-top-roxo-texturizado.webp",
+          "alt": "Conjunto de Treino Short e Top Roxo Texturizado",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-de-treino-short-e-top-roxo-texturizado-2.webp",
+          "alt": "Conjunto de Treino Short e Top Roxo Texturizado",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 140,
+    "parcelamento": "2x sem juros = 70 reais"
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-de-treino-short-e-top-roxo-texturizado.webp",
+      "alt": "Conjunto de Treino Short e Top Roxo Texturizado",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-de-treino-short-e-top-roxo-texturizado-2.webp",
+      "alt": "Conjunto de Treino Short e Top Roxo Texturizado",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "conjunto de academia",
+    "short e top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-22"
+}

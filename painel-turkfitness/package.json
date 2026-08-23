@@ -1,0 +1,15 @@
+{
+  "name": "painel-turkfitness",
+  "version": "1.0.0",
+  "description": "Painel local para cadastrar produtos e fotos do site Turk Fitness (gera JSON + fichas de produto + salva fotos em .webp automaticamente)",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^2.0.0",
+    "sharp": "^0.33.4"
+  }
+}

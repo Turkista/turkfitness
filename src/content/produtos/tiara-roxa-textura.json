@@ -1,0 +1,60 @@
+{
+  "id": "prod_tiarar6d",
+  "slug": "tiara-roxa-textura",
+  "nome": "Tiara Roxa Textura",
+  "categoria": "acessorio",
+  "descricaoCurta": "Tiara nó frontal roxa com textura amassada.",
+  "descricaoCompleta": "Tiara de tecido leve e confortável, na cor roxa com textura amassada que dá um toque especial ao visual. Perfeita para o treino ou o dia a dia, prendendo o cabelo com estilo.",
+  "composicao": {
+    "tecido": "Lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Roxa",
+      "hex": "#6A3FA0",
+      "imagens": [
+        {
+          "arquivo": "tiara-roxa-textura.webp",
+          "alt": "Tiara Roxa Textura",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "tiara-roxa-textura-2.webp",
+          "alt": "Tiara Roxa Textura",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P",
+    "M"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "tiara-roxa-textura.webp",
+      "alt": "Tiara Roxa Textura",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "tiara-roxa-textura-2.webp",
+      "alt": "Tiara Roxa Textura",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "tiara",
+    "acessorio",
+    "cabelo"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-20"
+}

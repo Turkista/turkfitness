@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre a Marca — Turk Fitness</title>
+<meta name="description" content="Turk Fitness é a linha de moda academia da Turkista: peças feitas à mão, tecido de alto padrão e caimento pensado para o movimento de cada corpo.">
+<link rel="canonical" href="https://www.turkfitness.com.br/sobre-a-marca.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Turk Fitness">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Sobre a Marca — Turk Fitness">
+<meta property="og:description" content="Turk Fitness é a linha de moda academia da Turkista: peças feitas à mão, tecido de alto padrão e caimento pensado para o movimento de cada corpo.">
+<meta property="og:url" content="https://www.turkfitness.com.br/sobre-a-marca.html">
+<meta property="og:image" content="https://www.turkfitness.com.br/assets/hero/look-01.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sobre a Marca — Turk Fitness">
+<meta name="twitter:description" content="Turk Fitness é a linha de moda academia da Turkista.">
+<meta name="twitter:image" content="https://www.turkfitness.com.br/assets/hero/look-01.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Poppins:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles/tokens/tokens.css">
+<link rel="stylesheet" href="src/styles/base/base.css">
+<link rel="stylesheet" href="src/styles/componentes/botoes.css">
+<link rel="stylesheet" href="src/styles/componentes/header.css">
+<link rel="stylesheet" href="src/styles/componentes/faixa-frete.css">
+<link rel="stylesheet" href="src/styles/componentes/footer.css">
+<link rel="stylesheet" href="src/styles/componentes/whatsapp-flutuante.css">
+<link rel="stylesheet" href="src/styles/componentes/carrinho.css">
+<link rel="stylesheet" href="src/pages/home/home.css">
+<style>
+  .pagina-sobre{ padding-top:20px; padding-bottom:var(--espaco-xl); }
+  .pagina-sobre .lead{ color:var(--muted); max-width:640px; font-weight:300; line-height:1.8; font-size:1.05rem; }
+
+  /* ---------- BLOCO 1: texto + foto grande (bleed até a borda direita) ---------- */
+  .sobre-hero{
+    display:grid; grid-template-columns:minmax(280px,520px) 1fr;
+    align-items:center; gap:60px;
+    margin:0 calc(var(--gutter) * -1) 90px calc(var(--gutter) * -1);
+  }
+  .sobre-hero__texto{ padding-left:var(--gutter); }
+  .sobre-hero__texto h1{ font-size:clamp(2rem,4vw,2.8rem); margin-bottom:20px; }
+  .sobre-hero__imagem{ height:560px; overflow:hidden; border-radius:var(--raio-lg) 0 0 var(--raio-lg); }
+  .sobre-hero__imagem img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* ---------- BLOCO 2: foto grande (bleed até a borda esquerda) + texto ---------- */
+  .sobre-bloco{
+    display:grid; grid-template-columns:1fr minmax(280px,520px);
+    align-items:center; gap:60px;
+    margin:0 calc(var(--gutter) * -1) 60px calc(var(--gutter) * -1);
+  }
+  .sobre-bloco__imagem{ height:480px; overflow:hidden; border-radius:0 var(--raio-lg) var(--raio-lg) 0; }
+  .sobre-bloco__imagem img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .sobre-bloco__texto{ padding-right:var(--gutter); }
+
+  .valores{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:50px 0; }
+  .valores div{ border:1px solid var(--hair); border-radius:var(--raio-md); padding:28px; }
+  .valores h3{ font-size:1.1rem; margin-bottom:10px; color:var(--mint); font-family:var(--fonte-titulo); }
+  .valores p{ color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300; }
+
+  @media (max-width:980px){
+    .sobre-hero, .sobre-bloco{ grid-template-columns:1fr; margin:0 0 50px 0; gap:28px; }
+    .sobre-hero__texto, .sobre-bloco__texto{ padding-left:0; padding-right:0; }
+    .sobre-hero__imagem, .sobre-bloco__imagem{ height:320px; border-radius:var(--raio-lg); order:-1; }
+  }
+  @media (max-width:768px){ .valores{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<a href="#conteudo-principal" class="somente-leitor-tela pular-link">Pular para o conteúdo</a>
+<div class="grid-overlay"></div>
+<div class="cursor-glow" id="glow"></div>
+
+<div class="faixa-frete" role="note" aria-label="Frete grátis acima de R$100 para Sul e Sudeste"><div class="faixa-frete__trilho"><div class="faixa-frete__grupo"><span class="faixa-frete__item"><svg class="faixa-frete__icone" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>FRETE GRÁTIS acima de R$100 &middot; Sul e Sudeste do Brasil</span><span class="faixa-frete__separador">&bull;</span><span class="faixa-frete__item"><svg class="faixa-frete__icone" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>FRETE GRÁTIS acima de R$100 &middot; Sul e Sudeste do Brasil</span><span class="faixa-frete__separador">&bull;</span><span class="faixa-frete__item"><svg class="faixa-frete__icone" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>FRETE GRÁTIS acima de R$100 &middot; Sul e Sudeste do Brasil</span><span class="faixa-frete__separador">&bull;</span><span class="faixa-frete__item"><svg class="faixa-frete__icone" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>FRETE GRÁTIS acima de R$100 &middot; Sul e Sudeste do Brasil</span><span class="faixa-frete__separador">&bull;</span></div><div class="faixa-frete__grupo" aria-hidden="true"><span class="faixa-frete__item"><svg class="faixa-frete__icone" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>FRETE GRÁTIS acima de R$100 &middot; Sul e Sudeste do Brasil</span><span class="faixa-frete__separador">&bull;</span><span class="faixa-frete__item"><svg class="faixa-frete__icone" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>FRETE GRÁTIS acima de R$100 &middot; Sul e Sudeste do Brasil</span><span class="faixa-frete__separador">&bull;</span><span class="faixa-frete__item"><svg class="faixa-frete__icone" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>FRETE GRÁTIS acima de R$100 &middot; Sul e Sudeste do Brasil</span><span class="faixa-frete__separador">&bull;</span><span class="faixa-frete__item"><svg class="faixa-frete__icone" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>FRETE GRÁTIS acima de R$100 &middot; Sul e Sudeste do Brasil</span><span class="faixa-frete__separador">&bull;</span></div></div></div>
+<header class="cabecalho">
+  <div class="container cabecalho__linha">
+    <a href="index.html" class="cabecalho__logo">TURK<span>FITNESS</span></a>
+    <nav class="cabecalho__nav-desktop" aria-label="Navegação principal">
+      <a href="catalogo.html#legging">Leggings</a>
+      <a href="catalogo.html#top">Tops</a>
+      <a href="catalogo.html#conjunto">Conjuntos</a>
+      <a href="sobre-a-marca.html">Sobre a Marca</a>
+      <a href="blog.html">Blog</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="cabecalho__acoes">
+      <a href="contato.html" class="botao botao--secundario" style="padding:.6rem 1.2rem" data-mostrar-desktop>Fale conosco</a>
+      <button class="cabecalho__botao-menu" data-menu-abrir aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav id="menu-mobile" class="menu-mobile" data-menu-mobile aria-label="Menu mobile">
+  <button class="menu-mobile__fechar" data-menu-fechar aria-label="Fechar menu">&times;</button>
+  <ul class="menu-mobile__lista">
+    <li><a href="catalogo.html#legging">Leggings</a></li>
+    <li><a href="catalogo.html#top">Tops</a></li>
+    <li><a href="catalogo.html#conjunto">Conjuntos</a></li>
+    <li><a href="sobre-a-marca.html">Sobre a Marca</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contato.html">Contato</a></li>
+  </ul>
+</nav>
+
+<main id="conteudo-principal">
+  <section class="pagina-sobre container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Sobre a Marca</span>
+    </nav>
+
+    <div class="sobre-hero">
+      <div class="sobre-hero__texto">
+        <span class="eyebrow"><span class="line"></span>Sobre a marca</span>
+        <h1>Turk Fitness é a Turkista <em>em movimento</em>.</h1>
+        <p class="lead">Nascemos em Araruama, na Região dos Lagos, fazendo peças de praia e surf à mão, com tecido de alto padrão e atenção real a cada corpo. A Turk Fitness é essa mesma essência aplicada à academia: leggings, tops e conjuntos pensados pra treino, yoga e o dia a dia de quem se movimenta.</p>
+      </div>
+      <div class="sobre-hero__imagem">
+        <img src="assets/sobre/marca-01.webp" alt="Bastidores da produção Turk Fitness" fetchpriority="high" decoding="async" onerror="this.parentElement.remove()">
+      </div>
+    </div>
+
+    <div class="sobre-bloco">
+      <div class="sobre-bloco__imagem">
+        <img src="assets/sobre/marca-02.webp" alt="Tecido técnico Turk Fitness" loading="lazy" decoding="async" onerror="this.parentElement.remove()">
+      </div>
+      <div class="sobre-bloco__texto">
+        <h2 class="secao-titulo">Feito pra durar o treino inteiro.</h2>
+        <p class="secao-texto">Cada peça passa por tecido de compressão, costura reforçada nas áreas de maior movimento e modelagem testada em corpos reais — não só em manequim. É roupa de academia que não perde a forma, não marca e acompanha o seu ritmo.</p>
+      </div>
+    </div>
+
+    <div class="valores">
+      <div>
+        <h3>Fabricação própria</h3>
+        <p>Produção artesanal, com controle de qualidade peça a peça — mesma política da Turkista.</p>
+      </div>
+      <div>
+        <h3>Tecido técnico</h3>
+        <p>Compressão, respirabilidade e elasticidade pensadas para treino de alta intensidade.</p>
+      </div>
+      <div>
+        <h3>Atendimento direto</h3>
+        <p>Sem robô, sem letra miúda: fala com a gente pelo WhatsApp e resolve tamanho, cor e prazo.</p>
+      </div>
+    </div>
+
+    <div class="faixa-cta">
+      <h2>Quer ver a coleção completa?</h2>
+      <p>O catálogo é atualizado direto pela marca — dá uma olhada nas peças disponíveis agora.</p>
+      <a href="catalogo.html" class="botao botao--primario">Ver catálogo</a>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="container rodape__grade">
+    <div class="rodape__marca">
+      <span class="cabecalho__logo">TURK<span>FITNESS</span></span>
+      <p>Roupas de academia feitas para o seu movimento — parte da família Turkista. Araruama, Região dos Lagos — RJ.</p>
+      <div class="rodape__redes">
+        <a href="https://instagram.com/turkfitness.com.br" target="_blank" rel="noopener" aria-label="Instagram Turk Fitness">IG</a>
+        <a href="https://wa.me/5521992197518" target="_blank" rel="noopener" aria-label="WhatsApp Turk Fitness">WA</a>
+      </div>
+    </div>
+    <div class="rodape__coluna">
+      <h3>Categorias</h3>
+      <ul>
+        <li><a href="catalogo.html#legging">Leggings</a></li>
+        <li><a href="catalogo.html#top">Tops</a></li>
+        <li><a href="catalogo.html#conjunto">Conjuntos</a></li>
+        <li><a href="catalogo.html#short">Shorts</a></li>
+        <li><a href="catalogo.html#regata">Regatas</a></li>
+      </ul>
+    </div>
+    <div class="rodape__coluna">
+      <h3>Marca</h3>
+      <ul>
+        <li><a href="sobre-a-marca.html">Sobre a Marca</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="como-cuidar-da-peca.html">Como Cuidar da Peça</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="rodape__coluna">
+      <h3>Ajuda</h3>
+      <ul>
+        <li><a href="faq.html">Perguntas Frequentes</a></li>
+        <li><a href="rastreie-seu-pedido.html">Rastreie seu Pedido</a></li>
+        <li><a href="politica-de-envio-e-prazo-de-entrega.html">Política de Envio</a></li>
+        <li><a href="politica-de-troca-e-reembolso.html">Trocas e Reembolso</a></li>
+        <li><a href="politica-de-privacidade.html">Privacidade</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container rodape__base">
+    <span>© 2026 Turk Fitness · parte da família Turkista · Araruama, RJ</span>
+    <div class="rodape__base-links"><a href="sobre-a-marca.html">Sobre</a></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5521992197518?text=Oi!%20Vi%20o%20site%20da%20Turk%20Fitness%20e%20queria%20saber%20mais." class="whatsapp-flutuante esta-visivel" data-whatsapp-flutuante target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 004.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.83 14.02c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2 .9 2.14.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2 1.11.99 2.05 1.3 2.34 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.15.26.1 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.71-.17 1.39z"/></svg>
+  <span class="whatsapp-flutuante__texto">Falar no WhatsApp</span>
+</a>
+
+<script src="src/scripts/componentes/interface-visual.js"></script>
+<script src="src/scripts/componentes/menu-mobile.js"></script>
+<script src="src/scripts/utils/carrinho.js"></script>
+<script src="src/scripts/componentes/carrinho-ui.js"></script>
+</body>
+</html>

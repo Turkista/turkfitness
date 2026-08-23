@@ -1,0 +1,59 @@
+{
+  "id": "prod_toplisr0",
+  "slug": "top-listrado-verde-oliva",
+  "nome": "Top Listrado Verde Oliva",
+  "categoria": "top",
+  "descricaoCurta": "Top decote V com listras diagonais em tons de verde, vinho e bege, modelagem cropped e sem alças ajustáveis.",
+  "descricaoCompleta": "Top de decote em V com listras diagonais que combinam verde oliva, vinho e bege em uma composição elegante e discreta.\r\n\r\nModelagem cropped, sem alças ajustáveis, com bom caimento e cobertura confortável para treinos de menor impacto, como musculação e yoga.\r\n\r\nDestaques da peça:\r\n\r\nListras diagonais em tom terroso\r\nDecote em V\r\nModelagem cropped\r\nBoa cobertura, sem transparência\r\nIdeal para musculação, yoga e uso casual",
+  "composicao": {
+    "tecido": "84% a 85% Poliamida e 15% a 16% Elastano",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Verde Listrado",
+      "hex": "#4b5320",
+      "imagens": [
+        {
+          "arquivo": "top-listrado-verde-oliva.webp",
+          "alt": "Top Listrado Verde Oliva",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "top-listrado-verde-oliva-2.webp",
+          "alt": "Top Listrado Verde Oliva",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "GG"
+  ],
+  "preco": {
+    "valor": 85,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-listrado-verde-oliva.webp",
+      "alt": "Top Listrado Verde Oliva",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "top-listrado-verde-oliva-2.webp",
+      "alt": "Top Listrado Verde Oliva",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "academia",
+    "treino",
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-21"
+}

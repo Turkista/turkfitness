@@ -1,0 +1,26 @@
+.botao{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:.9rem 1.7rem;
+  border-radius:999px;
+  font-family:var(--fonte-corpo); font-size:0.86rem; font-weight:500;
+  text-decoration:none; cursor:pointer; border:1px solid transparent;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  white-space:nowrap;
+}
+.botao--primario{
+  background:var(--gradiente-marca);
+  color:var(--bg-0); font-weight:600;
+}
+.botao--primario:hover{ transform:translateY(-2px); box-shadow:0 10px 30px -10px rgba(255,111,168,0.45); }
+
+.botao--secundario{
+  background:transparent; color:var(--white); border-color:var(--hair-strong);
+}
+.botao--secundario:hover{ border-color:var(--mint); color:var(--mint); }
+
+.botao--whatsapp{
+  background:#25D366; color:#05130b; font-weight:600;
+}
+.botao--whatsapp:hover{ transform:translateY(-2px); box-shadow:0 10px 30px -10px rgba(37,211,102,0.5); }
+
+.botao svg{ width:16px; height:16px; }

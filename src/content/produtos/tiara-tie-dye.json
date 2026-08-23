@@ -1,0 +1,50 @@
+{
+  "id": "prod_tiaratpb",
+  "slug": "tiara-tie-dye",
+  "nome": "Tiara Tie Dye",
+  "categoria": "acessorio",
+  "descricaoCurta": "Tiara nó frontal com estampa tie dye amarelo, vermelho e verde.",
+  "descricaoCompleta": "Tiara de tecido leve e confortável, com estampa tie dye em amarelo, vermelho e verde. Perfeita para o treino ou o dia a dia, prendendo o cabelo com estilo.",
+  "composicao": {
+    "tecido": "Lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Tie Dye",
+      "hex": "#E8B33D",
+      "imagens": [
+        {
+          "arquivo": "tiara-tie-dye.webp",
+          "alt": "Tiara Tie Dye",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P",
+    "M"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "tiara-tie-dye.webp",
+      "alt": "Tiara Tie Dye",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "tiara",
+    "acessorio",
+    "cabelo"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-20"
+}

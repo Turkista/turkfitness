@@ -1,0 +1,50 @@
+{
+  "id": "prod_tiaratji",
+  "slug": "tiara-tropical-preto-verde-pink",
+  "nome": "Tiara Tropical Preto e Pink",
+  "categoria": "acessorio",
+  "descricaoCurta": "Tiara nó frontal com estampa tropical preta, verde e pink.",
+  "descricaoCompleta": "Tiara de tecido leve e confortável, com nó frontal e estampa tropical em preto, verde e pink. Perfeita para o treino ou o dia a dia, prendendo o cabelo com estilo.",
+  "composicao": {
+    "tecido": "Lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Tropical Preto e Pink",
+      "hex": "#1C7C4B",
+      "imagens": [
+        {
+          "arquivo": "tiara-tropical-preto-verde-pink.webp",
+          "alt": "Tiara Tropical Preto e Pink",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P",
+    "M"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "tiara-tropical-preto-verde-pink.webp",
+      "alt": "Tiara Tropical Preto e Pink",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "tiara",
+    "acessorio",
+    "cabelo"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-20"
+}

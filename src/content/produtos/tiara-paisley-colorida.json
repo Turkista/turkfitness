@@ -1,0 +1,50 @@
+{
+  "id": "prod_tiarapxa",
+  "slug": "tiara-paisley-colorida",
+  "nome": "Tiara Paisley Colorida",
+  "categoria": "acessorio",
+  "descricaoCurta": "Tiara nó frontal com estampa paisley colorida.",
+  "descricaoCompleta": "Tiara de tecido leve e confortável, com nó frontal e estampa paisley em tons vivos. Perfeita para o treino ou o dia a dia, prendendo o cabelo com estilo.",
+  "composicao": {
+    "tecido": "Lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Paisley Colorida",
+      "hex": "#B23A48",
+      "imagens": [
+        {
+          "arquivo": "tiara-paisley-colorida.webp",
+          "alt": "Tiara Paisley Colorida",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P",
+    "M"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "tiara-paisley-colorida.webp",
+      "alt": "Tiara Paisley Colorida",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "tiara",
+    "acessorio",
+    "cabelo"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-20"
+}

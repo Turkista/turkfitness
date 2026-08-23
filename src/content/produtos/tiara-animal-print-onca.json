@@ -1,0 +1,50 @@
+{
+  "id": "prod_tiaraahs",
+  "slug": "tiara-animal-print-onca",
+  "nome": "Tiara Animal Print Onça",
+  "categoria": "acessorio",
+  "descricaoCurta": "Tiara larga com estampa animal print onça.",
+  "descricaoCompleta": "Tiara larga de tecido leve e confortável, com estampa animal print onça. Perfeita para o treino ou o dia a dia, prendendo o cabelo com estilo.",
+  "composicao": {
+    "tecido": "Lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Animal Print Onça",
+      "hex": "#8A6842",
+      "imagens": [
+        {
+          "arquivo": "tiara-animal-print-onca.webp",
+          "alt": "Tiara Animal Print Onça",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P",
+    "M"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "tiara-animal-print-onca.webp",
+      "alt": "Tiara Animal Print Onça",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "tiara",
+    "acessorio",
+    "cabelo"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-20"
+}

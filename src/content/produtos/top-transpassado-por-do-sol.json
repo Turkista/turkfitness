@@ -1,0 +1,59 @@
+{
+  "id": "prod_toptra3u",
+  "slug": "top-transpassado-por-do-sol",
+  "nome": "Top Transpassado Pôr do Sol",
+  "categoria": "top",
+  "descricaoCurta": "Top transpassado color block roxo e vermelho, com amarração no pescoço e costas estampadas em degradê pôr do sol.",
+  "descricaoCompleta": "Top de alças finas com amarração no pescoço e modelagem transpassada na frente, combinando os tons sólidos roxo e vermelho em um design color block moderno.\r\n\r\nAs costas trazem um contraste especial: faixa estampada em degradê de pôr do sol, com silhuetas de coqueiros, dando um toque exclusivo à peça.\r\n\r\nComprimento cropped, na altura da cintura, ideal para compor com leggings, shorts ou saídas de praia.\r\n\r\nDestaques da peça:\r\n\r\nModelagem transpassada color block\r\nAmarração ajustável no pescoço\r\nCostas com estampa exclusiva em degradê\r\nComprimento cropped\r\nVersátil para treino, praia e dia a dia",
+  "composicao": {
+    "tecido": "Lycra e malha",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Roxo e Vermelho",
+      "hex": "#7a1b4e",
+      "imagens": [
+        {
+          "arquivo": "top-transpassado-por-do-sol.webp",
+          "alt": "Top Transpassado Pôr do Sol",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "top-transpassado-por-do-sol-2.webp",
+          "alt": "Top Transpassado Pôr do Sol",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 95,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-transpassado-por-do-sol.webp",
+      "alt": "Top Transpassado Pôr do Sol",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "top-transpassado-por-do-sol-2.webp",
+      "alt": "Top Transpassado Pôr do Sol",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "academia",
+    "treino",
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-21"
+}

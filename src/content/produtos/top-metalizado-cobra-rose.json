@@ -1,0 +1,49 @@
+{
+  "id": "prod_topmetzo",
+  "slug": "top-metalizado-cobra-rose",
+  "nome": "Top Metalizado Cobra Rosé",
+  "categoria": "top",
+  "descricaoCurta": "Top com alças largas e estampa metalizada animal print em tom rosé, visual sofisticado e brilhante.",
+  "descricaoCompleta": "Top de alças largas e decote reto, em tecido com efeito metalizado e estampa animal print (cobra) em tom rosé, criando um brilho sutil conforme a luz incide sobre a peça.\n\nModelagem cropped com boa sustentação, ideal para treinos de menor impacto ou para compor um look de praia mais sofisticado.\n\nDestaques da peça:\n\nEfeito metalizado exclusivo\nEstampa animal print (cobra) em tom rosé\nAlças largas\nModelagem cropped\nVersátil para treino e praia",
+  "composicao": {
+    "tecido": "84% a 85% Poliamida e 15% a 16% Elastano",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Rosé Metalizado",
+      "hex": "#D9A6C2",
+      "imagens": [
+        {
+          "arquivo": "top-metalizado-cobra-rose.webp",
+          "alt": "Top Metalizado Cobra Rosé",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "GG"
+  ],
+  "preco": {
+    "valor": 90,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-metalizado-cobra-rose.webp",
+      "alt": "Top Metalizado Cobra Rosé",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "academia",
+    "treino",
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-21"
+}

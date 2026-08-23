@@ -1,0 +1,49 @@
+{
+  "id": "prod_conjun9l",
+  "slug": "conjunto-praia-sereia-multicolor",
+  "nome": "Conjunto Praia Sereia Multicolor",
+  "categoria": "conjunto",
+  "descricaoCurta": "Conjunto de treino para praia forrado, estampa escamas de sereia em degradê roxo, azul e pink.",
+  "descricaoCompleta": "Conjunto de treino para praia, composto por top bandeau e short, confeccionado em lycra forrada. Tecido com ótima sustentação e caimento, ideal para treinar, caminhar ou curtir a praia com estilo e conforto.\n\n✨ Destaques:\n\nTecido em lycra forrada\nTop e short com caimento perfeito\nEstampa escamas em degradê roxo, azul e pink\nConforto e liberdade de movimento\nIdeal para treino na praia, caminhada e lazer",
+  "composicao": {
+    "tecido": "Lycra forrada",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Sereia Multicolor",
+      "hex": "#5B3E96",
+      "imagens": [
+        {
+          "arquivo": "conjunto-praia-sereia-multicolor.webp",
+          "alt": "Conjunto Praia Sereia Multicolor",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 140,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-praia-sereia-multicolor.webp",
+      "alt": "Conjunto Praia Sereia Multicolor",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "conjunto de praia",
+    "treino",
+    "praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-21"
+}

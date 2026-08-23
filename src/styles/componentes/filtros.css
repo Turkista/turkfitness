@@ -1,0 +1,14 @@
+.filtro-categorias{
+  display:flex; flex-wrap:wrap; gap:10px;
+  margin-top:32px;
+}
+.filtro-categorias__botao{
+  padding:.55rem 1.2rem; border-radius:999px;
+  background:transparent; border:1px solid var(--hair-strong);
+  color:var(--muted); font-family:var(--fonte-corpo); font-size:0.82rem;
+  cursor:pointer; transition:all .25s ease;
+}
+.filtro-categorias__botao:hover{ color:var(--white); border-color:var(--white); }
+.filtro-categorias__botao[aria-pressed="true"]{
+  background:var(--gradiente-marca); color:var(--bg-0); border-color:transparent; font-weight:600;
+}

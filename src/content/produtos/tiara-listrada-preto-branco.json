@@ -1,0 +1,50 @@
+{
+  "id": "prod_tiaral0y",
+  "slug": "tiara-listrada-preto-branco",
+  "nome": "Tiara Listrada Preto e Branco",
+  "categoria": "acessorio",
+  "descricaoCurta": "Tiara larga com listras preto e branco.",
+  "descricaoCompleta": "Tiara larga de tecido leve e confortável, com listras clássicas em preto e branco. Perfeita para o treino ou o dia a dia, prendendo o cabelo com estilo.",
+  "composicao": {
+    "tecido": "Lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Listrada Preto e Branco",
+      "hex": "#1A1A1A",
+      "imagens": [
+        {
+          "arquivo": "tiara-listrada-preto-branco.webp",
+          "alt": "Tiara Listrada Preto e Branco",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P",
+    "M"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "tiara-listrada-preto-branco.webp",
+      "alt": "Tiara Listrada Preto e Branco",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "tiara",
+    "acessorio",
+    "cabelo"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-20"
+}

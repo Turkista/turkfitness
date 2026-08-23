@@ -1,0 +1,129 @@
+/* ============================================================
+   TURK FITNESS — Páginas institucionais / políticas
+   (Como Cuidar, FAQ, Rastreio, Envio, Troca, Privacidade)
+   ============================================================ */
+
+.pagina-institucional{ padding:20px 0 var(--espaco-xl); }
+.pagina-institucional__cabecalho{ max-width:720px; margin-bottom:44px; }
+.pagina-institucional h1{ font-size:clamp(2rem, 4vw, 2.8rem); margin-bottom:16px; }
+.pagina-institucional .lead{ color:var(--muted); font-weight:300; line-height:1.8; }
+.pagina-institucional__atualizado{
+  display:inline-block; margin-top:18px;
+  font-family:var(--fonte-mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--muted-2);
+}
+
+.institucional-layout{
+  display:grid; grid-template-columns:220px 1fr; gap:56px; align-items:start;
+}
+.institucional-indice{
+  position:sticky; top:110px;
+  border-left:1px solid var(--hair);
+  padding-left:20px;
+  display:flex; flex-direction:column; gap:12px;
+}
+.institucional-indice a{
+  color:var(--muted); text-decoration:none; font-size:0.85rem;
+  transition:color .2s ease;
+}
+.institucional-indice a:hover{ color:var(--mint); }
+
+/* ---------- PROSE (texto corrido das políticas) ---------- */
+.prose{ max-width:760px; color:var(--muted); font-weight:300; line-height:1.85; }
+.prose h2{
+  font-family:var(--fonte-titulo); font-weight:500; color:var(--white);
+  font-size:1.5rem; margin:44px 0 16px; scroll-margin-top:110px;
+}
+.prose h2:first-child{ margin-top:0; }
+.prose h3{
+  font-family:var(--fonte-corpo); font-weight:600; color:var(--mint);
+  font-size:1rem; letter-spacing:0.01em; margin:26px 0 10px;
+}
+.prose p{ margin-bottom:16px; }
+.prose ul, .prose ol{ margin:0 0 18px 22px; }
+.prose li{ margin-bottom:8px; }
+.prose li::marker{ color:var(--mint); }
+.prose strong{ color:var(--white); font-weight:600; }
+.prose a{ color:var(--mint); text-decoration:underline; text-underline-offset:3px; }
+
+.aviso-box{
+  border:1px solid var(--hair-strong); border-radius:var(--raio-md);
+  padding:20px 22px; margin:24px 0; background:rgba(255,255,255,0.02);
+}
+.aviso-box--mint{ border-color:rgba(123,232,196,0.35); background:rgba(123,232,196,0.05); }
+.aviso-box--pink{ border-color:rgba(255,111,168,0.35); background:rgba(255,111,168,0.05); }
+.aviso-box p:last-child{ margin-bottom:0; }
+.aviso-box__titulo{
+  display:flex; align-items:center; gap:8px; margin-bottom:8px;
+  font-family:var(--fonte-mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--white);
+}
+
+.tabela-institucional{ width:100%; border-collapse:collapse; margin:20px 0 28px; font-size:0.88rem; table-layout:fixed; }
+.tabela-institucional th, .tabela-institucional td{
+  text-align:left; padding:12px 14px; border-bottom:1px solid var(--hair);
+  word-break:break-word;
+}
+.tabela-institucional th{
+  font-family:var(--fonte-mono); font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--mint); font-weight:400;
+}
+.tabela-institucional td{ color:var(--muted); font-weight:300; }
+
+/* ---------- FAQ ACCORDION ---------- */
+.faq-grupo{ margin-bottom:40px; }
+.faq-grupo__titulo{
+  font-family:var(--fonte-mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--mint); margin-bottom:16px;
+}
+.faq-item{
+  border-bottom:1px solid var(--hair);
+}
+.faq-item summary{
+  list-style:none; cursor:pointer; padding:18px 0;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  font-family:var(--fonte-corpo); font-weight:500; color:var(--white); font-size:0.98rem;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{
+  content:'+'; font-family:var(--fonte-mono); font-size:1.2rem; color:var(--mint);
+  flex-shrink:0; transition:transform .25s ease;
+}
+.faq-item[open] summary::after{ transform:rotate(45deg); }
+.faq-item__resposta{
+  color:var(--muted); font-weight:300; line-height:1.8; padding-bottom:20px; max-width:680px;
+}
+
+/* ---------- RASTREIO ---------- */
+.rastreio-form{
+  display:flex; gap:10px; max-width:480px; margin:28px 0 40px; flex-wrap:wrap;
+}
+.rastreio-form input{
+  flex:1; min-width:200px; background:var(--bg-card); border:1px solid var(--hair-strong);
+  border-radius:999px; padding:.85rem 1.3rem; color:var(--white); font-family:var(--fonte-corpo);
+}
+.rastreio-form input::placeholder{ color:var(--muted-2); }
+.rastreio-form input:focus{ outline:none; border-color:var(--mint); }
+
+.rastreio-etapas{
+  display:grid; gap:0; margin:36px 0; max-width:640px;
+}
+.rastreio-etapa{
+  display:grid; grid-template-columns:28px 1fr; gap:16px; padding-bottom:28px; position:relative;
+}
+.rastreio-etapa::before{
+  content:''; position:absolute; left:13px; top:26px; bottom:0; width:1px; background:var(--hair);
+}
+.rastreio-etapa:last-child::before{ display:none; }
+.rastreio-etapa__marco{
+  width:26px; height:26px; border-radius:50%; border:1px solid var(--hair-strong);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--fonte-mono); font-size:0.7rem; color:var(--mint); background:var(--bg-card);
+}
+.rastreio-etapa h3{ color:var(--white); font-size:0.95rem; margin-bottom:4px; font-weight:600; }
+.rastreio-etapa p{ color:var(--muted); font-size:0.86rem; font-weight:300; margin:0; }
+
+@media (max-width:980px){
+  .institucional-layout{ grid-template-columns:1fr; gap:32px; }
+  .institucional-indice{ position:static; display:flex; flex-direction:row; flex-wrap:wrap; gap:16px 20px; border-left:none; border-bottom:1px solid var(--hair); padding-left:0; padding-bottom:20px; }
+}

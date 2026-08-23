@@ -1,0 +1,49 @@
+/* ============================================================
+   TURK FITNESS — Design Tokens
+   Fonte única da verdade de cor, tipografia e espaçamento.
+   Paleta herdada do padrão de marca Turkista (família),
+   aplicada aqui na variação "Turk Fit" (dark, neon suave).
+   ============================================================ */
+:root{
+  /* --- cor: base --- */
+  --bg-0:#08080d;
+  --bg-1:#120e18;
+  --bg-2:#17121e;
+  --bg-card:#15111c;
+
+  /* --- cor: acento (herdadas do "em breve" Turk Fitness) --- */
+  --mint:#7be8c4;
+  --lavender:#c6a8f5;
+  --pink:#ff6fa8;
+  --blue:#8fd0f0;
+
+  --white:#f6f3f8;
+  --muted:#a79db3;
+  --muted-2:#7d7488;
+
+  --hair:rgba(246,243,248,0.12);
+  --hair-strong:rgba(246,243,248,0.22);
+
+  /* --- gradientes de marca --- */
+  --gradiente-marca:linear-gradient(100deg, var(--pink) 10%, var(--lavender) 55%, var(--blue) 100%);
+  --gradiente-linha:linear-gradient(90deg, var(--mint), var(--pink) 45%, var(--lavender) 75%, var(--blue));
+
+  /* --- tipografia --- */
+  --fonte-titulo:'Playfair Display', serif;
+  --fonte-corpo:'Poppins', sans-serif;
+  --fonte-mono:'Space Mono', monospace;
+
+  /* --- espaçamento --- */
+  --espaco-xs:8px;
+  --espaco-sm:16px;
+  --espaco-md:24px;
+  --espaco-lg:48px;
+  --espaco-xl:88px;
+
+  /* --- forma --- */
+  --raio-sm:4px;
+  --raio-md:10px;
+  --raio-lg:20px;
+
+  --largura-max:1320px;
+}

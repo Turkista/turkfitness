@@ -1,0 +1,59 @@
+{
+  "id": "prod_conjun3z",
+  "slug": "conjunto-praia-mosaico-verde",
+  "nome": "Conjunto Praia Mosaico Verde",
+  "categoria": "conjunto",
+  "descricaoCurta": "Conjunto de treino para praia forrado, estampa mosaico geométrico verde e dourado.",
+  "descricaoCompleta": "Conjunto de treino para praia, composto por top e short, confeccionado em lycra forrada. Tecido com ótima sustentação e caimento, ideal para treinar, caminhar ou curtir a praia com estilo e conforto.\n\n✨ Destaques:\n\nTecido em lycra forrada\nTop e short com caimento perfeito\nConforto e liberdade de movimento\nIdeal para treino na praia, caminhada e lazer",
+  "composicao": {
+    "tecido": "Lycra forrada",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Mosaico Verde",
+      "hex": "#4B6B2E",
+      "imagens": [
+        {
+          "arquivo": "conjunto-praia-mosaico-verde.webp",
+          "alt": "Conjunto Praia Mosaico Verde",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-praia-mosaico-verde-2.webp",
+          "alt": "Conjunto Praia Mosaico Verde",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 140,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-praia-mosaico-verde.webp",
+      "alt": "Conjunto Praia Mosaico Verde",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-praia-mosaico-verde-2.webp",
+      "alt": "Conjunto Praia Mosaico Verde",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "conjunto de praia",
+    "treino",
+    "praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-20"
+}

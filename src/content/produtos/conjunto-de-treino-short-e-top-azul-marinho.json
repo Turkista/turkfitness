@@ -1,0 +1,58 @@
+{
+  "id": "prod_conjunf3",
+  "slug": "conjunto-de-treino-short-e-top-azul-marinho",
+  "nome": "Conjunto de Treino Short e Top Azul Marinho",
+  "categoria": "conjunto",
+  "descricaoCurta": "Conjunto de short e top canelado em azul marinho, com detalhe frontal trançado.",
+  "descricaoCompleta": "Conjunto de short e top ideal para treinos, corrida, academia e diversas atividades esportivas. Tecido canelado com boa compressão, proporcionando firmeza, sustentação e conforto durante o treino. Top com decote frontal trançado e recorte nas costas.",
+  "composicao": {
+    "tecido": "84% a 85% Poliamida e 15% a 16% Elastano",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Azul Marinho",
+      "hex": "#1B2A4A",
+      "imagens": [
+        {
+          "arquivo": "conjunto-de-treino-short-e-top-azul-marinho.webp",
+          "alt": "Conjunto de Treino Short e Top Azul Marinho",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-de-treino-short-e-top-azul-marinho-2.webp",
+          "alt": "Conjunto de Treino Short e Top Azul Marinho",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 140,
+    "parcelamento": "2x sem juros = 70 reais"
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-de-treino-short-e-top-azul-marinho.webp",
+      "alt": "Conjunto de Treino Short e Top Azul Marinho",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-de-treino-short-e-top-azul-marinho-2.webp",
+      "alt": "Conjunto de Treino Short e Top Azul Marinho",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "conjunto de academia",
+    "short e top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-22"
+}

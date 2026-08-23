@@ -1,0 +1,131 @@
+/* ============================================================
+   TURK FITNESS — Base / Reset
+   ============================================================ */
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  background:
+    radial-gradient(ellipse 60% 45% at 12% 8%, rgba(123,232,196,0.14), transparent 60%),
+    radial-gradient(ellipse 55% 40% at 88% 14%, rgba(198,168,245,0.16), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 96%, rgba(255,111,168,0.12), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 84% 92%, rgba(143,208,240,0.12), transparent 60%),
+    linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 55%, var(--bg-2) 100%);
+  background-attachment:fixed;
+  color:var(--white);
+  font-family:var(--fonte-corpo);
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+}
+
+:root{
+  --gutter:56px;
+}
+@media (max-width:980px){
+  :root{ --gutter:28px; }
+}
+@media (max-width:480px){
+  :root{ --gutter:20px; }
+}
+
+.container{
+  width:100%;
+  max-width:var(--largura-max);
+  margin:0 auto;
+  padding-left:var(--gutter);
+  padding-right:var(--gutter);
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+
+.somente-leitor-tela{
+  position:absolute; width:1px; height:1px; overflow:hidden;
+  clip:rect(0,0,0,0); white-space:nowrap;
+}
+.pular-link:focus{
+  position:fixed; top:12px; left:12px; z-index:100;
+  width:auto; height:auto; clip:auto;
+  background:var(--pink); color:var(--bg-0);
+  padding:10px 16px; border-radius:var(--raio-sm);
+  font-family:var(--fonte-mono); font-size:0.8rem;
+}
+
+/* camada de fundo — grid tecnológico fino, igual ao padrão da marca */
+.grid-overlay{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    linear-gradient(var(--hair) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hair) 1px, transparent 1px);
+  background-size:64px 64px;
+  opacity:0.16;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 20%, black 40%, transparent 90%);
+}
+
+.cursor-glow{
+  position:fixed; width:520px; height:520px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,111,168,0.10), transparent 70%);
+  pointer-events:none; z-index:0; transform:translate(-50%,-50%);
+  transition:opacity .3s ease; left:50%; top:30%;
+}
+
+.blob{ position:fixed; border-radius:50%; filter:blur(80px); opacity:0.30; pointer-events:none; z-index:0; }
+.blob-mint{ width:380px; height:380px; background:var(--mint); top:-100px; left:-120px; animation:drift 22s ease-in-out infinite; }
+.blob-lav{ width:440px; height:440px; background:var(--lavender); top:6%; right:-160px; animation:drift 26s ease-in-out infinite reverse; }
+.blob-pink{ width:340px; height:340px; background:var(--pink); bottom:-100px; left:6%; animation:drift 24s ease-in-out infinite; }
+.blob-blue{ width:320px; height:320px; background:var(--blue); bottom:-60px; right:4%; animation:drift 20s ease-in-out infinite reverse; }
+
+@keyframes drift{
+  0%,100%{ transform:translate(0,0) scale(1); }
+  50%{ transform:translate(20px,-24px) scale(1.06); }
+}
+@media (prefers-reduced-motion: reduce){
+  .blob, .bar-fill, .marquee-track, .tile{ animation:none !important; transition:none !important; }
+}
+
+.tag-mono{
+  font-family:var(--fonte-mono);
+  letter-spacing:0.14em;
+  font-size:0.68rem;
+  text-transform:uppercase;
+}
+
+.eyebrow{
+  display:flex; align-items:center; gap:14px;
+  color:var(--mint); margin-bottom:24px;
+  font-family:var(--fonte-mono); letter-spacing:0.14em; font-size:0.68rem; text-transform:uppercase;
+}
+.eyebrow .line{ width:34px; height:1px; background:var(--mint); opacity:0.6; }
+
+h1,h2,h3{ font-family:var(--fonte-titulo); font-weight:500; }
+h1 em, h2 em{
+  font-style:italic; font-weight:600;
+  background:var(--gradiente-marca);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+
+main{ position:relative; z-index:2; }
+
+.secao-titulo{
+  font-size:clamp(1.8rem, 3vw, 2.6rem);
+  line-height:1.16;
+  margin-bottom:16px;
+}
+.secao-texto{
+  max-width:560px;
+  color:var(--muted);
+  font-weight:300;
+  line-height:1.75;
+}
+
+.breadcrumb{
+  display:flex; gap:8px; align-items:center;
+  color:var(--muted-2); font-size:0.82rem;
+  margin:28px 0 20px;
+}
+.breadcrumb a{ color:var(--muted); text-decoration:none; }
+.breadcrumb a:hover{ color:var(--mint); }
+
+/* Contenção responsiva global: nenhum conteúdo deve escapar do gutter do container. */
+.container > *{ min-width:0; }

@@ -1,0 +1,49 @@
+{
+  "id": "prod_tiarap5u",
+  "slug": "tiara-poa-marinho",
+  "nome": "Tiara Poá Marinho",
+  "categoria": "acessorio",
+  "descricaoCurta": "Tiara nó frontal com estampa poá em azul marinho, vermelho e branco.",
+  "descricaoCompleta": "Tiara de tecido leve e confortável, com estampa poá em azul marinho, vermelho e branco. Perfeita para o treino ou o dia a dia, prendendo o cabelo com estilo.",
+  "composicao": {
+    "tecido": "Lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Poá Marinho",
+      "hex": "#1F2C56",
+      "imagens": [
+        {
+          "arquivo": "tiara-poa-marinho.webp",
+          "alt": "Tiara Poá Marinho",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "tiara-poa-marinho.webp",
+      "alt": "Tiara Poá Marinho",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "tiara",
+    "acessorio",
+    "cabelo"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-22"
+}

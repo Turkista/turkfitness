@@ -1,0 +1,57 @@
+{
+  "id": "prod_conjun01",
+  "slug": "conjunto-blue-cintila",
+  "nome": "Conjunto Blue Cintila",
+  "categoria": "conjunto",
+  "descricaoCurta": "Top com compressão e legging com cós alto. Malha com leve textura e com costura reforçada. Ideal para treino e corrida e treino de alta performance. ",
+  "descricaoCompleta": "Potência, conforto e segurança para acompanhar você em todos os seus movimentos.\r\nO conjunto é composto por top com compressão e legging com cós alto, proporcionando firmeza, sustentação e liberdade de movimento durante os treinos. Confeccionado em malha com leve textura, o tecido combina um visual sofisticado com excelente ajuste ao corpo.\r\n\r\nA costura reforçada garante maior resistência e durabilidade, mesmo durante atividades de alta intensidade. A legging com cós alto oferece mais segurança e conforto, enquanto o top proporciona sustentação para você se movimentar com confiança.\r\n\r\nIdeal para treinos de academia, corrida, funcional e atividades de alta performance.\r\n\r\nDestaques:\r\n\r\nTop com compressão e boa sustentação\r\nLegging com cós alto\r\nMalha com leve textura\r\nCosturas reforçadas\r\nConforto e liberdade de movimento\r\nIdeal para treinos e corrida\r\nDesenvolvido para atividades de alta performance",
+  "composicao": {
+    "tecido": "84% a 85% Poliamida e 15% a 16% Elastano",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Azul intenso",
+      "hex": "#2f51f9",
+      "imagens": [
+        {
+          "arquivo": "conjunto-blue-cintila.webp",
+          "alt": "Conjunto Blue Cintila",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-blue-cintila-2.webp",
+          "alt": "Conjunto Blue Cintila",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 210,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-blue-cintila.webp",
+      "alt": "Conjunto Blue Cintila",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-blue-cintila-2.webp",
+      "alt": "Conjunto Blue Cintila",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "conjunto de treino"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-22"
+}

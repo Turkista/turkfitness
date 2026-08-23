@@ -1,0 +1,1534 @@
+[
+  {
+    "id": "prod_calcablu",
+    "slug": "calca-blue-star",
+    "nome": "Calça Blue Star",
+    "categoria": "legging",
+    "preco": {
+      "valor": 120,
+      "parcelamento": "2 x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "calca-blue-star-1.webp",
+        "alt": "Calça Blue Star",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "calca-blue-star-2.webp",
+        "alt": "Calça Blue Star",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "legging"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-azul-dark",
+    "nome": "Conjunto Azul Dark",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 120,
+      "parcelamento": "2 x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-azul-dark-1.webp",
+        "alt": "Conjunto Azul Dark",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-azul-dark-2.webp",
+        "alt": "Conjunto Azul Dark",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-azul-dark-3.webp",
+        "alt": "Conjunto Azul Dark",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "conjunto de top e short"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_conjun01",
+    "slug": "conjunto-blue-cintila",
+    "nome": "Conjunto Blue Cintila",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 210,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-blue-cintila.webp",
+        "alt": "Conjunto Blue Cintila",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-blue-cintila-2.webp",
+        "alt": "Conjunto Blue Cintila",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "conjunto de treino"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-22"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-de-treino-azul-ocen",
+    "nome": "Conjunto de treino Azul Ocen",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 180,
+      "parcelamento": "2 x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-de-treino-azul-ocen.webp",
+        "alt": "Conjunto de treino Azul Ocen",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-de-treino-laranja-fitness",
+    "nome": "Conjunto de treino Laranja Fitness",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 180,
+      "parcelamento": "2 x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-de-treino-laranja-fitness-1.webp",
+        "alt": "Conjunto de treino Laranja Fitness",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-de-treino-laranja-fitness-2.webp",
+        "alt": "Conjunto de treino Laranja Fitness",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-de-treino-laranja-fitness-3.webp",
+        "alt": "Conjunto de treino Laranja Fitness",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_conjunf3",
+    "slug": "conjunto-de-treino-short-e-top-azul-marinho",
+    "nome": "Conjunto de Treino Short e Top Azul Marinho",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 140,
+      "parcelamento": "2x sem juros = 70 reais"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-de-treino-short-e-top-azul-marinho.webp",
+        "alt": "Conjunto de Treino Short e Top Azul Marinho",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-de-treino-short-e-top-azul-marinho-2.webp",
+        "alt": "Conjunto de Treino Short e Top Azul Marinho",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "conjunto de academia",
+      "short e top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-22"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-de-treino-short-e-top-cintila",
+    "nome": "Conjunto de treino Short e Top Cintila",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 140,
+      "parcelamento": "2x sem juros = 70 reais"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-de-treino-short-e-top-cintila.webp",
+        "alt": "Conjunto de treino Short e Top Cintila",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "conjunto de academia",
+      "short e top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_conjundd",
+    "slug": "conjunto-de-treino-short-e-top-roxo-texturizado",
+    "nome": "Conjunto de Treino Short e Top Roxo Texturizado",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 140,
+      "parcelamento": "2x sem juros = 70 reais"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-de-treino-short-e-top-roxo-texturizado.webp",
+        "alt": "Conjunto de Treino Short e Top Roxo Texturizado",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-de-treino-short-e-top-roxo-texturizado-2.webp",
+        "alt": "Conjunto de Treino Short e Top Roxo Texturizado",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "conjunto de academia",
+      "short e top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-22"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-fitness-em-lycra-azul-claro",
+    "nome": "Conjunto Fitness em Lycra Azul Claro",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 220,
+      "parcelamento": "3x sem juros = 73 reais"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-fitness-em-lycra-azul-claro.webp",
+        "alt": "Conjunto Fitness em Lycra Azul Claro",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "legging"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-fitness-top-calca-verdan",
+    "nome": "Conjunto Fitness Top + Calça Verdan",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 170,
+      "parcelamento": "2x sem juros = 85 reais"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-fitness-top-calca-verdan.webp",
+        "alt": "Conjunto Fitness Top + Calça Verdan",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-fitness-top-calca",
+    "nome": "Conjunto Fitness Top + Calça",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 190,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-fitness-top-calca.webp",
+        "alt": "Conjunto Fitness Top + Calça",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_conjunal",
+    "slug": "conjunto-legging-preta-e-top-preto",
+    "nome": "Conjunto Legging Preta e Top Preto",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 180,
+      "parcelamento": "2x sem juros = 90 reais"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-legging-preta-e-top-preto.webp",
+        "alt": "Conjunto Legging Preta e Top Preto",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-legging-preta-e-top-preto-2.webp",
+        "alt": "Conjunto Legging Preta e Top Preto",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "conjunto de academia",
+      "legging e top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-22"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-lila-perfomance",
+    "nome": "Conjunto Lila Perfomance",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 220,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-lila-perfomance.webp",
+        "alt": "Conjunto Lila Perfomance",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "conjunto de academia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-maro",
+    "nome": "Conjunto Maro",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 220,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-maro.webp",
+        "alt": "Conjunto Maro",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "conjunto de academia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_conjunhv",
+    "slug": "conjunto-praia-folhagem-verde",
+    "nome": "Conjunto Praia Folhagem Verde",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 140,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-praia-folhagem-verde.webp",
+        "alt": "Conjunto Praia Folhagem Verde",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-praia-folhagem-verde-2.webp",
+        "alt": "Conjunto Praia Folhagem Verde",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "conjunto de praia",
+      "treino",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-20"
+  },
+  {
+    "id": "prod_conjun3a",
+    "slug": "conjunto-praia-mandala-pink",
+    "nome": "Conjunto Praia Mandala Pink",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 140,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-praia-mandala-pink.webp",
+        "alt": "Conjunto Praia Mandala Pink",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-praia-mandala-pink-2.webp",
+        "alt": "Conjunto Praia Mandala Pink",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "conjunto de praia",
+      "treino",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-20"
+  },
+  {
+    "id": "prod_conjun3z",
+    "slug": "conjunto-praia-mosaico-verde",
+    "nome": "Conjunto Praia Mosaico Verde",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 140,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-praia-mosaico-verde.webp",
+        "alt": "Conjunto Praia Mosaico Verde",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-praia-mosaico-verde-2.webp",
+        "alt": "Conjunto Praia Mosaico Verde",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "conjunto de praia",
+      "treino",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-20"
+  },
+  {
+    "id": "prod_conjun9l",
+    "slug": "conjunto-praia-sereia-multicolor",
+    "nome": "Conjunto Praia Sereia Multicolor",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 140,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-praia-sereia-multicolor.webp",
+        "alt": "Conjunto Praia Sereia Multicolor",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "conjunto de praia",
+      "treino",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-21"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-short-top-flow",
+    "nome": "Conjunto de Short + top",
+    "categoria": "conjunto",
+    "preco": {
+      "valor": 180,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-short-top-flow-1.webp",
+        "alt": "Conjunto de Short + top",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-short-top-flow-2.webp",
+        "alt": "Conjunto de Short + top",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "treino",
+      "short"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_leggingi",
+    "slug": "legging-intense",
+    "nome": "Legging Intense",
+    "categoria": "legging",
+    "preco": {
+      "valor": 120,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "legging-intense.webp",
+        "alt": "Legging Intense",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "legging"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_tiaraahs",
+    "slug": "tiara-animal-print-onca",
+    "nome": "Tiara Animal Print Onça",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "tiara-animal-print-onca.webp",
+        "alt": "Tiara Animal Print Onça",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "tiara",
+      "acessorio",
+      "cabelo"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-20"
+  },
+  {
+    "id": "prod_tiarafxj",
+    "slug": "tiara-floral-vinho",
+    "nome": "Tiara Floral Vinho",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "tiara-floral-vinho.webp",
+        "alt": "Tiara Floral Vinho",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "tiara",
+      "acessorio",
+      "cabelo"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-22"
+  },
+  {
+    "id": "prod_tiarafe6",
+    "slug": "tiara-folhagem-tropical",
+    "nome": "Tiara Folhagem Tropical",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "tiara-folhagem-tropical.webp",
+        "alt": "Tiara Folhagem Tropical",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "tiara",
+      "acessorio",
+      "cabelo"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-22"
+  },
+  {
+    "id": "prod_tiaral0y",
+    "slug": "tiara-listrada-preto-branco",
+    "nome": "Tiara Listrada Preto e Branco",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "tiara-listrada-preto-branco.webp",
+        "alt": "Tiara Listrada Preto e Branco",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "tiara",
+      "acessorio",
+      "cabelo"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-20"
+  },
+  {
+    "id": "prod_tiarapxa",
+    "slug": "tiara-paisley-colorida",
+    "nome": "Tiara Paisley Colorida",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "tiara-paisley-colorida.webp",
+        "alt": "Tiara Paisley Colorida",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "tiara",
+      "acessorio",
+      "cabelo"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-20"
+  },
+  {
+    "id": "prod_tiarap5u",
+    "slug": "tiara-poa-marinho",
+    "nome": "Tiara Poá Marinho",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "tiara-poa-marinho.webp",
+        "alt": "Tiara Poá Marinho",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "tiara",
+      "acessorio",
+      "cabelo"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-22"
+  },
+  {
+    "id": "prod_tiarapxt",
+    "slug": "tiara-pop-art-colorida",
+    "nome": "Tiara Pop Art Colorida",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "tiara-pop-art-colorida.webp",
+        "alt": "Tiara Pop Art Colorida",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "tiara",
+      "acessorio",
+      "cabelo"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-20"
+  },
+  {
+    "id": "prod_tiarar6d",
+    "slug": "tiara-roxa-textura",
+    "nome": "Tiara Roxa Textura",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "tiara-roxa-textura.webp",
+        "alt": "Tiara Roxa Textura",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "tiara-roxa-textura-2.webp",
+        "alt": "Tiara Roxa Textura",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "tiara",
+      "acessorio",
+      "cabelo"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-20"
+  },
+  {
+    "id": "prod_tiaratpb",
+    "slug": "tiara-tie-dye",
+    "nome": "Tiara Tie Dye",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "tiara-tie-dye.webp",
+        "alt": "Tiara Tie Dye",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "tiara",
+      "acessorio",
+      "cabelo"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-20"
+  },
+  {
+    "id": "prod_tiaratji",
+    "slug": "tiara-tropical-preto-verde-pink",
+    "nome": "Tiara Tropical Preto e Pink",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "tiara-tropical-preto-verde-pink.webp",
+        "alt": "Tiara Tropical Preto e Pink",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "tiara",
+      "acessorio",
+      "cabelo"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-20"
+  },
+  {
+    "id": "prod_tiaravah",
+    "slug": "tiara-vinho-texturizada",
+    "nome": "Tiara Vinho Texturizada",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "tiara-vinho-texturizada.webp",
+        "alt": "Tiara Vinho Texturizada",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "tiara",
+      "acessorio",
+      "cabelo"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-20"
+  },
+  {
+    "id": "prod_topazt8f",
+    "slug": "top-aztec-mosaico",
+    "nome": "Top Aztec Mosaico",
+    "categoria": "top",
+    "preco": {
+      "valor": 85,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-aztec-mosaico.webp",
+        "alt": "Top Aztec Mosaico",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-aztec-mosaico-2.webp",
+        "alt": "Top Aztec Mosaico",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-21"
+  },
+  {
+    "id": "prod_topdetre",
+    "slug": "top-de-treino",
+    "nome": "Top de treino",
+    "categoria": "top",
+    "preco": {
+      "valor": 90,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-de-treino-1.webp",
+        "alt": "Top de treino - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-de-treino-2.webp",
+        "alt": "Top de treino - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_topfanny",
+    "slug": "top-fanny",
+    "nome": "Top Fanny",
+    "categoria": "top",
+    "preco": {
+      "valor": 80,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-fanny.webp",
+        "alt": "Top Fanny",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_topfitbl",
+    "slug": "top-fit-black",
+    "nome": "Top Fit Black",
+    "categoria": "top",
+    "preco": {
+      "valor": 80,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-fit-black.webp",
+        "alt": "Top Fit Black",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_topflori",
+    "slug": "top-flori",
+    "nome": "Top Flori",
+    "categoria": "top",
+    "preco": {
+      "valor": 95,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-flori-1.webp",
+        "alt": "Top Flori - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-flori-2.webp",
+        "alt": "Top Flori - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_toplisr0",
+    "slug": "top-listrado-verde-oliva",
+    "nome": "Top Listrado Verde Oliva",
+    "categoria": "top",
+    "preco": {
+      "valor": 85,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-listrado-verde-oliva.webp",
+        "alt": "Top Listrado Verde Oliva",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-listrado-verde-oliva-2.webp",
+        "alt": "Top Listrado Verde Oliva",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-21"
+  },
+  {
+    "id": "prod_topmetzo",
+    "slug": "top-metalizado-cobra-rose",
+    "nome": "Top Metalizado Cobra Rosé",
+    "categoria": "top",
+    "preco": {
+      "valor": 90,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-metalizado-cobra-rose.webp",
+        "alt": "Top Metalizado Cobra Rosé",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-21"
+  },
+  {
+    "id": "prod_topnadad",
+    "slug": "top-nadador-turkista-rosas-caveiras",
+    "nome": "Top Nadador Rosas & Caveiras",
+    "categoria": "top",
+    "preco": {
+      "valor": 90,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-nadador-turkista-rosas-caveiras.webp",
+        "alt": "Top Nadador TURKISTA – Rosas & Caveiras",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_topoliva",
+    "slug": "top-oliva",
+    "nome": "Top Oliva",
+    "categoria": "top",
+    "preco": {
+      "valor": 60,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-oliva-1.webp",
+        "alt": "Top Oliva",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-oliva-2.webp",
+        "alt": "Top Oliva",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_toppoay7",
+    "slug": "top-poa-laranja",
+    "nome": "Top Poá Laranja",
+    "categoria": "top",
+    "preco": {
+      "valor": 80,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-poa-vermelho.webp",
+        "alt": "Top Poá Vermelho",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-21"
+  },
+  {
+    "id": "prod_topprata",
+    "slug": "top-prata",
+    "nome": "Top Prata",
+    "categoria": "top",
+    "preco": {
+      "valor": 90,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-prata-1.webp",
+        "alt": "Top Prata - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-prata-2.webp",
+        "alt": "Top Prata - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "top",
+      "sustentação",
+      "top de academia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_topslimt",
+    "slug": "top-slim-turk",
+    "nome": "Top Slim Turk",
+    "categoria": "top",
+    "preco": {
+      "valor": 80,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-slim-turk.webp",
+        "alt": "Top Slim Turk",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_toptra3u",
+    "slug": "top-transpassado-por-do-sol",
+    "nome": "Top Transpassado Pôr do Sol",
+    "categoria": "top",
+    "preco": {
+      "valor": 95,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-transpassado-por-do-sol.webp",
+        "alt": "Top Transpassado Pôr do Sol",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-transpassado-por-do-sol-2.webp",
+        "alt": "Top Transpassado Pôr do Sol",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-21"
+  },
+  {
+    "id": "prod_toptrein",
+    "slug": "top-treino-flow",
+    "nome": "Top treino Flow",
+    "categoria": "top",
+    "preco": {
+      "valor": 50,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-treino-flow.webp",
+        "alt": "Top treino Flow",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_essence01",
+    "slug": "top-turk-fit-essence",
+    "nome": "Top Turk Fit Essence",
+    "categoria": "top",
+    "preco": {
+      "valor": 60,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-turk-fit-essence-1.webp",
+        "alt": "Top Turk Fit Essence",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-turk-fit-essence-2.webp",
+        "alt": "Top Turk Fit Essence",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-turk-fit-essence-3.webp",
+        "alt": "Top Turk Fit Essence",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_xuxinhas",
+    "slug": "xuxinha-segredo-estamp",
+    "nome": "Xuxinha Segredo Estamp",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "xuxinha-segredo-estamp-1.webp",
+        "alt": "Xuxinha Segredo Estamp",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-estamp-2.webp",
+        "alt": "Xuxinha Segredo Estamp",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-estamp-3.webp",
+        "alt": "Xuxinha Segredo Estamp",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "xuxinha"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_xuxinhas",
+    "slug": "xuxinha-segredo-mix",
+    "nome": "Xuxinha segredo mix",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "xuxinha-segredo-mix-1.webp",
+        "alt": "Xuxinha segredo mix",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-mix-2.webp",
+        "alt": "Xuxinha segredo mix",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-mix-3.webp",
+        "alt": "Xuxinha segredo mix",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-mix-4.webp",
+        "alt": "Xuxinha segredo mix",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "xuxinha"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_xuxinhas",
+    "slug": "xuxinha-segredo-rosa",
+    "nome": "Xuxinha segredo rosa",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "xuxinha-segredo-rosa-1.webp",
+        "alt": "Xuxinha segredo rosa",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-rosa-2.webp",
+        "alt": "Xuxinha segredo rosa",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-rosa-3.webp",
+        "alt": "Xuxinha segredo rosa",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo"
+    ],
+    "tags": [
+      "xuxinha"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_xuxinhas",
+    "slug": "xuxinhas-coloridas-diversas",
+    "nome": "Xuxinhas coloridas diversas",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 10,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "xuxinhas-coloridas-diversas-1.webp",
+        "alt": "Xuxinhas coloridas diversas - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-diversas-2.webp",
+        "alt": "Xuxinhas coloridas diversas - foto 2",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-diversas-3.webp",
+        "alt": "Xuxinhas coloridas diversas - foto 3",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-diversas-4.webp",
+        "alt": "Xuxinhas coloridas diversas - foto 4",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-diversas-5.webp",
+        "alt": "Xuxinhas coloridas diversas - foto 5",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "xuxinha"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  },
+  {
+    "id": "prod_xuxinhas",
+    "slug": "xuxinhas-coloridas",
+    "nome": "Xuxinhas coloridas",
+    "categoria": "acessorio",
+    "preco": {
+      "valor": 10,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "xuxinhas-coloridas-1.webp",
+        "alt": "Xuxinhas coloridas - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-2.webp",
+        "alt": "Xuxinhas coloridas - foto 2",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-3.webp",
+        "alt": "Xuxinhas coloridas - foto 3",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-4.webp",
+        "alt": "Xuxinhas coloridas - foto 4",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-5.webp",
+        "alt": "Xuxinhas coloridas - foto 5",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-6.webp",
+        "alt": "Xuxinhas coloridas - foto 6",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "xuxinha"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-19"
+  }
+]

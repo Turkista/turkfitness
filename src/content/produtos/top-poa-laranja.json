@@ -1,0 +1,49 @@
+{
+  "id": "prod_toppoay7",
+  "slug": "top-poa-laranja",
+  "nome": "Top Poá Laranja",
+  "categoria": "top",
+  "descricaoCurta": "Top decote V vermelho com poás pretas, modelagem cropped sem alças ajustáveis, visual esportivo e marcante.",
+  "descricaoCompleta": "Top de decote em V, na cor vermelha com estampa de poás pretas em degradê, criando um visual esportivo e cheio de atitude.\r\n\r\nModelagem cropped, sem alças ajustáveis, com boa sustentação e liberdade de movimento durante o treino.\r\n\r\nDestaques da peça:\r\n\r\nEstampa poá exclusiva\r\nDecote em V\r\nModelagem cropped\r\nBoa sustentação e conforto\r\nIdeal para academia, funcional e musculação",
+  "composicao": {
+    "tecido": "84% a 85% Poliamida e 15% a 16% Elastano",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Laranja Poá",
+      "hex": "#d96526",
+      "imagens": [
+        {
+          "arquivo": "top-poa-vermelho.webp",
+          "alt": "Top Poá Vermelho",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "GG"
+  ],
+  "preco": {
+    "valor": 80,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-poa-vermelho.webp",
+      "alt": "Top Poá Vermelho",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "academia",
+    "treino",
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-21"
+}

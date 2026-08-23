@@ -1,0 +1,58 @@
+{
+  "id": "prod_conjunal",
+  "slug": "conjunto-legging-preta-e-top-preto",
+  "nome": "Conjunto Legging Preta e Top Preto",
+  "categoria": "conjunto",
+  "descricaoCurta": "Conjunto de legging preta e top preto, com excelente compressão para o treino.",
+  "descricaoCompleta": "Conjunto de legging e top ideal para treinos, corrida, academia e diversas atividades esportivas. Possui excelente compressão, proporcionando firmeza, sustentação e segurança mesmo durante treinos de alto impacto. Tecido liso, confortável e elástico.",
+  "composicao": {
+    "tecido": "84% a 85% Poliamida e 15% a 16% Elastano",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Preto",
+      "hex": "#111111",
+      "imagens": [
+        {
+          "arquivo": "conjunto-legging-preta-e-top-preto.webp",
+          "alt": "Conjunto Legging Preta e Top Preto",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-legging-preta-e-top-preto-2.webp",
+          "alt": "Conjunto Legging Preta e Top Preto",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 180,
+    "parcelamento": "2x sem juros = 90 reais"
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-legging-preta-e-top-preto.webp",
+      "alt": "Conjunto Legging Preta e Top Preto",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-legging-preta-e-top-preto-2.webp",
+      "alt": "Conjunto Legging Preta e Top Preto",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "conjunto de academia",
+    "legging e top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-22"
+}

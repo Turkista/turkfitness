@@ -1,0 +1,50 @@
+{
+  "id": "prod_tiaravah",
+  "slug": "tiara-vinho-texturizada",
+  "nome": "Tiara Vinho Texturizada",
+  "categoria": "acessorio",
+  "descricaoCurta": "Tiara larga na cor vinho com textura canelada.",
+  "descricaoCompleta": "Tiara larga de tecido leve e confortável, na cor vinho com textura canelada. Perfeita para o treino ou o dia a dia, prendendo o cabelo com estilo.",
+  "composicao": {
+    "tecido": "Lycra",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Vinho",
+      "hex": "#5C2331",
+      "imagens": [
+        {
+          "arquivo": "tiara-vinho-texturizada.webp",
+          "alt": "Tiara Vinho Texturizada",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P",
+    "M"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "tiara-vinho-texturizada.webp",
+      "alt": "Tiara Vinho Texturizada",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "tiara",
+    "acessorio",
+    "cabelo"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-20"
+}

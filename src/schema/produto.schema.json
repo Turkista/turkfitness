@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.turkfitness.com.br/src/schema/produto.schema.json",
+  "title": "Produto Turk Fitness",
+  "description": "Schema de um produto do catálogo Turk Fitness (moda academia). Adaptado do schema da Turkista, sem o campo 'linha' — aqui só existe uma linha de produto.",
+  "type": "object",
+  "required": ["id", "slug", "nome", "categoria", "descricaoCurta", "composicao", "cores", "tamanhos", "imagens", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificador único e estável do produto.",
+      "pattern": "^prod_[a-z0-9]{6,}$",
+      "examples": ["prod_leg001"]
+    },
+    "slug": {
+      "type": "string",
+      "description": "Usado na URL da ficha de produto: /produto/<slug>.html",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "examples": ["legging-flow-preta"]
+    },
+    "nome": { "type": "string", "examples": ["Legging Flow"] },
+    "categoria": {
+      "type": "string",
+      "description": "Tipo de peça. Determina o filtro do catálogo.",
+      "enum": ["legging", "top", "conjunto", "short", "regata", "jaqueta", "acessorio"]
+    },
+    "descricaoCurta": { "type": "string", "maxLength": 160 },
+    "descricaoCompleta": { "type": "string" },
+    "composicao": {
+      "type": "object",
+      "required": ["tecido"],
+      "properties": {
+        "tecido": { "type": "string", "examples": ["88% Poliamida / 12% Elastano"] },
+        "paisDeFabricacao": { "type": "string", "default": "Brasil" }
+      }
+    },
+    "cores": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["nome", "hex", "imagens"],
+        "properties": {
+          "nome": { "type": "string" },
+          "hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+          "imagens": { "type": "array", "items": { "$ref": "#/definitions/imagem" }, "minItems": 1 }
+        }
+      }
+    },
+    "tamanhos": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["PP", "P", "M", "G", "GG"] },
+      "minItems": 1
+    },
+    "preco": {
+      "type": ["object", "null"],
+      "properties": {
+        "valor": { "type": "number", "examples": [149.9] },
+        "parcelamento": { "type": "string", "examples": ["em até 3x sem juros"] }
+      }
+    },
+    "imagens": { "type": "array", "items": { "$ref": "#/definitions/imagem" }, "minItems": 1 },
+    "badges": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["novo", "exclusivo", "ultimas-unidades", "reposicao"] }
+    },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "status": {
+      "type": "string",
+      "enum": ["rascunho", "publicado", "esgotado", "descontinuado"],
+      "default": "rascunho"
+    },
+    "dataCriacao": { "type": "string", "format": "date" }
+  },
+  "definitions": {
+    "imagem": {
+      "type": "object",
+      "required": ["arquivo", "alt"],
+      "properties": {
+        "arquivo": { "type": "string", "description": "Caminho relativo a assets/produtos/. Padrão .webp." },
+        "alt": { "type": "string" },
+        "proporcao": { "type": "string", "default": "3:4" }
+      }
+    }
+  }
+}

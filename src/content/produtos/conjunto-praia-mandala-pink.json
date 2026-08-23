@@ -1,0 +1,59 @@
+{
+  "id": "prod_conjun3a",
+  "slug": "conjunto-praia-mandala-pink",
+  "nome": "Conjunto Praia Mandala Pink",
+  "categoria": "conjunto",
+  "descricaoCurta": "Conjunto de treino para praia forrado, estampa mandala colorida com recortes pink.",
+  "descricaoCompleta": "Conjunto de treino para praia, composto por top e short, confeccionado em lycra forrada. Tecido com ótima sustentação e caimento, ideal para treinar, caminhar ou curtir a praia com estilo e conforto.\n\n✨ Destaques:\n\nTecido em lycra forrada\nTop e short com caimento perfeito\nConforto e liberdade de movimento\nIdeal para treino na praia, caminhada e lazer",
+  "composicao": {
+    "tecido": "Lycra forrada",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Mandala Pink",
+      "hex": "#C21E7A",
+      "imagens": [
+        {
+          "arquivo": "conjunto-praia-mandala-pink.webp",
+          "alt": "Conjunto Praia Mandala Pink",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-praia-mandala-pink-2.webp",
+          "alt": "Conjunto Praia Mandala Pink",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 140,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-praia-mandala-pink.webp",
+      "alt": "Conjunto Praia Mandala Pink",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-praia-mandala-pink-2.webp",
+      "alt": "Conjunto Praia Mandala Pink",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "conjunto de praia",
+    "treino",
+    "praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-20"
+}

@@ -1,0 +1,59 @@
+{
+  "id": "prod_conjunhv",
+  "slug": "conjunto-praia-folhagem-verde",
+  "nome": "Conjunto Praia Folhagem Verde",
+  "categoria": "conjunto",
+  "descricaoCurta": "Conjunto de treino para praia forrado, estampa folhagem verde e amarela.",
+  "descricaoCompleta": "Conjunto de treino para praia, composto por top e short, confeccionado em lycra forrada. Tecido com ótima sustentação e caimento, ideal para treinar, caminhar ou curtir a praia com estilo e conforto.\n\n✨ Destaques:\n\nTecido em lycra forrada\nTop e short com caimento perfeito\nConforto e liberdade de movimento\nIdeal para treino na praia, caminhada e lazer",
+  "composicao": {
+    "tecido": "Lycra forrada",
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Folhagem Verde",
+      "hex": "#4C6B1F",
+      "imagens": [
+        {
+          "arquivo": "conjunto-praia-folhagem-verde.webp",
+          "alt": "Conjunto Praia Folhagem Verde",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-praia-folhagem-verde-2.webp",
+          "alt": "Conjunto Praia Folhagem Verde",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 140,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-praia-folhagem-verde.webp",
+      "alt": "Conjunto Praia Folhagem Verde",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-praia-folhagem-verde-2.webp",
+      "alt": "Conjunto Praia Folhagem Verde",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "conjunto de praia",
+    "treino",
+    "praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-20"
+}
