@@ -22,6 +22,9 @@ const CAMINHO_SITEMAP = path.join(RAIZ_SITE, 'sitemap.xml');
 const DIR_BLOG_JSON = path.join(RAIZ_SITE, 'src', 'content', 'blog');
 const CAMINHO_BLOG_INDICE = path.join(DIR_BLOG_JSON, 'index.json');
 const DIR_ASSETS_BLOG = path.join(RAIZ_SITE, 'assets', 'blog');
+const URL_BASE = 'https://www.turkfitness.com.br';
+
+const { montarHtmlProduto } = require('./seo-produto');
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 12 * 1024 * 1024 } });
@@ -86,7 +89,7 @@ function regenerarIndice(){
 }
 
 function atualizarSitemap(produtosPublicados){
-  const base = 'https://www.turkfitness.com.br';
+  const base = URL_BASE;
   const paginasFixas = [
     '/', '/catalogo.html', '/sobre-a-marca.html', '/contato.html', '/blog.html',
     '/como-cuidar-da-peca.html', '/faq.html', '/rastreie-seu-pedido.html',
@@ -103,12 +106,12 @@ function atualizarSitemap(produtosPublicados){
   fs.writeFileSync(CAMINHO_SITEMAP, xml, 'utf8');
 }
 
-function gerarPaginaProduto(slug){
+function gerarPaginaProduto(slug, produto){
   if(!fs.existsSync(CAMINHO_TEMPLATE_PRODUTO)){
     return { ok: false, motivo: 'Template produto/_template.html não encontrado.' };
   }
   const template = fs.readFileSync(CAMINHO_TEMPLATE_PRODUTO, 'utf8');
-  const html = template.replace(/\{\{SLUG\}\}/g, slug);
+  const html = montarHtmlProduto(template, slug, produto, URL_BASE);
   fs.writeFileSync(path.join(DIR_PRODUTO_PAGINAS, slug + '.html'), html, 'utf8');
   return { ok: true };
 }
@@ -285,7 +288,7 @@ app.post('/api/produtos', upload.array('fotos', 6), async (req, res) => {
       if(fs.existsSync(antigaFicha)) fs.unlinkSync(antigaFicha);
     }
 
-    const resultadoPagina = gerarPaginaProduto(slug);
+    const resultadoPagina = gerarPaginaProduto(slug, produto);
     regenerarIndice();
 
     res.json({ ok: true, produto, avisoPagina: resultadoPagina.ok ? null : resultadoPagina.motivo });
