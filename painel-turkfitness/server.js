@@ -22,9 +22,12 @@ const CAMINHO_SITEMAP = path.join(RAIZ_SITE, 'sitemap.xml');
 const DIR_BLOG_JSON = path.join(RAIZ_SITE, 'src', 'content', 'blog');
 const CAMINHO_BLOG_INDICE = path.join(DIR_BLOG_JSON, 'index.json');
 const DIR_ASSETS_BLOG = path.join(RAIZ_SITE, 'assets', 'blog');
+const DIR_BLOG_PAGINAS = path.join(RAIZ_SITE, 'blog');
+const CAMINHO_TEMPLATE_BLOG = path.join(DIR_BLOG_PAGINAS, '_template.html');
 const URL_BASE = 'https://www.turkfitness.com.br';
 
 const { montarHtmlProduto } = require('./seo-produto');
+const { montarHtmlBlog } = require('./seo-blog');
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 12 * 1024 * 1024 } });
@@ -100,7 +103,7 @@ function atualizarSitemap(produtosPublicados){
   const urls = [
     ...paginasFixas.map(p => `  <url><loc>${base}${p}</loc></url>`),
     ...produtosPublicados.map(p => `  <url><loc>${base}/produto/${p.slug}.html</loc></url>`),
-    ...postsPublicados.map(p => `  <url><loc>${base}/blog-post.html?slug=${encodeURIComponent(p.slug)}</loc></url>`)
+    ...postsPublicados.map(p => `  <url><loc>${base}/blog/${p.slug}.html</loc></url>`)
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`;
   fs.writeFileSync(CAMINHO_SITEMAP, xml, 'utf8');
@@ -114,6 +117,22 @@ function gerarPaginaProduto(slug, produto){
   const html = montarHtmlProduto(template, slug, produto, URL_BASE);
   fs.writeFileSync(path.join(DIR_PRODUTO_PAGINAS, slug + '.html'), html, 'utf8');
   return { ok: true };
+}
+
+function gerarPaginaBlog(slug, post){
+  if(!fs.existsSync(CAMINHO_TEMPLATE_BLOG)){
+    return { ok: false, motivo: 'Template blog/_template.html não encontrado.' };
+  }
+  fs.mkdirSync(DIR_BLOG_PAGINAS, { recursive: true });
+  const template = fs.readFileSync(CAMINHO_TEMPLATE_BLOG, 'utf8');
+  const html = montarHtmlBlog(template, slug, post, URL_BASE);
+  fs.writeFileSync(path.join(DIR_BLOG_PAGINAS, slug + '.html'), html, 'utf8');
+  return { ok: true };
+}
+
+function removerPaginaBlog(slug){
+  const caminho = path.join(DIR_BLOG_PAGINAS, slug + '.html');
+  if(fs.existsSync(caminho)) fs.unlinkSync(caminho);
 }
 
 // Toda foto que entra pelo painel (produto, hero, categoria ou "sobre") sai
@@ -183,6 +202,10 @@ app.post('/api/blog', upload.single('imagem'), async (req, res) => {
     };
     const novos = antigo ? posts.map(p => p.slug === slugOriginal ? post : p) : posts.concat(post);
     salvarPosts(novos);
+    if(antigo && slugOriginal && slugOriginal !== slug){
+      removerPaginaBlog(slugOriginal);
+    }
+    gerarPaginaBlog(slug, post);
     atualizarSitemap(listarProdutos().filter(p => p.status === 'publicado'));
     res.json({ok:true, post});
   }catch(e){
@@ -195,6 +218,7 @@ app.delete('/api/blog/:slug', (req, res) => {
   const novos = posts.filter(p => p.slug !== req.params.slug);
   if(novos.length === posts.length) return res.status(404).json({erro:'Post não encontrado.'});
   salvarPosts(novos);
+  removerPaginaBlog(req.params.slug);
   atualizarSitemap(listarProdutos().filter(p => p.status === 'publicado'));
   res.json({ok:true});
 });
