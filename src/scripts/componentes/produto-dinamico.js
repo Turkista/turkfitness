@@ -19,34 +19,15 @@
   }
 
   TurkFitProdutos.buscarProduto(slug).then(function(p){
-    document.title = p.nome + ' — Turk Fitness';
-    var metaDesc = document.querySelector('meta[name="description"]');
-    if(metaDesc) metaDesc.setAttribute('content', p.descricaoCurta || '');
-
     var corInicial = p.cores && p.cores[0];
     var imagensBase = (corInicial && corInicial.imagens && corInicial.imagens.length) ? corInicial.imagens : p.imagens;
     var preco = TurkFitProdutos.formatarPreco(p.preco);
 
-    // SEO dinâmico — a ficha é servida a partir de um template único,
-    // então título/OG/Twitter/canonical só ficam corretos depois do fetch.
-    var urlAbsolutaImagem = imagensBase && imagensBase[0]
-      ? 'https://www.turkfitness.com.br/assets/produtos/' + imagensBase[0].arquivo
-      : 'https://www.turkfitness.com.br/assets/hero/look-01.webp';
-    var urlAbsolutaPagina = 'https://www.turkfitness.com.br/produto/' + p.slug + '.html';
-    var descricaoSeo = p.descricaoCurta || p.descricaoCompleta || '';
-    [
-      ['meta[property="og:title"]', 'content', p.nome + ' — Turk Fitness'],
-      ['meta[property="og:description"]', 'content', descricaoSeo],
-      ['meta[property="og:url"]', 'content', urlAbsolutaPagina],
-      ['meta[property="og:image"]', 'content', urlAbsolutaImagem],
-      ['meta[name="twitter:title"]', 'content', p.nome + ' — Turk Fitness'],
-      ['meta[name="twitter:description"]', 'content', descricaoSeo],
-      ['meta[name="twitter:image"]', 'content', urlAbsolutaImagem],
-      ['link[rel="canonical"]', 'href', urlAbsolutaPagina],
-    ].forEach(function(par){
-      var elemento = document.querySelector(par[0]);
-      if(elemento) elemento.setAttribute(par[1], par[2]);
-    });
+    // SEO agora é gerado de forma estática por produto (ver painel-turkfitness/
+    // seo-produto.js) direto no HTML de cada ficha — title, description, OG,
+    // Twitter, canonical e JSON-LD já chegam certos no primeiro carregamento,
+    // sem depender deste fetch. Por isso não sobrescrevemos mais essas tags
+    // aqui (evita reverter pra uma versão genérica depois do JS rodar).
 
     var badgesHtml = (p.badges || []).map(function(b){ return '<span class="produto-badge">' + (badgeLabel[b] || b) + '</span>'; }).join('');
 

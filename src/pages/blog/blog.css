@@ -22,7 +22,7 @@
 .blog-post__conteudo ul{margin:0 0 18px 22px}
 .blog-post__conteudo li{margin-bottom:8px}
 .blog-post__conteudo li::marker{color:var(--mint)}
-.blog-post__cta{margin-top:48px;padding:28px;border:1px solid var(--hair-strong);border-radius:var(--raio-lg);background:rgba(123,232,196,0.05);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.blog-post__cta{margin-top:48px;padding:28px;border:1px solid var(--hair-strong);border-radius:var(--raio-lg);background:linear-gradient(rgba(123,232,196,0.05),rgba(123,232,196,0.05)),var(--bg-1);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .blog-post__cta p{margin:0;color:var(--white);font-weight:500}
 @media(max-width:980px){.blog-lista{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.blog-lista{grid-template-columns:1fr}.blog-card__corpo{padding:18px}.blog-post__imagem{margin:24px 0}.blog-post__cta{flex-direction:column;align-items:flex-start}}

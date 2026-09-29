@@ -11,7 +11,7 @@
       if(!posts.length){vazio.hidden=false;return;}
       vazio.hidden=true;
       lista.innerHTML=posts.map(function(p){
-        return '<a class="blog-card" href="blog-post.html?slug='+encodeURIComponent(p.slug)+'">'+
+        return '<a class="blog-card" href="blog/'+encodeURIComponent(p.slug)+'.html">'+
           (p.imagem?'<div class="blog-card__imagem"><img src="'+esc(p.imagem)+'" alt="'+esc(p.titulo)+'" loading="lazy"></div>':'')+
           '<div class="blog-card__corpo">'+
           '<div class="blog-card__data">'+(p.categoria?esc(p.categoria)+' · ':'')+data(p.dataPublicacao)+'</div>'+
