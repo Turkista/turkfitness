@@ -6,7 +6,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node --test test-seo.test.js"
+    "test": "node --test test-seo.test.js",
+    "backfill:static": "node backfill-static-pages.js"
   },
   "dependencies": {
     "express": "^4.19.2",
