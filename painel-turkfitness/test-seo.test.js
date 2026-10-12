@@ -22,6 +22,32 @@ test('a página inicial usa a raiz como URL canônica e Open Graph', () => {
   assert.doesNotMatch(html, /rel="canonical" href="https:\/\/www\.turkfitness\.com\.br\/index\.html"/);
 });
 
+test('descrições SEO e Open Graph das páginas principais permanecem alinhadas', () => {
+  const paginas = [
+    'index.html',
+    'catalogo.html',
+    'blog.html',
+    'blog-post.html',
+    'como-cuidar-da-peca.html',
+    'contato.html',
+    'faq.html',
+    'politica-de-envio-e-prazo-de-entrega.html',
+    'politica-de-privacidade.html',
+    'politica-de-troca-e-reembolso.html',
+    'rastreie-seu-pedido.html',
+    'sobre-a-marca.html',
+  ];
+
+  for (const pagina of paginas) {
+    const html = fs.readFileSync(path.join(raiz, pagina), 'utf8');
+    const descricao = html.match(/<meta name="description" content="([^"]*)">/i)?.[1];
+    const ogDescricao = html.match(/<meta property="og:description" content="([^"]*)">/i)?.[1];
+    assert.ok(descricao, `Meta description ausente: ${pagina}`);
+    assert.ok(ogDescricao, `Open Graph description ausente: ${pagina}`);
+    assert.equal(ogDescricao, descricao, `Meta description divergente do Open Graph: ${pagina}`);
+  }
+});
+
 test('cada produto publicado gera SKU único no JSON-LD', () => {
   const skus = produtos.map((produto) => {
     const seo = construirSeoProduto(produto, base);
