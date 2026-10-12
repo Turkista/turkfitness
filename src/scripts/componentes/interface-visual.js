@@ -1,24 +1,27 @@
 (function(){
-  // brilho que segue o cursor (mesmo efeito do padrão de marca)
+  // Move o brilho com transform para evitar alterar left/top a cada movimento.
   var glow = document.getElementById('glow');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(glow){
-    if(!reduce){
+    if(!reduce && window.matchMedia('(hover: hover) and (min-width: 701px)').matches){
       window.addEventListener('mousemove', function(e){
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
-      });
+        glow.style.setProperty('--cursor-x', e.clientX + 'px');
+        glow.style.setProperty('--cursor-y', e.clientY + 'px');
+      }, { passive: true });
     } else {
       glow.style.display = 'none';
     }
   }
 
-  // botão flutuante do WhatsApp aparece após pequeno scroll
+  // Atualiza o botão flutuante apenas quando cruza o limite de rolagem.
   var whats = document.querySelector('[data-whatsapp-flutuante]');
   if(whats){
     var tick = false;
     function verificarScroll(){
-      if(window.scrollY > 200){ whats.classList.add('esta-visivel'); }
+      var deveMostrar = window.scrollY > 200;
+      if(deveMostrar !== whats.classList.contains('esta-visivel')){
+        whats.classList.toggle('esta-visivel', deveMostrar);
+      }
       tick = false;
     }
     window.addEventListener('scroll', function(){
