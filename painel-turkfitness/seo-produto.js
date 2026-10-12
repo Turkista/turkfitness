@@ -24,9 +24,9 @@ const CATEGORIA_TITULO = {
   legging: 'Legging',
   top: 'Top Fitness',
   conjunto: 'Conjunto Fitness',
-  short: 'Short Fitness',
+  top: /\btop\b/i,
   regata: 'Regata Fitness',
-  jaqueta: 'Jaqueta Fitness',
+  short: /\bshort\b/i,
   acessorio: 'Acessório',
 };
 
