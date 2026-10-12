@@ -454,3 +454,11 @@ test('fontes externas usam display optional para reduzir mudanças de layout na 
   assert.match(html, /fonts\.googleapis\.com[^"']*display=optional/i);
   assert.doesNotMatch(html, /fonts\.googleapis\.com[^"']*display=swap/i);
 });
+
+
+test('a vitrine da home adia a consulta de produtos até se aproximar da área visível', () => {
+  const script = fs.readFileSync(path.join(raiz, 'src/scripts/componentes/home-dinamico.js'), 'utf8');
+  assert.match(script, /IntersectionObserver/);
+  assert.match(script, /rootMargin:\s*'400px 0px'/);
+  assert.match(script, /carregamentoIniciado/);
+});
