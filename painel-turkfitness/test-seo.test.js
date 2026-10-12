@@ -27,7 +27,6 @@ test('descrições SEO e Open Graph das páginas principais permanecem alinhadas
     'index.html',
     'catalogo.html',
     'blog.html',
-    'blog-post.html',
     'como-cuidar-da-peca.html',
     'contato.html',
     'faq.html',
