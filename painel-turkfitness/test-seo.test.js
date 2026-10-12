@@ -124,6 +124,18 @@ test('todas as páginas estáticas publicadas têm canonical e JSON-LD atualizad
 });
 
 
+test('páginas estáticas publicadas não exibem link para categoria sem produtos', () => {
+  const arquivos = [
+    ...produtos.map((produto) => path.join(raiz, 'produto', `${produto.slug}.html`)),
+    ...posts.map((post) => path.join(raiz, 'blog', `${post.slug}.html`)),
+  ];
+
+  for (const arquivo of arquivos) {
+    const html = fs.readFileSync(arquivo, 'utf8');
+    assert.doesNotMatch(html, /catalogo\.html#regata/i, `Link obsoleto para Regatas: ${path.relative(raiz, arquivo)}`);
+  }
+});
+
 test('IDs e slugs de produtos e artigos publicados são únicos', () => {
   const idsProdutos = produtos.map((produto) => produto.id);
   const slugsProdutos = produtos.map((produto) => produto.slug);
