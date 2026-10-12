@@ -128,18 +128,18 @@ test('páginas estáticas publicadas têm conteúdo inicial indexável', () => {
   for (const produto of produtos) {
     const arquivo = path.join(raiz, 'produto', `${produto.slug}.html`);
     const html = fs.readFileSync(arquivo, 'utf8');
-    assert.match(html, /<title>[^<]+<\\/title>/i, `Title ausente: ${produto.slug}`);
+    assert.match(html, /<title>[^<]+<\/title>/i, `Title ausente: ${produto.slug}`);
     assert.match(html, /<meta name="description" content="[^"]+">/i, `Meta description ausente: ${produto.slug}`);
-    assert.match(html, /<h1\\b[^>]*>\\s*[^<]+\\s*<\\/h1>/i, `H1 ausente no HTML inicial: ${produto.slug}`);
+    assert.match(html, /<h1\b[^>]*>\s*[^<]+\s*<\/h1>/i, `H1 ausente no HTML inicial: ${produto.slug}`);
     assert.match(html, /<img[^>]+loading="eager"[^>]+fetchpriority="high"/i, `Imagem principal sem prioridade de carregamento: ${produto.slug}`);
   }
 
   for (const post of posts) {
     const arquivo = path.join(raiz, 'blog', `${post.slug}.html`);
     const html = fs.readFileSync(arquivo, 'utf8');
-    assert.match(html, /<title>[^<]+<\\/title>/i, `Title ausente: ${post.slug}`);
+    assert.match(html, /<title>[^<]+<\/title>/i, `Title ausente: ${post.slug}`);
     assert.match(html, /<meta name="description" content="[^"]+">/i, `Meta description ausente: ${post.slug}`);
-    assert.match(html, /<h1\\b[^>]*>\\s*[^<]+\\s*<\\/h1>/i, `H1 ausente no HTML inicial: ${post.slug}`);
+    assert.match(html, /<h1\b[^>]*>\s*[^<]+\s*<\/h1>/i, `H1 ausente no HTML inicial: ${post.slug}`);
   }
 });
 
