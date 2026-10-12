@@ -70,7 +70,9 @@ function construirSeoProduto(produto, urlBase) {
     name: produto.nome,
     description: limparEspacos(produto.descricaoCompleta || produto.descricaoCurta),
     image: [urlImagem],
-    sku: produto.id,
+    // Os IDs legados do catálogo não são todos únicos. O slug da página é
+    // estável e exclusivo e evita SKU duplicado no JSON-LD entre produtos.
+    sku: produto.slug || produto.id,
     brand: { '@type': 'Brand', name: 'Turk Fitness' },
     category: categoriaLabel,
   };
