@@ -14,6 +14,31 @@
     return mapa[cat] || cat;
   }
 
+  // Alguns itens com short são cadastrados corretamente como conjuntos.
+  // O filtro "Shorts" deve considerar também o nome e as tags do produto.
+  function correspondeCategoria(produto, categoria){
+    if(categoria === 'short'){
+      return produto.categoria === 'short' ||
+        /\bshorts?\b/i.test(produto.nome || '') ||
+        (produto.tags || []).some(function(tag){ return /\bshorts?\b/i.test(tag); });
+    }
+    return produto.categoria === categoria;
+  }
+
+  function atualizarFiltrosDisponiveis(){
+    botoesFiltro.forEach(function(botao){
+      var categoria = botao.getAttribute('data-filtro-categoria');
+      var disponivel = categoria === 'todas' || todos.some(function(produto){
+        return correspondeCategoria(produto, categoria);
+      });
+      botao.style.display = disponivel ? '' : 'none';
+      if(!disponivel && categoriaAtiva === categoria) categoriaAtiva = 'todas';
+    });
+    botoesFiltro.forEach(function(botao){
+      botao.setAttribute('aria-pressed', botao.getAttribute('data-filtro-categoria') === categoriaAtiva ? 'true' : 'false');
+    });
+  }
+
   function cardHtml(p){
     var img = (p.imagens && p.imagens[0]) ? 'assets/produtos/' + p.imagens[0].arquivo : '';
     var alt = (p.imagens && p.imagens[0] && p.imagens[0].alt) || p.nome;
@@ -45,7 +70,7 @@
 
   function renderizar(){
     var filtrados = todos.filter(function(p){
-      var passaCategoria = categoriaAtiva === 'todas' || p.categoria === categoriaAtiva;
+      var passaCategoria = categoriaAtiva === 'todas' || correspondeCategoria(p, categoriaAtiva);
       var passaBusca = !termoBusca || (p.nome + ' ' + (p.tags||[]).join(' ')).toLowerCase().indexOf(termoBusca) > -1;
       return passaCategoria && passaBusca;
     });
@@ -72,8 +97,19 @@
   // ativa a categoria vinda da hash da URL (ex.: catalogo.html#legging)
   function aplicarCategoriaDaHash(){
     var hash = window.location.hash.replace('#','');
-    var alvo = hash ? document.querySelector('[data-filtro-categoria="' + hash + '"]') : document.querySelector('[data-filtro-categoria="todas"]');
-    if(alvo) alvo.click();
+    var alvo = Array.prototype.find.call(botoesFiltro, function(botao){
+      return botao.getAttribute('data-filtro-categoria') === (hash || 'todas') &&
+        botao.style.display !== 'none';
+    });
+    if(alvo) {
+      alvo.click();
+    } else {
+      categoriaAtiva = 'todas';
+      botoesFiltro.forEach(function(botao){
+        botao.setAttribute('aria-pressed', botao.getAttribute('data-filtro-categoria') === 'todas' ? 'true' : 'false');
+      });
+      renderizar();
+    }
   }
   aplicarCategoriaDaHash();
 
@@ -83,6 +119,8 @@
 
   TurkFitProdutos.buscarIndice().then(function(lista){
     todos = lista;
+    atualizarFiltrosDisponiveis();
+    aplicarCategoriaDaHash();
     renderizar();
   });
 })();
