@@ -326,7 +326,7 @@ test('cadastros individuais correspondem ao índice do catálogo em todos os cam
 });
 
 test('sitemap não contém URLs duplicadas nem rotas de produto/artigo não publicadas', () => {
-  const urls = [...sitemap.matchAll(/<loc>(.*?)<\\/loc>/g)].map((match) => match[1]);
+  const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
   assert.equal(new Set(urls).size, urls.length, 'URL duplicada no sitemap');
 
   const produtoUrls = urls.filter((url) => url.includes('/produto/'));
