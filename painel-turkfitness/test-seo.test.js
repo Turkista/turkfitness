@@ -245,3 +245,22 @@ test('geradores incluem título e conteúdo principal no HTML inicial', () => {
   assert.ok(!htmlBlog.includes('Carregando…'), 'Placeholder do artigo permaneceu');
   assert.ok(!htmlBlog.includes('{{CONTEUDO_ESTATICO}}'), 'Placeholder do conteúdo do artigo permaneceu');
 });
+
+
+test('páginas estáticas publicadas entregam título e conteúdo sem esperar JavaScript', () => {
+  for (const produto of produtos) {
+    const html = fs.readFileSync(path.join(raiz, 'produto', `${produto.slug}.html`), 'utf8');
+    assert.ok(html.includes('<h1>'), `H1 ausente no produto: ${produto.slug}`);
+    assert.ok(html.includes('produto-info__descricao'), `Descrição ausente no produto: ${produto.slug}`);
+    assert.ok(!html.includes('Carregando produto'), `Placeholder no produto: ${produto.slug}`);
+    assert.ok(!html.includes('{{CONTEUDO_ESTATICO}}'), `Placeholder de conteúdo no produto: ${produto.slug}`);
+  }
+
+  for (const post of posts) {
+    const html = fs.readFileSync(path.join(raiz, 'blog', `${post.slug}.html`), 'utf8');
+    assert.ok(html.includes('<h1>'), `H1 ausente no artigo: ${post.slug}`);
+    assert.ok(html.includes('blog-post__conteudo'), `Conteúdo ausente no artigo: ${post.slug}`);
+    assert.ok(!html.includes('Carregando…'), `Placeholder no artigo: ${post.slug}`);
+    assert.ok(!html.includes('{{CONTEUDO_ESTATICO}}'), `Placeholder de conteúdo no artigo: ${post.slug}`);
+  }
+});
