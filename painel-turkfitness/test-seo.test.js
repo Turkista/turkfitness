@@ -418,3 +418,23 @@ test('filtros do catálogo correspondem às categorias publicadas ou a produtos 
   assert.match(script, /function atualizarFiltrosDisponiveis/);
   assert.doesNotMatch(catalogo, /catalogo\.html#regata/);
 });
+
+
+test('imagens estáticas da página inicial reservam espaço antes do carregamento', () => {
+  const html = fs.readFileSync(path.join(raiz, 'index.html'), 'utf8');
+  const imagens = [...html.matchAll(/<img\\b[^>]*>/gi)].map((match) => match[0]);
+  assert.ok(imagens.length > 0, 'A página inicial deve conter imagens');
+  for (const imagem of imagens) {
+    assert.match(imagem, /\\bwidth="\\d+"/i, `Largura ausente: ${imagem.slice(0, 120)}`);
+    assert.match(imagem, /\\bheight="\\d+"/i, `Altura ausente: ${imagem.slice(0, 120)}`);
+  }
+});
+
+test('botão flutuante do WhatsApp começa oculto e é controlado pela rolagem', () => {
+  const html = fs.readFileSync(path.join(raiz, 'index.html'), 'utf8');
+  const botao = html.match(/<a\\b[^>]*data-whatsapp-flutuante[^>]*>/i)?.[0];
+  assert.ok(botao, 'Botão flutuante do WhatsApp ausente');
+  assert.doesNotMatch(botao, /class="[^"]*\\besta-visivel\\b/i);
+  const script = fs.readFileSync(path.join(raiz, 'src/scripts/componentes/interface-visual.js'), 'utf8');
+  assert.match(script, /classList\\.toggle\\('esta-visivel', deveMostrar\\)/);
+});
