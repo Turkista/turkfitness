@@ -15,7 +15,7 @@
       '<div class="card-produto">' +
         '<a href="produto/' + p.slug + '.html" class="card-produto__link-completo">' +
           '<div class="card-produto__imagem">' +
-            (img ? '<img src="' + img + '" alt="' + alt + '" loading="lazy" decoding="async" onerror="this.style.display=\'none\'">' : '') +
+            (img ? '<img src="' + img + '" width="1000" height="1333" alt="' + alt + '" loading="lazy" decoding="async" onerror="this.style.display=\'none\'">' : '') +
           '</div>' +
           '<div class="card-produto__corpo">' +
             '<h3 class="card-produto__nome">' + p.nome + '</h3>' +
