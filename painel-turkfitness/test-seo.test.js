@@ -41,6 +41,7 @@ test('todos os produtos publicados geram título e meta description dentro do li
   for (const produto of produtos) {
     const seo = construirSeoProduto(produto, base);
     assert.ok(seo.titulo.trim().length > 0, `Título ausente: ${produto.slug}`);
+    assert.ok(seo.titulo.length <= 65, `Título SEO longo demais: ${produto.slug} (${seo.titulo.length})`);
     assert.ok(seo.descricao.length <= 160, `Descrição longa demais: ${produto.slug}`);
   }
 });
@@ -72,6 +73,7 @@ test('as meta descriptions geradas para artigos não excedem 160 caracteres', ()
     const seo = construirSeoBlog(post, base);
     assert.ok(seo.descricao.length <= 160, `Descrição longa demais: ${post.slug}`);
     assert.ok(seo.titulo.trim().length > 0, `Título ausente: ${post.slug}`);
+    assert.ok(seo.titulo.length <= 65, `Título SEO longo demais: ${post.slug} (${seo.titulo.length})`);
     assert.equal(JSON.parse(seo.jsonLdTag)['@type'], 'BlogPosting');
     const breadcrumb = JSON.parse(seo.breadcrumbJsonLdTag);
     assert.equal(breadcrumb['@type'], 'BreadcrumbList');
@@ -264,5 +266,31 @@ test('páginas estáticas publicadas entregam título e conteúdo sem esperar Ja
     assert.ok(!html.includes('Carregando…'), `Placeholder no artigo: ${post.slug}`);
     assert.ok(!html.includes('](/'), `Link Markdown não renderizado no artigo: ${post.slug}`);
     assert.ok(!html.includes('{{CONTEUDO_ESTATICO}}'), `Placeholder de conteúdo no artigo: ${post.slug}`);
+  }
+});
+
+
+test('títulos HTML estáticos correspondem aos geradores SEO e respeitam 65 caracteres', () => {
+  function textoDoTitle(html) {
+    const linha = html.split('\n').find((item) => item.startsWith('<title>'));
+    assert.ok(linha, 'Tag title ausente');
+    return linha.replace('<title>', '').replace('</title>', '')
+      .replace(/&amp;/g, '&').replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+  }
+
+  for (const produto of produtos) {
+    const html = fs.readFileSync(path.join(raiz, 'produto', `${produto.slug}.html`), 'utf8');
+    const cadastro = lerJson(`src/content/produtos/${produto.slug}.json`);
+    const titulo = textoDoTitle(html);
+    assert.equal(titulo, construirSeoProduto(cadastro, base).titulo, `Título HTML fora de sincronia: ${produto.slug}`);
+    assert.ok(titulo.length <= 65, `Título HTML muito longo: ${produto.slug}`);
+  }
+
+  for (const post of posts) {
+    const html = fs.readFileSync(path.join(raiz, 'blog', `${post.slug}.html`), 'utf8');
+    const titulo = textoDoTitle(html);
+    assert.equal(titulo, construirSeoBlog(post, base).titulo, `Título HTML fora de sincronia: ${post.slug}`);
+    assert.ok(titulo.length <= 65, `Título HTML muito longo: ${post.slug}`);
   }
 });

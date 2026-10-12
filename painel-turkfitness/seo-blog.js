@@ -24,7 +24,7 @@ function construirSeoBlog(post, urlBase) {
     : `${urlBase}/assets/hero/turk-fitness-og-padrao.jpg`;
   const urlPagina = `${urlBase}/blog/${post.slug}.html`;
 
-  const titulo = `${post.titulo} — Blog Turk Fitness`;
+  const titulo = limparEspacos(post.tituloSeo) || `${post.titulo} — Blog Turk Fitness`;
 
   const descricaoBase = limparEspacos(post.resumo);
   let descricao = descricaoBase;

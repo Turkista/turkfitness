@@ -20,6 +20,26 @@ const CATEGORIA_LABEL = {
   acessorio: 'Acessório Fitness',
 };
 
+const CATEGORIA_TITULO = {
+  legging: 'Legging',
+  top: 'Top Fitness',
+  conjunto: 'Conjunto Fitness',
+  short: 'Short Fitness',
+  regata: 'Regata Fitness',
+  jaqueta: 'Jaqueta Fitness',
+  acessorio: 'Acessório',
+};
+
+const CATEGORIA_JA_NO_NOME = {
+  legging: /legging/i,
+  top: /\btop\b/i,
+  conjunto: /conjunto/i,
+  short: /\bshort\b/i,
+  regata: /regata/i,
+  jaqueta: /jaqueta/i,
+  acessorio: /tiara|xuxinha|acessório|acessorio/i,
+};
+
 // Direto do enum "status" do schema oficial (src/schema/produto.schema.json) —
 // é a única fonte confiável de disponibilidade que existe no cadastro hoje.
 const DISPONIBILIDADE_POR_STATUS = {
@@ -49,7 +69,11 @@ function construirSeoProduto(produto, urlBase) {
     : `${urlBase}/assets/hero/turk-fitness-og-padrao.jpg`;
   const urlPagina = `${urlBase}/produto/${produto.slug}.html`;
 
-  const titulo = `${produto.nome} — ${categoriaLabel} | Turk Fitness`;
+  const categoriaTitulo = CATEGORIA_TITULO[produto.categoria] || 'Moda Fitness';
+  const nomeJaIncluiCategoria = (CATEGORIA_JA_NO_NOME[produto.categoria] || /$a/).test(produto.nome);
+  const titulo = nomeJaIncluiCategoria
+    ? `${produto.nome} | Turk Fitness`
+    : `${produto.nome} — ${categoriaTitulo} | Turk Fitness`;
 
   // meta description: parte da descrição curta já cadastrada, completando
   // com o benefício de frete (mesma informação da faixa fixa do topo do
