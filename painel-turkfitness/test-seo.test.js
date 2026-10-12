@@ -90,3 +90,32 @@ test('o sitemap inclui todas as páginas de produto e artigos publicados', () =>
   assert.ok(urls.has(`${base}/`), 'Página inicial ausente do sitemap');
   assert.ok(urls.has(`${base}/catalogo.html`), 'Catálogo ausente do sitemap');
 });
+
+
+test('todas as páginas estáticas publicadas têm canonical e JSON-LD atualizado', () => {
+  for (const produto of produtos) {
+    const arquivo = path.join(raiz, 'produto', `${produto.slug}.html`);
+    const html = fs.readFileSync(arquivo, 'utf8');
+    assert.match(html, new RegExp(`<link rel="canonical" href="${base}/produto/${produto.slug}\\.html">`), `Canonical incorreto: ${produto.slug}`);
+    const scripts = [...html.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/g)];
+    const dados = scripts.map((match) => JSON.parse(match[1]));
+    const produtoLd = dados.find((item) => item['@type'] === 'Product');
+    const breadcrumb = dados.find((item) => item['@type'] === 'BreadcrumbList');
+    assert.ok(produtoLd, `Product JSON-LD ausente: ${produto.slug}`);
+    assert.equal(produtoLd.sku, produto.slug, `SKU estático incorreto: ${produto.slug}`);
+    assert.ok(breadcrumb, `BreadcrumbList ausente: ${produto.slug}`);
+    assert.equal(breadcrumb.itemListElement[2].item, `${base}/produto/${produto.slug}.html`);
+  }
+
+  for (const post of posts) {
+    const arquivo = path.join(raiz, 'blog', `${post.slug}.html`);
+    const html = fs.readFileSync(arquivo, 'utf8');
+    assert.match(html, new RegExp(`<link rel="canonical" href="${base}/blog/${post.slug}\\.html">`), `Canonical incorreto: ${post.slug}`);
+    const scripts = [...html.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/g)];
+    const dados = scripts.map((match) => JSON.parse(match[1]));
+    assert.ok(dados.some((item) => item['@type'] === 'BlogPosting'), `BlogPosting JSON-LD ausente: ${post.slug}`);
+    const breadcrumb = dados.find((item) => item['@type'] === 'BreadcrumbList');
+    assert.ok(breadcrumb, `BreadcrumbList ausente: ${post.slug}`);
+    assert.equal(breadcrumb.itemListElement[2].item, `${base}/blog/${post.slug}.html`);
+  }
+});
