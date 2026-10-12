@@ -5,6 +5,11 @@ on:
     paths:
       - 'index.html'
       - 'sitemap.xml'
+      - 'produto/**'
+      - 'blog/**'
+      - 'produto/_template.html'
+      - 'blog/_template.html'
+      - 'catalogo.html'
       - 'src/content/produtos/**'
       - 'src/content/blog/**'
       - 'painel-turkfitness/**'
