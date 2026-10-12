@@ -29,7 +29,10 @@ function construirSeoBlog(post, urlBase) {
   const descricaoBase = limparEspacos(post.resumo);
   let descricao = descricaoBase;
   if (descricao.length > 160) {
-    descricao = descricao.slice(0, 157).trim() + '...';
+    // Evita cortar palavras no meio e mantém a descrição dentro de 160 caracteres.
+    const limite = descricao.slice(0, 157);
+    const corte = limite.lastIndexOf(' ');
+    descricao = (corte > 0 ? limite.slice(0, corte) : limite).trim() + '...';
   }
 
   const jsonLd = {
