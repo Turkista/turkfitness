@@ -208,7 +208,7 @@ test('links contextuais dos artigos apontam para páginas internas existentes ou
   ]);
 
   for (const post of posts) {
-    const links = [...post.conteudo.matchAll(/\\[([^\\]]+)\\]\\(([^)]+)\\)/g)];
+    const links = [...post.conteudo.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)];
     assert.ok(links.length > 0, `Artigo sem links contextuais: ${post.slug}`);
     let linksInternos = 0;
 
