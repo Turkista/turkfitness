@@ -341,3 +341,24 @@ test('sitemap não contém URLs duplicadas nem rotas de produto/artigo não publ
     assert.ok(posts.some((post) => url === `${base}/blog/${post.slug}.html`), `Artigo no sitemap não está publicado: ${url}`);
   }
 });
+
+
+test('filtros do catálogo correspondem às categorias publicadas ou a produtos com short', () => {
+  const catalogo = fs.readFileSync(path.join(raiz, 'catalogo.html'), 'utf8');
+  const script = fs.readFileSync(path.join(raiz, 'src/scripts/componentes/catalogo-dinamico.js'), 'utf8');
+  const filtros = [...catalogo.matchAll(/data-filtro-categoria="([^"]+)"/g)].map((match) => match[1]);
+  const categorias = new Set(produtos.map((produto) => produto.categoria));
+
+  for (const filtro of filtros.filter((categoria) => categoria !== 'todas')) {
+    const temCategoria = categorias.has(filtro);
+    const temShortEmConjunto = filtro === 'short' && produtos.some((produto) =>
+      /\\bshorts?\\b/i.test(produto.nome || '') ||
+      (produto.tags || []).some((tag) => /\\bshorts?\\b/i.test(tag)),
+    );
+    assert.ok(temCategoria || temShortEmConjunto, `Filtro sem produto correspondente: ${filtro}`);
+  }
+
+  assert.match(script, /function correspondeCategoria/);
+  assert.match(script, /function atualizarFiltrosDisponiveis/);
+  assert.doesNotMatch(catalogo, /catalogo\\.html#regata/);
+});
