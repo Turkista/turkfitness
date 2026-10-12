@@ -153,8 +153,11 @@ test('produtos publicados cumprem os campos essenciais do cadastro e sincronizam
     assert.ok(produto.composicao && typeof produto.composicao.tecido === 'string' && produto.composicao.tecido.trim(), `Composição/tecido ausente: ${resumo.slug}`);
     assert.ok(Array.isArray(produto.cores) && produto.cores.length > 0, `Cores ausentes: ${resumo.slug}`);
     assert.ok(Array.isArray(produto.tamanhos) && produto.tamanhos.length > 0, `Tamanhos ausentes: ${resumo.slug}`);
+    assert.ok(produto.tamanhos.every((tamanho) => ['PP', 'P', 'M', 'G', 'GG'].includes(tamanho)), `Tamanho fora do schema: ${resumo.slug}`);
+    assert.ok(Array.isArray(produto.cores) && produto.cores.every((cor) => cor.nome && /^#[0-9A-Fa-f]{6}$/.test(cor.hex) && Array.isArray(cor.imagens) && cor.imagens.length > 0), `Cor fora do schema: ${resumo.slug}`);
     assert.ok(Array.isArray(produto.imagens) && produto.imagens.length > 0, `Imagens ausentes: ${resumo.slug}`);
     assert.ok(produto.imagens.every((imagem) => imagem.arquivo && imagem.alt), `Imagem sem arquivo ou alt: ${resumo.slug}`);
+    assert.ok(produto.imagens.every((imagem) => fs.existsSync(path.join(raiz, 'assets', 'produtos', imagem.arquivo))), `Arquivo de imagem não encontrado: ${resumo.slug}`);
     assert.ok(statusPermitidos.has(produto.status), `Status inválido: ${resumo.slug}`);
     if (produto.preco?.valor != null) assert.ok(Number.isFinite(produto.preco.valor) && produto.preco.valor > 0, `Preço inválido: ${resumo.slug}`);
   }
@@ -176,4 +179,13 @@ test('geradores do painel evitam reutilizar IDs já existentes', () => {
 
   const idPostColisao = gerarIdPost('artigo-de-teste', [...idsPosts, idPost]);
   assert.notEqual(idPostColisao, idPost);
+});
+
+
+test('artigos publicados têm identificador e conteúdo essencial', () => {
+  for (const post of posts) {
+    assert.match(post.id, /^post_[a-z0-9]+$/, `ID de artigo inválido: ${post.slug}`);
+    assert.ok(post.slug && post.titulo && post.resumo && post.conteudo, `Conteúdo essencial ausente: ${post.slug}`);
+    assert.ok(['publicado', 'rascunho', 'esgotado', 'descontinuado'].includes(post.status), `Status de artigo inválido: ${post.slug}`);
+  }
 });
