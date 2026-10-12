@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node server.js",
     "test": "node --test test-seo.test.js",
-    "backfill:static": "node backfill-static-pages.js"
+    "backfill:static": "node backfill-static-pages.js",
+    "images:optimize": "node otimizar-imagens-existentes.js"
   },
   "dependencies": {
     "express": "^4.19.2",
