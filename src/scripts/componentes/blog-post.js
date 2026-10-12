@@ -13,8 +13,18 @@
   function esc(v){return String(v||'').replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];});}
   function data(v){if(!v)return '';var d=new Date(v+'T00:00:00');return isNaN(d)?esc(v):d.toLocaleDateString('pt-BR');}
 
-  // Conversor leve de "markdown" (## / ### / listas com "- " / parágrafos)
-  // para HTML, aplicado SOBRE o texto já escapado — não introduz XSS.
+  // Converte links Markdown simples depois de escapar o texto.
+  // Só permite destinos relativos/absolutos do próprio site ou HTTPS externo.
+  function renderizarInline(texto){
+    return texto.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,function(match,rotulo,destino){
+      if(!/^(https:\/\/|\/|\.\/|\.\.\/)/i.test(destino)) return rotulo;
+      var externo=/^https:\/\//i.test(destino);
+      return '<a href="'+destino+'"'+(externo?' target="_blank" rel="noopener noreferrer"':'')+'>'+rotulo+'</a>';
+    });
+  }
+
+  // Conversor leve de Markdown (## / ### / listas / parágrafos / links),
+  // aplicado SOBRE o texto já escapado — não introduz HTML arbitrário.
   function renderizarConteudo(bruto){
     var linhas=esc(bruto).split(/\r?\n/);
     var html=''; var listaAberta=false;
@@ -22,15 +32,15 @@
     linhas.forEach(function(linha){
       var l=linha.trim();
       if(l===''){ return; }
-      if(l.slice(0,3)==='## '){ fecharLista(); html+='<h2>'+l.slice(3)+'</h2>'; return; }
-      if(l.slice(0,4)==='### '){ fecharLista(); html+='<h3>'+l.slice(4)+'</h3>'; return; }
+      if(l.slice(0,3)==='## '){ fecharLista(); html+='<h2>'+renderizarInline(l.slice(3))+'</h2>'; return; }
+      if(l.slice(0,4)==='### '){ fecharLista(); html+='<h3>'+renderizarInline(l.slice(4))+'</h3>'; return; }
       if(l.slice(0,2)==='- '){
         if(!listaAberta){ html+='<ul>'; listaAberta=true; }
-        html+='<li>'+l.slice(2)+'</li>';
+        html+='<li>'+renderizarInline(l.slice(2))+'</li>';
         return;
       }
       fecharLista();
-      html+='<p>'+l+'</p>';
+      html+='<p>'+renderizarInline(l)+'</p>';
     });
     fecharLista();
     return html;

@@ -189,3 +189,40 @@ test('artigos publicados têm identificador e conteúdo essencial', () => {
     assert.ok(['publicado', 'rascunho', 'esgotado', 'descontinuado'].includes(post.status), `Status de artigo inválido: ${post.slug}`);
   }
 });
+
+
+test('links contextuais dos artigos apontam para páginas internas existentes ou HTTPS', () => {
+  const paginasInternas = new Set([
+    '/',
+    '/catalogo.html',
+    '/sobre-a-marca.html',
+    '/contato.html',
+    '/como-cuidar-da-peca.html',
+    '/faq.html',
+    '/rastreie-seu-pedido.html',
+    '/politica-de-envio-e-prazo-de-entrega.html',
+    '/politica-de-troca-e-reembolso.html',
+    '/politica-de-privacidade.html',
+    ...produtos.map((produto) => `/produto/${produto.slug}.html`),
+    ...posts.map((post) => `/blog/${post.slug}.html`),
+  ]);
+
+  for (const post of posts) {
+    const links = [...post.conteudo.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)];
+    assert.ok(links.length > 0, `Artigo sem links contextuais: ${post.slug}`);
+    let linksInternos = 0;
+
+    for (const [, rotulo, destino] of links) {
+      assert.ok(rotulo.trim(), `Link sem texto âncora: ${post.slug}`);
+      if (destino.startsWith('/')) {
+        const caminho = destino.split(/[?#]/)[0];
+        assert.ok(paginasInternas.has(caminho), `Link interno sem destino conhecido (${destino}) no artigo ${post.slug}`);
+        linksInternos += 1;
+      } else {
+        assert.ok(destino.startsWith('https://'), `Destino externo não HTTPS: ${destino}`);
+      }
+    }
+
+    assert.ok(linksInternos > 0, `Artigo sem links internos: ${post.slug}`);
+  }
+});
