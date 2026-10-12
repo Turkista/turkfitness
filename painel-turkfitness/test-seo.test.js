@@ -352,13 +352,13 @@ test('filtros do catálogo correspondem às categorias publicadas ou a produtos 
   for (const filtro of filtros.filter((categoria) => categoria !== 'todas')) {
     const temCategoria = categorias.has(filtro);
     const temShortEmConjunto = filtro === 'short' && produtos.some((produto) =>
-      /\\bshorts?\\b/i.test(produto.nome || '') ||
-      (produto.tags || []).some((tag) => /\\bshorts?\\b/i.test(tag)),
+      /\bshorts?\b/i.test(produto.nome || '') ||
+      (produto.tags || []).some((tag) => /\bshorts?\b/i.test(tag)),
     );
     assert.ok(temCategoria || temShortEmConjunto, `Filtro sem produto correspondente: ${filtro}`);
   }
 
   assert.match(script, /function correspondeCategoria/);
   assert.match(script, /function atualizarFiltrosDisponiveis/);
-  assert.doesNotMatch(catalogo, /catalogo\\.html#regata/);
+  assert.doesNotMatch(catalogo, /catalogo\.html#regata/);
 });
