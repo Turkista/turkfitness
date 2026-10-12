@@ -27,6 +27,10 @@ test('cada produto publicado gera SKU único no JSON-LD', () => {
     const jsonLd = JSON.parse(seo.jsonLdTag);
     assert.equal(jsonLd['@type'], 'Product');
     assert.equal(jsonLd.sku, produto.slug);
+    const breadcrumb = JSON.parse(seo.breadcrumbJsonLdTag);
+    assert.equal(breadcrumb['@type'], 'BreadcrumbList');
+    assert.equal(breadcrumb.itemListElement.length, 3);
+    assert.equal(breadcrumb.itemListElement[2].item, `${base}/produto/${produto.slug}.html`);
     return jsonLd.sku;
   });
   assert.equal(new Set(skus).size, skus.length, 'SKU duplicado entre produtos publicados');
@@ -68,6 +72,10 @@ test('as meta descriptions geradas para artigos não excedem 160 caracteres', ()
     assert.ok(seo.descricao.length <= 160, `Descrição longa demais: ${post.slug}`);
     assert.ok(seo.titulo.trim().length > 0, `Título ausente: ${post.slug}`);
     assert.equal(JSON.parse(seo.jsonLdTag)['@type'], 'BlogPosting');
+    const breadcrumb = JSON.parse(seo.breadcrumbJsonLdTag);
+    assert.equal(breadcrumb['@type'], 'BreadcrumbList');
+    assert.equal(breadcrumb.itemListElement.length, 3);
+    assert.equal(breadcrumb.itemListElement[2].item, `${base}/blog/${post.slug}.html`);
   }
 });
 
