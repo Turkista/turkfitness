@@ -6,6 +6,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { construirSeoProduto } = require('./seo-produto');
 const { construirSeoBlog } = require('./seo-blog');
+const { gerarIdProduto, gerarIdPost } = require('./ids');
 
 const raiz = path.resolve(__dirname, '..');
 const base = 'https://www.turkfitness.com.br';
@@ -118,4 +119,61 @@ test('todas as páginas estáticas publicadas têm canonical e JSON-LD atualizad
     assert.ok(breadcrumb, `BreadcrumbList ausente: ${post.slug}`);
     assert.equal(breadcrumb.itemListElement[2].item, `${base}/blog/${post.slug}.html`);
   }
+});
+
+
+test('IDs e slugs de produtos e artigos publicados são únicos', () => {
+  const idsProdutos = produtos.map((produto) => produto.id);
+  const slugsProdutos = produtos.map((produto) => produto.slug);
+  const idsPosts = posts.map((post) => post.id);
+  const slugsPosts = posts.map((post) => post.slug);
+
+  assert.equal(new Set(idsProdutos).size, idsProdutos.length, 'ID duplicado no índice de produtos');
+  assert.equal(new Set(slugsProdutos).size, slugsProdutos.length, 'Slug duplicado no índice de produtos');
+  assert.equal(new Set(idsPosts).size, idsPosts.length, 'ID duplicado no índice do blog');
+  assert.equal(new Set(slugsPosts).size, slugsPosts.length, 'Slug duplicado no índice do blog');
+});
+
+test('produtos publicados cumprem os campos essenciais do cadastro e sincronizam com o índice', () => {
+  const categoriasPermitidas = new Set(['legging', 'top', 'conjunto', 'short', 'regata', 'jaqueta', 'acessorio']);
+  const statusPermitidos = new Set(['rascunho', 'publicado', 'esgotado', 'descontinuado']);
+
+  for (const resumo of produtos) {
+    const produto = lerJson(`src/content/produtos/${resumo.slug}.json`);
+    assert.equal(produto.id, resumo.id, `ID divergente entre cadastro e índice: ${resumo.slug}`);
+    assert.equal(produto.slug, resumo.slug, `Slug divergente entre cadastro e índice: ${resumo.slug}`);
+    for (const campo of ['id', 'slug', 'nome', 'categoria', 'descricaoCurta', 'composicao', 'cores', 'tamanhos', 'imagens', 'status']) {
+      assert.ok(Object.hasOwn(produto, campo), `Campo obrigatório ausente (${campo}): ${resumo.slug}`);
+    }
+    assert.match(produto.id, /^prod_[a-z0-9]{6,}$/, `Formato de ID inválido: ${resumo.slug}`);
+    assert.match(produto.slug, /^[a-z0-9]+(-[a-z0-9]+)*$/, `Slug inválido: ${resumo.slug}`);
+    assert.ok(String(produto.nome).trim(), `Nome vazio: ${resumo.slug}`);
+    assert.ok(categoriasPermitidas.has(produto.categoria), `Categoria inválida: ${resumo.slug}`);
+    assert.ok(String(produto.descricaoCurta).length <= 160, `Descrição curta excede 160 caracteres: ${resumo.slug}`);
+    assert.ok(produto.composicao && typeof produto.composicao.tecido === 'string' && produto.composicao.tecido.trim(), `Composição/tecido ausente: ${resumo.slug}`);
+    assert.ok(Array.isArray(produto.cores) && produto.cores.length > 0, `Cores ausentes: ${resumo.slug}`);
+    assert.ok(Array.isArray(produto.tamanhos) && produto.tamanhos.length > 0, `Tamanhos ausentes: ${resumo.slug}`);
+    assert.ok(Array.isArray(produto.imagens) && produto.imagens.length > 0, `Imagens ausentes: ${resumo.slug}`);
+    assert.ok(produto.imagens.every((imagem) => imagem.arquivo && imagem.alt), `Imagem sem arquivo ou alt: ${resumo.slug}`);
+    assert.ok(statusPermitidos.has(produto.status), `Status inválido: ${resumo.slug}`);
+    if (produto.preco?.valor != null) assert.ok(Number.isFinite(produto.preco.valor) && produto.preco.valor > 0, `Preço inválido: ${resumo.slug}`);
+  }
+});
+
+test('geradores do painel evitam reutilizar IDs já existentes', () => {
+  const idsProdutos = produtos.map((produto) => produto.id);
+  const idProduto = gerarIdProduto('produto-de-teste', idsProdutos);
+  assert.match(idProduto, /^prod_[a-z0-9]{6,}$/);
+  assert.ok(!idsProdutos.includes(idProduto));
+
+  const idProdutoColisao = gerarIdProduto('produto-de-teste', [...idsProdutos, idProduto]);
+  assert.notEqual(idProdutoColisao, idProduto);
+
+  const idsPosts = posts.map((post) => post.id);
+  const idPost = gerarIdPost('artigo-de-teste', idsPosts);
+  assert.match(idPost, /^post_[a-z0-9]+$/);
+  assert.ok(!idsPosts.includes(idPost));
+
+  const idPostColisao = gerarIdPost('artigo-de-teste', [...idsPosts, idPost]);
+  assert.notEqual(idPostColisao, idPost);
 });
