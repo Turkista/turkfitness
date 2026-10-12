@@ -16,9 +16,9 @@
   // Converte links Markdown simples depois de escapar o texto.
   // Só permite destinos relativos/absolutos do próprio site ou HTTPS externo.
   function renderizarInline(texto){
-    return texto.replace(/\\[([^\\]]+)\\]\\(([^)\\s]+)\\)/g,function(match,rotulo,destino){
-      if(!/^(https:\\/\\/|\\/|\\.\\/|\\.\\.\\/)/i.test(destino)) return rotulo;
-      var externo=/^https:\\/\\//i.test(destino);
+    return texto.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,function(match,rotulo,destino){
+      if(!/^(https:\/\/|\/|\.\/|\.\.\/)/i.test(destino)) return rotulo;
+      var externo=/^https:\/\//i.test(destino);
       return '<a href="'+destino+'"'+(externo?' target="_blank" rel="noopener noreferrer"':'')+'>'+rotulo+'</a>';
     });
   }
