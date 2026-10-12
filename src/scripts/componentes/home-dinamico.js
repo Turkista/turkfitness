@@ -27,12 +27,31 @@
       '</div>';
   }
 
-  TurkFitProdutos.buscarIndice().then(function(lista){
-    var recentes = lista.slice().sort(function(a,b){ return (b.dataCriacao||'').localeCompare(a.dataCriacao||''); }).slice(0,4);
-    if(!recentes.length){
-      vitrine.innerHTML = '<p class="aviso-catalogo">As primeiras peças aparecem aqui assim que forem cadastradas no Painel Turk Fitness.</p>';
-      return;
-    }
-    vitrine.innerHTML = recentes.map(cardHtml).join('');
-  });
+  // A vitrine fica abaixo da dobra: adie a consulta do índice até ela se aproximar
+  // da área visível, evitando competir com os recursos críticos do primeiro quadro.
+  var carregamentoIniciado = false;
+  function carregarVitrine(){
+    if(carregamentoIniciado) return;
+    carregamentoIniciado = true;
+    TurkFitProdutos.buscarIndice().then(function(lista){
+      var recentes = lista.slice().sort(function(a,b){ return (b.dataCriacao||'').localeCompare(a.dataCriacao||''); }).slice(0,4);
+      if(!recentes.length){
+        vitrine.innerHTML = '<p class="aviso-catalogo">As primeiras peças aparecem aqui assim que forem cadastradas no Painel Turk Fitness.</p>';
+        return;
+      }
+      vitrine.innerHTML = recentes.map(cardHtml).join('');
+    });
+  }
+
+  if('IntersectionObserver' in window){
+    var observador = new IntersectionObserver(function(entradas){
+      if(entradas.some(function(entrada){ return entrada.isIntersecting; })){
+        observador.disconnect();
+        carregarVitrine();
+      }
+    }, { rootMargin: '400px 0px' });
+    observador.observe(vitrine);
+  } else {
+    carregarVitrine();
+  }
 })();
