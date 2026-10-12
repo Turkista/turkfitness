@@ -30,7 +30,7 @@
     "dataCriacao": "2026-08-19"
   },
   {
-    "id": "prod_conjunto",
+    "id": "prod_conjuntoazuldark",
     "slug": "conjunto-azul-dark",
     "nome": "Conjunto Azul Dark",
     "categoria": "conjunto",
@@ -95,7 +95,7 @@
     "dataCriacao": "2026-08-22"
   },
   {
-    "id": "prod_conjunto",
+    "id": "prod_conjuntodetreinoazulocen",
     "slug": "conjunto-de-treino-azul-ocen",
     "nome": "Conjunto de treino Azul Ocen",
     "categoria": "conjunto",
@@ -121,7 +121,7 @@
     "dataCriacao": "2026-08-19"
   },
   {
-    "id": "prod_conjunto",
+    "id": "prod_conjuntodetreinolaranjafitness",
     "slug": "conjunto-de-treino-laranja-fitness",
     "nome": "Conjunto de treino Laranja Fitness",
     "categoria": "conjunto",
@@ -188,7 +188,7 @@
     "dataCriacao": "2026-08-22"
   },
   {
-    "id": "prod_conjunto",
+    "id": "prod_conjuntodetreinoshortetopcintila",
     "slug": "conjunto-de-treino-short-e-top-cintila",
     "nome": "Conjunto de treino Short e Top Cintila",
     "categoria": "conjunto",
@@ -245,7 +245,7 @@
     "dataCriacao": "2026-08-22"
   },
   {
-    "id": "prod_conjunto",
+    "id": "prod_conjuntofitnessemlycraazulclaro",
     "slug": "conjunto-fitness-em-lycra-azul-claro",
     "nome": "Conjunto Fitness em Lycra Azul Claro",
     "categoria": "conjunto",
@@ -270,7 +270,7 @@
     "dataCriacao": "2026-08-19"
   },
   {
-    "id": "prod_conjunto",
+    "id": "prod_conjuntofitnesstopcalcaverdan",
     "slug": "conjunto-fitness-top-calca-verdan",
     "nome": "Conjunto Fitness Top + Calça Verdan",
     "categoria": "conjunto",
@@ -296,7 +296,7 @@
     "dataCriacao": "2026-08-19"
   },
   {
-    "id": "prod_conjunto",
+    "id": "prod_conjuntofitnesstopcalca",
     "slug": "conjunto-fitness-top-calca",
     "nome": "Conjunto Fitness Top + Calça",
     "categoria": "conjunto",
@@ -353,7 +353,7 @@
     "dataCriacao": "2026-08-22"
   },
   {
-    "id": "prod_conjunto",
+    "id": "prod_conjuntolilaperfomance",
     "slug": "conjunto-lila-perfomance",
     "nome": "Conjunto Lila Perfomance",
     "categoria": "conjunto",
@@ -378,7 +378,7 @@
     "dataCriacao": "2026-08-19"
   },
   {
-    "id": "prod_conjunto",
+    "id": "prod_conjuntomaro",
     "slug": "conjunto-maro",
     "nome": "Conjunto Maro",
     "categoria": "conjunto",
@@ -526,7 +526,7 @@
     "dataCriacao": "2026-08-21"
   },
   {
-    "id": "prod_conjunto",
+    "id": "prod_conjuntoshorttopflow",
     "slug": "conjunto-short-top-flow",
     "nome": "Conjunto de Short + top",
     "categoria": "conjunto",
@@ -1327,7 +1327,7 @@
     "dataCriacao": "2026-08-19"
   },
   {
-    "id": "prod_xuxinhas",
+    "id": "prod_xuxinhasegredoestamp",
     "slug": "xuxinha-segredo-estamp",
     "nome": "Xuxinha Segredo Estamp",
     "categoria": "acessorio",
@@ -1362,7 +1362,7 @@
     "dataCriacao": "2026-08-19"
   },
   {
-    "id": "prod_xuxinhas",
+    "id": "prod_xuxinhasegredomix",
     "slug": "xuxinha-segredo-mix",
     "nome": "Xuxinha segredo mix",
     "categoria": "acessorio",
@@ -1402,7 +1402,7 @@
     "dataCriacao": "2026-08-19"
   },
   {
-    "id": "prod_xuxinhas",
+    "id": "prod_xuxinhasegredorosa",
     "slug": "xuxinha-segredo-rosa",
     "nome": "Xuxinha segredo rosa",
     "categoria": "acessorio",
@@ -1437,7 +1437,7 @@
     "dataCriacao": "2026-08-19"
   },
   {
-    "id": "prod_xuxinhas",
+    "id": "prod_xuxinhascoloridasdiversas",
     "slug": "xuxinhas-coloridas-diversas",
     "nome": "Xuxinhas coloridas diversas",
     "categoria": "acessorio",
@@ -1482,7 +1482,7 @@
     "dataCriacao": "2026-08-19"
   },
   {
-    "id": "prod_xuxinhas",
+    "id": "prod_xuxinhascoloridas",
     "slug": "xuxinhas-coloridas",
     "nome": "Xuxinhas coloridas",
     "categoria": "acessorio",
