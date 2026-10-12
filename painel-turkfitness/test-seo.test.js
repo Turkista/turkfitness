@@ -219,7 +219,7 @@ test('links contextuais dos artigos apontam para páginas internas existentes ou
         assert.ok(paginasInternas.has(caminho), `Link interno sem destino conhecido (${destino}) no artigo ${post.slug}`);
         linksInternos += 1;
       } else {
-        assert.match(destino, /^https:\\/\\//, `Destino externo não HTTPS: ${destino}`);
+        assert.ok(destino.startsWith('https://'), `Destino externo não HTTPS: ${destino}`);
       }
     }
 
