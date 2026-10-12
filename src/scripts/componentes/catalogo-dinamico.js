@@ -19,8 +19,8 @@
   function correspondeCategoria(produto, categoria){
     if(categoria === 'short'){
       return produto.categoria === 'short' ||
-        /\\bshorts?\\b/i.test(produto.nome || '') ||
-        (produto.tags || []).some(function(tag){ return /\\bshorts?\\b/i.test(tag); });
+        /\bshorts?\b/i.test(produto.nome || '') ||
+        (produto.tags || []).some(function(tag){ return /\bshorts?\b/i.test(tag); });
     }
     return produto.categoria === categoria;
   }
