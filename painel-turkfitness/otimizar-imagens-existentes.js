@@ -34,7 +34,8 @@ function listarWebp(dir) {
 async function otimizar(arquivo) {
   const original = fs.readFileSync(arquivo);
   const metadata = await sharp(original).metadata();
-  if (!metadata.width || !metadata.height) {
+  // Não achata WebP animado: preserva GIF/WebP animado fora do escopo desta rotina.
+  if (!metadata.width || !metadata.height || (metadata.pages && metadata.pages > 1)) {
     return { arquivo, original: original.length, novo: original.length, ignorado: true };
   }
 
