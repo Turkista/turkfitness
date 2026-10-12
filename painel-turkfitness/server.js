@@ -28,6 +28,7 @@ const URL_BASE = 'https://www.turkfitness.com.br';
 
 const { montarHtmlProduto } = require('./seo-produto');
 const { montarHtmlBlog } = require('./seo-blog');
+const { gerarIdProduto, gerarIdPost } = require('./ids');
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 12 * 1024 * 1024 } });
@@ -46,9 +47,6 @@ function slugificar(texto){
     .replace(/(^-|-$)/g, '');
 }
 
-function gerarId(prefixo){
-  return 'prod_' + prefixo.replace(/-/g, '').slice(0, 6).padEnd(6, '0') + Math.random().toString(36).slice(2, 4);
-}
 
 function listarProdutos(){
   if(!fs.existsSync(DIR_PRODUTOS_JSON)) return [];
@@ -191,7 +189,7 @@ app.post('/api/blog', upload.single('imagem'), async (req, res) => {
     }
     const agora = new Date().toISOString();
     const post = {
-      id: antigo ? antigo.id : 'post_' + Date.now().toString(36),
+      id: antigo ? antigo.id : gerarIdPost(slug, posts.map(p => p.id)),
       slug, titulo: String(req.body.titulo).trim(),
       resumo: String(req.body.resumo || '').trim(),
       categoria: String(req.body.categoria || '').trim(),
@@ -278,7 +276,7 @@ app.post('/api/produtos', upload.array('fotos', 6), async (req, res) => {
     const tags = (corpo.tags || '').split(',').map(s => s.trim()).filter(Boolean);
 
     const produto = {
-      id: produtoExistente ? produtoExistente.id : gerarId(slug),
+      id: produtoExistente ? produtoExistente.id : gerarIdProduto(slug, listarProdutos().map(p => p.id)),
       slug,
       nome: corpo.nome,
       categoria: corpo.categoria,
