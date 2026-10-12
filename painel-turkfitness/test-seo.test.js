@@ -242,6 +242,7 @@ test('geradores incluem título e conteúdo principal no HTML inicial', () => {
   assert.ok(htmlBlog.includes('<h1>'), 'H1 não foi gerado para artigo');
   assert.ok(htmlBlog.includes('blog-post__conteudo'), 'Conteúdo do artigo não foi gerado');
   assert.ok(htmlBlog.includes('<h2>'), 'Subtítulos do artigo não foram gerados');
+  assert.ok(htmlBlog.includes('<a href="/catalogo.html'), 'Links Markdown do artigo não foram renderizados');
   assert.ok(!htmlBlog.includes('Carregando…'), 'Placeholder do artigo permaneceu');
   assert.ok(!htmlBlog.includes('{{CONTEUDO_ESTATICO}}'), 'Placeholder do conteúdo do artigo permaneceu');
 });
@@ -261,6 +262,7 @@ test('páginas estáticas publicadas entregam título e conteúdo sem esperar Ja
     assert.ok(html.includes('<h1>'), `H1 ausente no artigo: ${post.slug}`);
     assert.ok(html.includes('blog-post__conteudo'), `Conteúdo ausente no artigo: ${post.slug}`);
     assert.ok(!html.includes('Carregando…'), `Placeholder no artigo: ${post.slug}`);
+    assert.ok(!html.includes('](/'), `Link Markdown não renderizado no artigo: ${post.slug}`);
     assert.ok(!html.includes('{{CONTEUDO_ESTATICO}}'), `Placeholder de conteúdo no artigo: ${post.slug}`);
   }
 });
