@@ -91,11 +91,22 @@ function construirSeoProduto(produto, urlBase) {
     };
   }
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${urlBase}/` },
+      { '@type': 'ListItem', position: 2, name: 'Catálogo', item: `${urlBase}/catalogo.html` },
+      { '@type': 'ListItem', position: 3, name: produto.nome, item: urlPagina },
+    ],
+  };
+
   return {
     titulo,
     descricao,
     urlImagem,
     urlPagina,
+    breadcrumbJsonLdTag: JSON.stringify(breadcrumbJsonLd).replace(/</g, '\\u003c'),
     // escapa "</" pra um <script type="application/ld+json"> nunca correr
     // risco de ser fechado antes da hora por algum texto de produto.
     jsonLdTag: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
@@ -112,7 +123,8 @@ function montarHtmlProduto(templateHtml, slug, produto, urlBase) {
     .replace(/\{\{TITULO_SEO\}\}/g, escaparAtributo(seo.titulo))
     .replace(/\{\{META_DESCRICAO\}\}/g, escaparAtributo(seo.descricao))
     .replace(/\{\{OG_IMAGEM\}\}/g, escaparAtributo(seo.urlImagem))
-    .replace('{{JSON_LD}}', seo.jsonLdTag);
+    .replace('{{JSON_LD}}', seo.jsonLdTag)
+    .replace('{{BREADCRUMB_JSON_LD}}', seo.breadcrumbJsonLdTag);
 }
 
 module.exports = { construirSeoProduto, montarHtmlProduto, CATEGORIA_LABEL };
