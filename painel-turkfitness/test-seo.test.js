@@ -442,3 +442,15 @@ test('botão flutuante do WhatsApp começa oculto e é controlado pela rolagem',
   const script = fs.readFileSync(path.join(raiz, 'src/scripts/componentes/interface-visual.js'), 'utf8');
   assert.match(script, /classList\.toggle\('esta-visivel', deveMostrar\)/);
 });
+
+
+test('a home não oferece link para a categoria de regatas indisponível', () => {
+  const html = fs.readFileSync(path.join(raiz, 'index.html'), 'utf8');
+  assert.doesNotMatch(html, /href="catalogo\.html#regata"/i);
+});
+
+test('fontes externas usam display optional para reduzir mudanças de layout na carga', () => {
+  const html = fs.readFileSync(path.join(raiz, 'index.html'), 'utf8');
+  assert.match(html, /fonts\.googleapis\.com[^"']*display=optional/i);
+  assert.doesNotMatch(html, /fonts\.googleapis\.com[^"']*display=swap/i);
+});
