@@ -294,3 +294,50 @@ test('títulos HTML estáticos correspondem aos geradores SEO e respeitam 65 car
     assert.ok(titulo.length <= 65, `Título HTML muito longo: ${post.slug}`);
   }
 });
+
+
+test('cadastros individuais correspondem ao índice do catálogo em todos os campos públicos', () => {
+  const camposPublicos = ['id', 'slug', 'nome', 'categoria', 'preco', 'imagens', 'badges', 'tags', 'status'];
+
+  for (const resumo of produtos) {
+    const cadastro = lerJson(`src/content/produtos/${resumo.slug}.json`);
+    for (const campo of camposPublicos) {
+      assert.deepEqual(cadastro[campo], resumo[campo], `Campo ${campo} divergente entre índice e cadastro: ${resumo.slug}`);
+    }
+
+    const arquivosDeImagem = [
+      ...(cadastro.imagens || []),
+      ...(cadastro.cores || []).flatMap((cor) => cor.imagens || []),
+    ];
+    for (const imagem of arquivosDeImagem) {
+      assert.ok(imagem.arquivo && String(imagem.arquivo).trim(), `Arquivo de imagem ausente: ${resumo.slug}`);
+      assert.ok(imagem.alt && String(imagem.alt).trim(), `Texto alt ausente: ${resumo.slug} / ${imagem.arquivo}`);
+      assert.ok(
+        fs.existsSync(path.join(raiz, 'assets', 'produtos', imagem.arquivo)),
+        `Imagem de cor não encontrada: ${resumo.slug} / ${imagem.arquivo}`,
+      );
+    }
+
+    if (cadastro.preco?.valor != null) {
+      assert.equal(typeof cadastro.preco.valor, 'number', `Preço não numérico: ${resumo.slug}`);
+      assert.ok(Number.isFinite(cadastro.preco.valor) && cadastro.preco.valor > 0, `Preço fora do intervalo válido: ${resumo.slug}`);
+    }
+  }
+});
+
+test('sitemap não contém URLs duplicadas nem rotas de produto/artigo não publicadas', () => {
+  const urls = [...sitemap.matchAll(/<loc>(.*?)<\\/loc>/g)].map((match) => match[1]);
+  assert.equal(new Set(urls).size, urls.length, 'URL duplicada no sitemap');
+
+  const produtoUrls = urls.filter((url) => url.includes('/produto/'));
+  const artigoUrls = urls.filter((url) => url.includes('/blog/'));
+  assert.equal(produtoUrls.length, produtos.length, 'Quantidade de URLs de produto no sitemap diverge do catálogo publicado');
+  assert.equal(artigoUrls.length, posts.length, 'Quantidade de URLs de artigo no sitemap diverge do blog publicado');
+
+  for (const url of produtoUrls) {
+    assert.ok(produtos.some((produto) => url === `${base}/produto/${produto.slug}.html`), `Produto no sitemap não está publicado: ${url}`);
+  }
+  for (const url of artigoUrls) {
+    assert.ok(posts.some((post) => url === `${base}/blog/${post.slug}.html`), `Artigo no sitemap não está publicado: ${url}`);
+  }
+});
