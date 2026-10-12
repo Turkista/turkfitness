@@ -97,8 +97,8 @@ test('todas as páginas estáticas publicadas têm canonical e JSON-LD atualizad
     const arquivo = path.join(raiz, 'produto', `${produto.slug}.html`);
     const html = fs.readFileSync(arquivo, 'utf8');
     assert.match(html, new RegExp(`<link rel="canonical" href="${base}/produto/${produto.slug}\\.html">`), `Canonical incorreto: ${produto.slug}`);
-    const scripts = [...html.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/g)];
-    const dados = scripts.map((match) => JSON.parse(match[1]));
+    const scripts = html.split('<script type="application/ld+json">').slice(1).map((part) => part.split('</script>')[0]);
+    const dados = scripts.map((conteudo) => JSON.parse(conteudo));
     const produtoLd = dados.find((item) => item['@type'] === 'Product');
     const breadcrumb = dados.find((item) => item['@type'] === 'BreadcrumbList');
     assert.ok(produtoLd, `Product JSON-LD ausente: ${produto.slug}`);
