@@ -66,8 +66,8 @@ a{ color:inherit; }
 .cursor-glow{
   position:fixed; width:520px; height:520px; border-radius:50%;
   background:radial-gradient(circle, rgba(255,111,168,0.10), transparent 70%);
-  pointer-events:none; z-index:0; transform:translate(-50%,-50%);
-  transition:opacity .3s ease; left:50%; top:30%;
+  pointer-events:none; z-index:0; transform:translate3d(var(--cursor-x, 50vw), var(--cursor-y, 30vh), 0) translate(-50%,-50%);
+  transition:opacity .3s ease; left:0; top:0;
 }
 
 .blob{ position:fixed; border-radius:50%; filter:blur(80px); opacity:0.30; pointer-events:none; z-index:0; }
@@ -129,3 +129,6 @@ main{ position:relative; z-index:2; }
 
 /* Contenção responsiva global: nenhum conteúdo deve escapar do gutter do container. */
 .container > *{ min-width:0; }
+
+/* Evita efeitos decorativos pesados em telas sem cursor. */
+@media (hover:none), (max-width:700px){ .cursor-glow{ display:none; } }
