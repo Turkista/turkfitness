@@ -32,6 +32,36 @@ test('cada produto publicado gera SKU único no JSON-LD', () => {
   assert.equal(new Set(skus).size, skus.length, 'SKU duplicado entre produtos publicados');
 });
 
+test('todos os produtos publicados geram título e meta description dentro do limite', () => {
+  for (const produto of produtos) {
+    const seo = construirSeoProduto(produto, base);
+    assert.ok(seo.titulo.trim().length > 0, `Título ausente: ${produto.slug}`);
+    assert.ok(seo.descricao.length <= 160, `Descrição longa demais: ${produto.slug}`);
+  }
+});
+
+test('descrições longas de produtos e artigos não terminam com palavra cortada', () => {
+  const textoLongo = 'Legging confortável e tecido respirável para treinos '.repeat(8);
+  const produto = construirSeoProduto({
+    nome: 'Produto de teste',
+    slug: 'produto-de-teste',
+    descricaoCurta: textoLongo,
+    descricaoCompleta: textoLongo,
+    imagens: [],
+    status: 'publicado',
+  }, base);
+  const post = construirSeoBlog({
+    titulo: 'Artigo de teste',
+    slug: 'artigo-de-teste',
+    resumo: textoLongo,
+  }, base);
+
+  for (const descricao of [produto.descricao, post.descricao]) {
+    assert.ok(descricao.length <= 160);
+    assert.match(descricao, /(?:legging|confortável|e|tecido|respirável|para|treinos)\.\.\.$/i);
+  }
+});
+
 test('as meta descriptions geradas para artigos não excedem 160 caracteres', () => {
   for (const post of posts) {
     const seo = construirSeoBlog(post, base);
