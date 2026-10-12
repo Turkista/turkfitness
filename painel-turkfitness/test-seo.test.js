@@ -41,6 +41,7 @@ test('todos os produtos publicados geram título e meta description dentro do li
   for (const produto of produtos) {
     const seo = construirSeoProduto(produto, base);
     assert.ok(seo.titulo.trim().length > 0, `Título ausente: ${produto.slug}`);
+    assert.ok(seo.titulo.length <= 65, `Título SEO longo demais: ${produto.slug} (${seo.titulo.length})`);
     assert.ok(seo.descricao.length <= 160, `Descrição longa demais: ${produto.slug}`);
   }
 });
@@ -72,6 +73,7 @@ test('as meta descriptions geradas para artigos não excedem 160 caracteres', ()
     const seo = construirSeoBlog(post, base);
     assert.ok(seo.descricao.length <= 160, `Descrição longa demais: ${post.slug}`);
     assert.ok(seo.titulo.trim().length > 0, `Título ausente: ${post.slug}`);
+    assert.ok(seo.titulo.length <= 65, `Título SEO longo demais: ${post.slug} (${seo.titulo.length})`);
     assert.equal(JSON.parse(seo.jsonLdTag)['@type'], 'BlogPosting');
     const breadcrumb = JSON.parse(seo.breadcrumbJsonLdTag);
     assert.equal(breadcrumb['@type'], 'BreadcrumbList');
