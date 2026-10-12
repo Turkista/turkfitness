@@ -73,6 +73,78 @@ function construirSeoBlog(post, urlBase) {
   };
 }
 
+function escaparHtml(txt) {
+  return String(txt == null ? '' : txt)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function renderizarInlineMarkdown(texto) {
+  return texto.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function(match, rotulo, destino) {
+    if (!/^(https:\/\/|\/|\.\/|\.\.\/)/i.test(destino)) return rotulo;
+    const externo = /^https:\/\//i.test(destino);
+    return '<a href="' + destino + '"' +
+      (externo ? ' target="_blank" rel="noopener noreferrer"' : '') +
+      '>' + rotulo + '</a>';
+  });
+}
+
+function renderizarMarkdownEstatico(conteudo) {
+  const linhas = escaparHtml(conteudo).split(/\r?\n/);
+  const blocos = [];
+  let itensLista = [];
+
+  function fecharLista() {
+    if (itensLista.length) {
+      blocos.push('<ul>' + itensLista.map((item) => '<li>' + renderizarInlineMarkdown(item) + '</li>').join('') + '</ul>');
+      itensLista = [];
+    }
+  }
+
+  linhas.forEach((linha) => {
+    const texto = linha.trim();
+    if (!texto) return;
+    if (texto.slice(0, 2) === '- ') {
+      itensLista.push(texto.slice(2));
+      return;
+    }
+    fecharLista();
+    if (texto.slice(0, 3) === '## ') {
+      blocos.push('<h2>' + renderizarInlineMarkdown(texto.slice(3)) + '</h2>');
+    } else if (texto.slice(0, 4) === '### ') {
+      blocos.push('<h3>' + renderizarInlineMarkdown(texto.slice(4)) + '</h3>');
+    } else {
+      blocos.push('<p>' + renderizarInlineMarkdown(texto) + '</p>');
+    }
+  });
+  fecharLista();
+  return blocos.join('\n');
+}
+
+function formatarDataEstatica(valor) {
+  const data = String(valor || '').slice(0, 10);
+  return /^\d{4}-\d{2}-\d{2}$/.test(data) ? data.split('-').reverse().join('/') : escaparHtml(data);
+}
+
+// O artigo já chega com título, imagem, H1 e texto no HTML inicial.
+// blog-post.js hidrata a mesma área para manter a navegação interativa.
+function construirConteudoEstaticoBlog(post) {
+  const dataIso = String(post.dataPublicacao || post.dataCriacao || '').slice(0, 10);
+  const imagem = post.imagem ? '../' + String(post.imagem).replace(/^\/+/, '') : '';
+  return '<div class="blog-post__meta">' +
+      (post.categoria ? escaparHtml(post.categoria) + ' · ' : '') +
+      '<time' + (dataIso ? ' datetime="' + escaparAtributo(dataIso) + '"' : '') + '>' +
+      formatarDataEstatica(dataIso) + '</time></div>' +
+    '<h1>' + escaparHtml(post.titulo) + '</h1>' +
+    (imagem ? '<img class="blog-post__imagem" src="' + escaparAtributo(imagem) + '" alt="' + escaparAtributo(post.titulo) + '" loading="eager" decoding="async" fetchpriority="high">' : '') +
+    '<div class="blog-post__conteudo">' + renderizarMarkdownEstatico(post.conteudo || post.resumo || '') + '</div>' +
+    '<div class="blog-post__cta"><p>Gostou do conteúdo? Confira as peças da Turk Fitness.</p>' +
+    '<a href="../catalogo.html" class="botao botao--primario">Ver catálogo</a></div>';
+}
+
 function montarHtmlBlog(templateHtml, slug, post, urlBase) {
   const seo = construirSeoBlog(post, urlBase);
   return templateHtml
@@ -81,7 +153,8 @@ function montarHtmlBlog(templateHtml, slug, post, urlBase) {
     .replace(/\{\{META_DESCRICAO\}\}/g, escaparAtributo(seo.descricao))
     .replace(/\{\{OG_IMAGEM\}\}/g, escaparAtributo(seo.urlImagem))
     .replace('{{JSON_LD}}', seo.jsonLdTag)
-    .replace('{{BREADCRUMB_JSON_LD}}', seo.breadcrumbJsonLdTag);
+    .replace('{{BREADCRUMB_JSON_LD}}', seo.breadcrumbJsonLdTag)
+    .replace('{{CONTEUDO_ESTATICO}}', construirConteudoEstaticoBlog(post));
 }
 
 module.exports = { construirSeoBlog, montarHtmlBlog };

@@ -1,8 +1,7 @@
 // Regenera TODAS as fichas de produto já existentes (produto/<slug>.html)
-// com o SEO novo: título, meta description, imagem de compartilhamento
-// real e dados estruturados (JSON-LD). Não altera nenhum arquivo em
-// src/content/produtos/*.json — só recria o HTML de cada ficha a partir
-// do _template.html atualizado, usando os dados que já estavam lá.
+// com metadados SEO e conteúdo principal no HTML inicial (H1, imagem,
+// descrição, preço e informações do produto). Não altera os JSONs de origem;
+// recria cada ficha a partir do template e do cadastro já existente.
 //
 // Rodar uma vez, de dentro de painel-turkfitness/:
 //   node backfill-seo.js

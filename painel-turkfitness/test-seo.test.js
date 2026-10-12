@@ -4,8 +4,8 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { construirSeoProduto } = require('./seo-produto');
-const { construirSeoBlog } = require('./seo-blog');
+const { construirSeoProduto, montarHtmlProduto } = require('./seo-produto');
+const { construirSeoBlog, montarHtmlBlog } = require('./seo-blog');
 const { gerarIdProduto, gerarIdPost } = require('./ids');
 
 const raiz = path.resolve(__dirname, '..');
@@ -224,5 +224,45 @@ test('links contextuais dos artigos apontam para páginas internas existentes ou
     }
 
     assert.ok(linksInternos > 0, `Artigo sem links internos: ${post.slug}`);
+  }
+});
+
+
+test('geradores incluem título e conteúdo principal no HTML inicial', () => {
+  const templateProduto = fs.readFileSync(path.join(raiz, 'produto/_template.html'), 'utf8');
+  const templateBlog = fs.readFileSync(path.join(raiz, 'blog/_template.html'), 'utf8');
+  const produto = lerJson(`src/content/produtos/${produtos[0].slug}.json`);
+  const htmlProduto = montarHtmlProduto(templateProduto, produto.slug, produto, base);
+  assert.ok(htmlProduto.includes('<h1>'), 'H1 não foi gerado para produto');
+  assert.ok(htmlProduto.includes('produto-info__descricao'), 'Descrição do produto não foi gerada');
+  assert.ok(!htmlProduto.includes('Carregando produto'), 'Placeholder do produto permaneceu');
+  assert.ok(!htmlProduto.includes('{{CONTEUDO_ESTATICO}}'), 'Placeholder do conteúdo do produto permaneceu');
+
+  const htmlBlog = montarHtmlBlog(templateBlog, posts[0].slug, posts[0], base);
+  assert.ok(htmlBlog.includes('<h1>'), 'H1 não foi gerado para artigo');
+  assert.ok(htmlBlog.includes('blog-post__conteudo'), 'Conteúdo do artigo não foi gerado');
+  assert.ok(htmlBlog.includes('<h2>'), 'Subtítulos do artigo não foram gerados');
+  assert.ok(htmlBlog.includes('<a href="/catalogo.html'), 'Links Markdown do artigo não foram renderizados');
+  assert.ok(!htmlBlog.includes('Carregando…'), 'Placeholder do artigo permaneceu');
+  assert.ok(!htmlBlog.includes('{{CONTEUDO_ESTATICO}}'), 'Placeholder do conteúdo do artigo permaneceu');
+});
+
+
+test('páginas estáticas publicadas entregam título e conteúdo sem esperar JavaScript', () => {
+  for (const produto of produtos) {
+    const html = fs.readFileSync(path.join(raiz, 'produto', `${produto.slug}.html`), 'utf8');
+    assert.ok(html.includes('<h1>'), `H1 ausente no produto: ${produto.slug}`);
+    assert.ok(html.includes('produto-info__descricao'), `Descrição ausente no produto: ${produto.slug}`);
+    assert.ok(!html.includes('Carregando produto'), `Placeholder no produto: ${produto.slug}`);
+    assert.ok(!html.includes('{{CONTEUDO_ESTATICO}}'), `Placeholder de conteúdo no produto: ${produto.slug}`);
+  }
+
+  for (const post of posts) {
+    const html = fs.readFileSync(path.join(raiz, 'blog', `${post.slug}.html`), 'utf8');
+    assert.ok(html.includes('<h1>'), `H1 ausente no artigo: ${post.slug}`);
+    assert.ok(html.includes('blog-post__conteudo'), `Conteúdo ausente no artigo: ${post.slug}`);
+    assert.ok(!html.includes('Carregando…'), `Placeholder no artigo: ${post.slug}`);
+    assert.ok(!html.includes('](/'), `Link Markdown não renderizado no artigo: ${post.slug}`);
+    assert.ok(!html.includes('{{CONTEUDO_ESTATICO}}'), `Placeholder de conteúdo no artigo: ${post.slug}`);
   }
 });
