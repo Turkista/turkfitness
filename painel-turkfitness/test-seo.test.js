@@ -4,8 +4,8 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { construirSeoProduto } = require('./seo-produto');
-const { construirSeoBlog } = require('./seo-blog');
+const { construirSeoProduto, montarHtmlProduto } = require('./seo-produto');
+const { construirSeoBlog, montarHtmlBlog } = require('./seo-blog');
 const { gerarIdProduto, gerarIdPost } = require('./ids');
 
 const raiz = path.resolve(__dirname, '..');
