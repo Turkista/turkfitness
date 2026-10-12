@@ -53,11 +53,22 @@ function construirSeoBlog(post, urlBase) {
   };
   if (post.categoria) jsonLd.articleSection = post.categoria;
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${urlBase}/` },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${urlBase}/blog.html` },
+      { '@type': 'ListItem', position: 3, name: post.titulo, item: urlPagina },
+    ],
+  };
+
   return {
     titulo,
     descricao,
     urlImagem,
     urlPagina,
+    breadcrumbJsonLdTag: JSON.stringify(breadcrumbJsonLd).replace(/</g, '\\u003c'),
     jsonLdTag: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
   };
 }
@@ -69,7 +80,8 @@ function montarHtmlBlog(templateHtml, slug, post, urlBase) {
     .replace(/\{\{TITULO_SEO\}\}/g, escaparAtributo(seo.titulo))
     .replace(/\{\{META_DESCRICAO\}\}/g, escaparAtributo(seo.descricao))
     .replace(/\{\{OG_IMAGEM\}\}/g, escaparAtributo(seo.urlImagem))
-    .replace('{{JSON_LD}}', seo.jsonLdTag);
+    .replace('{{JSON_LD}}', seo.jsonLdTag)
+    .replace('{{BREADCRUMB_JSON_LD}}', seo.breadcrumbJsonLdTag);
 }
 
 module.exports = { construirSeoBlog, montarHtmlBlog };
