@@ -64,7 +64,7 @@
           '<span>Total</span>' +
           '<strong data-carrinho-total>R$ 0,00</strong>' +
         '</div>' +
-        '<a class="botao botao--primario carrinho-gaveta__finalizar" data-carrinho-finalizar target="_blank" rel="noopener">Finalizar Compra pelo WhatsApp</a>' +
+        '<a class="botao botao--primario carrinho-gaveta__finalizar" data-carrinho-finalizar href="https://wa.me/5521992197518?text=Oi%21%20Quero%20fazer%20um%20pedido%20na%20Turk%20Fitness." target="_blank" rel="noopener noreferrer">Finalizar Compra pelo WhatsApp</a>' +
         '<button class="botao--texto carrinho-gaveta__limpar" data-carrinho-limpar>Esvaziar carrinho</button>' +
       '</div>';
 
