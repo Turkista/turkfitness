@@ -1,0 +1,55 @@
+name: Enviar sitemaps e monitorar indexação
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 10 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  search-console:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validar sitemap versionado
+        working-directory: painel-turkfitness
+        run: npm run sitemap:check
+
+      - name: Verificar configuração de acesso
+        id: credentials
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Integração ainda não ativada. Configure o segredo GSC_SERVICE_ACCOUNT_JSON conforme docs/google-search-console.md."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Enviar sitemaps e inspecionar URLs
+        if: steps.credentials.outputs.configured == 'true'
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_PROPERTY_TURKISTA: ${{ vars.GSC_PROPERTY_TURKISTA }}
+          GSC_PROPERTY_TURKFITNESS: ${{ vars.GSC_PROPERTY_TURKFITNESS }}
+          REPORT_PATH: ${{ runner.temp }}/search-console-indexing-report.csv
+        run: node scripts/submeter-sitemaps.js
+
+      - name: Publicar relatório CSV
+        if: always() && steps.credentials.outputs.configured == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: search-console-indexing-report
+          path: ${{ runner.temp }}/search-console-indexing-report.csv
+          if-no-files-found: warn
+          retention-days: 30
