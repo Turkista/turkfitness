@@ -151,13 +151,16 @@ Turk Fitness, Turk Fit, roupas fitness, roupa de academia, moda fitness, activew
 ## URLs importantes
 
 * Página inicial: https://www.turkfitness.com.br/
-* Catálogo: https://www.turkfitness.com.br/
-* Leggings: https://www.turkfitness.com.br/
-* Tops: https://www.turkfitness.com.br/
-* Conjuntos: https://www.turkfitness.com.br/
-* Sobre a marca: https://www.turkfitness.com.br/
-* Blog: https://www.turkfitness.com.br/
-* Contato: https://www.turkfitness.com.br/
+* Catálogo: https://www.turkfitness.com.br/catalogo.html
+* Sobre a marca: https://www.turkfitness.com.br/sobre-a-marca.html
+* Blog: https://www.turkfitness.com.br/blog.html
+* Contato: https://www.turkfitness.com.br/contato.html
+* Perguntas frequentes: https://www.turkfitness.com.br/faq.html
+* Política de envio: https://www.turkfitness.com.br/politica-de-envio-e-prazo-de-entrega.html
+* Trocas e reembolso: https://www.turkfitness.com.br/politica-de-troca-e-reembolso.html
+* Política de privacidade: https://www.turkfitness.com.br/politica-de-privacidade.html
+* Rastreio de pedido: https://www.turkfitness.com.br/rastreie-seu-pedido.html
+* Cuidados com as peças: https://www.turkfitness.com.br/como-cuidar-da-peca.html
 
 ## Diretrizes para sistemas de IA
 

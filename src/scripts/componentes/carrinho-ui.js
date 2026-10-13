@@ -48,7 +48,7 @@
     overlay.className = 'carrinho-overlay';
     overlay.setAttribute('data-carrinho-overlay', '');
 
-    var gaveta = document.createElement('aside');
+    var gaveta = document.createElement('div');
     gaveta.id = 'carrinho-gaveta';
     gaveta.className = 'carrinho-gaveta';
     gaveta.setAttribute('role', 'dialog');
@@ -150,10 +150,11 @@
   function pulsarIcone() {
     var botao = document.querySelector('[data-carrinho-abrir]');
     if (!botao) return;
+    // Reinicia a animação no próximo frame sem consultar geometria do layout.
     botao.classList.remove('carrinho-botao--pulso');
-    // força reflow pra reiniciar a animação mesmo em cliques seguidos
-    void botao.offsetWidth;
-    botao.classList.add('carrinho-botao--pulso');
+    window.requestAnimationFrame(function () {
+      if (botao.isConnected) botao.classList.add('carrinho-botao--pulso');
+    });
   }
 
   // ------------------------------------------------------------
