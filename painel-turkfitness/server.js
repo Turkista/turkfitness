@@ -8,6 +8,7 @@ const multer = require('multer');
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
+const { buildSitemap } = require('../scripts/gerar-sitemap');
 
 const RAIZ_SITE = path.join(__dirname, '..');
 const DIR_PRODUTOS_JSON = path.join(RAIZ_SITE, 'src', 'content', 'produtos');
@@ -89,21 +90,8 @@ function regenerarIndice(){
   atualizarSitemap(produtos.filter(p => p.status === 'publicado'));
 }
 
-function atualizarSitemap(produtosPublicados){
-  const base = URL_BASE;
-  const paginasFixas = [
-    '/', '/catalogo.html', '/sobre-a-marca.html', '/contato.html', '/blog.html',
-    '/como-cuidar-da-peca.html', '/faq.html', '/rastreie-seu-pedido.html',
-    '/politica-de-envio-e-prazo-de-entrega.html', '/politica-de-troca-e-reembolso.html',
-    '/politica-de-privacidade.html'
-  ];
-  const postsPublicados = listarPosts().filter(p => p.status === 'publicado');
-  const urls = [
-    ...paginasFixas.map(p => `  <url><loc>${base}${p}</loc></url>`),
-    ...produtosPublicados.map(p => `  <url><loc>${base}/produto/${p.slug}.html</loc></url>`),
-    ...postsPublicados.map(p => `  <url><loc>${base}/blog/${p.slug}.html</loc></url>`)
-  ];
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`;
+function atualizarSitemap(){
+  const xml = buildSitemap();
   fs.writeFileSync(CAMINHO_SITEMAP, xml, 'utf8');
 }
 
