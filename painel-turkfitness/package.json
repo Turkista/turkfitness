@@ -6,7 +6,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node --test test-seo.test.js",
+    "test": "node --test test-*.test.js",
+    "sitemap:generate": "node ../scripts/gerar-sitemap.js",
+    "sitemap:check": "node ../scripts/gerar-sitemap.js --check",
     "backfill:static": "node backfill-static-pages.js",
     "images:optimize": "node otimizar-imagens-existentes.js"
   },
