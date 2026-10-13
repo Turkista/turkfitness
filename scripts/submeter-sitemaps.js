@@ -7,8 +7,8 @@ const crypto = require('node:crypto');
 const ROOT = path.resolve(__dirname, '..');
 const SITEMAP_PATH = path.join(ROOT, 'sitemap.xml');
 const SITES = [
-  { name: 'TURKISTA', property: process.env.GSC_PROPERTY_TURKISTA || 'https://www.turkista.com.br/', sitemap: 'https://www.turkista.com.br/sitemap.xml' },
-  { name: 'TURKFITNESS', property: process.env.GSC_PROPERTY_TURKFITNESS || 'https://www.turkfitness.com.br/', sitemap: 'https://www.turkfitness.com.br/sitemap.xml' },
+  { name: 'TURKISTA', property: process.env.GSC_PROPERTY_TURKISTA || 'https://www.turkista.com.br/', sitemap: 'https://www.turkista.com.br/sitemap.xml', hostname: 'www.turkista.com.br' },
+  { name: 'TURKFITNESS', property: process.env.GSC_PROPERTY_TURKFITNESS || 'https://www.turkfitness.com.br/', sitemap: 'https://www.turkfitness.com.br/sitemap.xml', hostname: 'www.turkfitness.com.br' },
 ];
 function base64url(value) { return Buffer.from(value).toString('base64').replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_'); }
 function decodeXml(value) {
@@ -76,12 +76,17 @@ async function main() {
   const localXml = fs.readFileSync(SITEMAP_PATH, 'utf8');
   const expectedUrls = urlsFromXml(localXml);
   if (!expectedUrls.length) throw new Error('O sitemap local não contém URLs.');
+  const liveUrlsBySite = new Map();
   for (const site of SITES) {
     const liveResponse = await fetch(site.sitemap, { headers: { accept: 'application/xml,text/xml' } });
     if (!liveResponse.ok) throw new Error(site.name + ': sitemap público respondeu HTTP ' + liveResponse.status + '.');
     const liveUrls = urlsFromXml(await liveResponse.text());
-    assertSameUrls(expectedUrls, liveUrls.sort(), site.name);
-    console.log('✔ ' + site.name + ': sitemap público acessível e com ' + liveUrls.length + ' URLs sincronizadas.');
+    if (!liveUrls.length) throw new Error(site.name + ': sitemap vazio ou sem URLs válidas.');
+    if (new Set(liveUrls).size !== liveUrls.length) throw new Error(site.name + ': sitemap contém URLs duplicadas.');
+    if (liveUrls.some((url) => new URL(url).hostname !== site.hostname)) throw new Error(site.name + ': sitemap contém URL de outro domínio.');
+    if (site.name === 'TURKFITNESS') assertSameUrls(expectedUrls, liveUrls, site.name);
+    liveUrlsBySite.set(site.name, liveUrls);
+    console.log('✔ ' + site.name + ': sitemap público acessível; ' + liveUrls.length + ' URLs válidas' + (site.name === 'TURKFITNESS' ? ' e sincronizadas com o repositório.' : '.'));
   }
   const token = await accessToken(serviceAccount);
   const report = [];
@@ -99,8 +104,9 @@ async function main() {
     } catch (error) {
       console.warn('  Não foi possível consultar o estado do sitemap: ' + error.message);
     }
-    for (let i = 0; i < expectedUrls.length; i++) {
-      const url = expectedUrls[i];
+    const urlsToInspect = liveUrlsBySite.get(site.name);
+    for (let i = 0; i < urlsToInspect.length; i++) {
+      const url = urlsToInspect[i];
       const row = { site: site.name, url, verdict: '', coverageState: '', indexingState: '', lastCrawlTime: '', pageFetchState: '', robotsTxtState: '', googleCanonical: '', userCanonical: '', error: '' };
       try {
         const result = await inspectUrl(token, site, url);
@@ -115,8 +121,8 @@ async function main() {
         row.userCanonical = status.userCanonical || '';
       } catch (error) { row.error = error.message; }
       report.push(row);
-      if ((i + 1) % 10 === 0 || i + 1 === expectedUrls.length) console.log(site.name + ': inspeção ' + (i + 1) + '/' + expectedUrls.length);
-      if (i + 1 < expectedUrls.length) await new Promise((resolve) => setTimeout(resolve, 120));
+      if ((i + 1) % 10 === 0 || i + 1 === urlsToInspect.length) console.log(site.name + ': inspeção ' + (i + 1) + '/' + urlsToInspect.length);
+      if (i + 1 < urlsToInspect.length) await new Promise((resolve) => setTimeout(resolve, 120));
     }
   }
   const columns = ['site', 'url', 'verdict', 'coverageState', 'indexingState', 'lastCrawlTime', 'pageFetchState', 'robotsTxtState', 'googleCanonical', 'userCanonical', 'error'];
