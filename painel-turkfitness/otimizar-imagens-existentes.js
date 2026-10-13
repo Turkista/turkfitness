@@ -18,9 +18,22 @@ const DIRS = [
   'assets/blog',
 ].map((dir) => path.join(ROOT, dir));
 const APPLY = process.argv.includes('--write');
-const MAX_WIDTH = 800;
-const MAX_HEIGHT = 1200;
 const QUALITY = 80;
+
+function limitesDaImagem(arquivo) {
+  const relativo = path.relative(ROOT, arquivo).split(path.sep).join('/');
+  // Categorias aparecem em cards grandes; 760 px cobre a largura CSS observada
+  // (718 px) com uma pequena margem para telas de alta densidade.
+  if (relativo.startsWith('assets/categorias/')) {
+    return { largura: 760, altura: 1140 };
+  }
+  // O mosaico do hero é exibido em células pequenas; 380 px cobre telas 2x
+  // sem enviar o dobro de pixels desnecessários.
+  if (relativo.startsWith('assets/hero/')) {
+    return { largura: 380, altura: 600 };
+  }
+  return { largura: 800, altura: 1200 };
+}
 
 function listarWebp(dir) {
   if (!fs.existsSync(dir)) return [];
@@ -39,9 +52,10 @@ async function otimizar(arquivo) {
     return { arquivo, original: original.length, novo: original.length, ignorado: true };
   }
 
+  const limites = limitesDaImagem(arquivo);
   const novo = await sharp(original)
     .rotate()
-    .resize(MAX_WIDTH, MAX_HEIGHT, { fit: 'inside', withoutEnlargement: true })
+    .resize(limites.largura, limites.altura, { fit: 'inside', withoutEnlargement: true })
     .webp({ quality: QUALITY, effort: 6 })
     .toBuffer();
 
