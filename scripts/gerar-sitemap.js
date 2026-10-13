@@ -79,14 +79,14 @@ function buildSitemap() {
   for (const route of STATIC_PAGES) add(route, null, { required: false });
   const products = readJson(PRODUCT_INDEX);
   if (!Array.isArray(products)) throw new Error('O índice de produtos precisa ser um array.');
-  for (const product of products) {
+  for (const product of products.sort((a, b) => a.slug.localeCompare(b.slug))) {
     if (product.status !== 'publicado') continue;
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.slug || '')) throw new Error('Slug de produto inválido: ' + (product.slug || product.id || '(sem slug)'));
     add('/produto/' + product.slug + '.html', product.dataAtualizacao || product.dataCriacao, { required: true });
   }
   const posts = readJson(BLOG_INDEX);
   if (!Array.isArray(posts)) throw new Error('O índice do blog precisa ser um array.');
-  for (const post of posts) {
+  for (const post of posts.sort((a, b) => a.slug.localeCompare(b.slug))) {
     if (post.status !== 'publicado') continue;
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(post.slug || '')) throw new Error('Slug de artigo inválido: ' + (post.slug || post.id || '(sem slug)'));
     add('/blog/' + post.slug + '.html', post.dataAtualizacao || post.dataPublicacao || post.dataCriacao, { required: true });
