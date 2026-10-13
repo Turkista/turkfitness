@@ -12,6 +12,7 @@ on:
       - 'catalogo.html'
       - 'src/content/produtos/**'
       - 'src/content/blog/**'
+      - 'scripts/gerar-sitemap.js'
       - 'painel-turkfitness/**'
       - '.github/workflows/seo-tests.yml'
   push:
@@ -34,6 +35,8 @@ jobs:
       - name: Install dependencies
         working-directory: painel-turkfitness
         run: npm ci
-      - name: Run SEO tests
+      - name: Run SEO and sitemap tests
         working-directory: painel-turkfitness
-        run: npm test
+        run: |
+          npm test
+          npm run sitemap:check
